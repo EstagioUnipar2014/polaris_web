@@ -1,0 +1,27 @@
+<h1>Listing doencas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doencas.each do |doenca| %>
+      <tr>
+        <td><%= doenca.nome %></td>
+        <td><%= doenca.descricao %></td>
+        <td><%= link_to 'Show', doenca %></td>
+        <td><%= link_to 'Edit', edit_doenca_path(doenca) %></td>
+        <td><%= link_to 'Destroy', doenca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doenca', new_doenca_path %>

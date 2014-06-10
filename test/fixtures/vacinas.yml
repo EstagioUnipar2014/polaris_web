@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data_vacina: 2014-06-09
+  efetuada: false
+  dosagem: 1.5
+  animal_id: 
+  tipo_vacina_id: 
+
+two:
+  data_vacina: 2014-06-09
+  efetuada: false
+  dosagem: 1.5
+  animal_id: 
+  tipo_vacina_id: 

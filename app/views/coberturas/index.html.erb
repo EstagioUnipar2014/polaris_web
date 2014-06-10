@@ -1,0 +1,29 @@
+<h1>Listing coberturas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Cio</th>
+      <th>Animal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coberturas.each do |cobertura| %>
+      <tr>
+        <td><%= cobertura.data %></td>
+        <td><%= cobertura.cio %></td>
+        <td><%= cobertura.animal %></td>
+        <td><%= link_to 'Show', cobertura %></td>
+        <td><%= link_to 'Edit', edit_cobertura_path(cobertura) %></td>
+        <td><%= link_to 'Destroy', cobertura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cobertura', new_cobertura_path %>

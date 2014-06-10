@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @exame.data %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @exame.descricao %>
+</p>
+
+<p>
+  <strong>Efetuado:</strong>
+  <%= @exame.efetuado %>
+</p>
+
+<p>
+  <strong>Resultado:</strong>
+  <%= @exame.resultado %>
+</p>
+
+<p>
+  <strong>Informacoes:</strong>
+  <%= @exame.informacoes %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @exame.animal %>
+</p>
+
+<p>
+  <strong>Tipo exame:</strong>
+  <%= @exame.tipo_exame %>
+</p>
+
+<%= link_to 'Edit', edit_exame_path(@exame) %> |
+<%= link_to 'Back', exames_path %>

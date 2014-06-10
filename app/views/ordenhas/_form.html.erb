@@ -1,0 +1,33 @@
+<%= form_for(@ordenha) do |f| %>
+  <% if @ordenha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ordenha.errors.count, "error") %> prohibited this ordenha from being saved:</h2>
+
+      <ul>
+      <% @ordenha.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.date_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :periodo %><br>
+    <%= f.number_field :periodo %>
+  </div>
+  <div class="field">
+    <%= f.label :quantidade %><br>
+    <%= f.text_field :quantidade %>
+  </div>
+  <div class="field">
+    <%= f.label :animal_id %><br>
+    <%= f.text_field :animal_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<%= form_for(@cio) do |f| %>
+  <% if @cio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cio.errors.count, "error") %> prohibited this cio from being saved:</h2>
+
+      <ul>
+      <% @cio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data_cio %><br>
+    <%= f.date_select :data_cio %>
+  </div>
+  <div class="field">
+    <%= f.label :previsao_proximo %><br>
+    <%= f.date_select :previsao_proximo %>
+  </div>
+  <div class="field">
+    <%= f.label :animal_id %><br>
+    <%= f.text_field :animal_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

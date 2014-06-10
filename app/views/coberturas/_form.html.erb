@@ -1,0 +1,29 @@
+<%= form_for(@cobertura) do |f| %>
+  <% if @cobertura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cobertura.errors.count, "error") %> prohibited this cobertura from being saved:</h2>
+
+      <ul>
+      <% @cobertura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.date_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :cio_id %><br>
+    <%= f.text_field :cio_id %>
+  </div>
+  <div class="field">
+    <%= f.label :animal_id %><br>
+    <%= f.text_field :animal_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

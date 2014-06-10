@@ -1,0 +1,27 @@
+<h1>Listing medicamentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo medicamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medicamentos.each do |medicamento| %>
+      <tr>
+        <td><%= medicamento.nome %></td>
+        <td><%= medicamento.tipo_medicamento %></td>
+        <td><%= link_to 'Show', medicamento %></td>
+        <td><%= link_to 'Edit', edit_medicamento_path(medicamento) %></td>
+        <td><%= link_to 'Destroy', medicamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medicamento', new_medicamento_path %>

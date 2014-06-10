@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2014-06-09
+  descricao: MyString
+  efetuado: false
+  resultado: MyString
+  informacoes: MyString
+  animal_id: 
+  tipo_exame_id: 
+
+two:
+  data: 2014-06-09
+  descricao: MyString
+  efetuado: false
+  resultado: MyString
+  informacoes: MyString
+  animal_id: 
+  tipo_exame_id: 

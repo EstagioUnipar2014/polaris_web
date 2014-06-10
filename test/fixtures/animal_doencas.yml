@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data_inicio: 2014-06-09
+  data_fim: 2014-06-09
+  doenca_id: 
+  animal_id: 
+
+two:
+  data_inicio: 2014-06-09
+  data_fim: 2014-06-09
+  doenca_id: 
+  animal_id: 

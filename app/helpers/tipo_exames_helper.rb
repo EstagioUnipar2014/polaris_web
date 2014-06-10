@@ -1,0 +1,2 @@
+module TipoExamesHelper
+end

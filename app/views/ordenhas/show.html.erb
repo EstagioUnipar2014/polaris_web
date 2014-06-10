@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @ordenha.data %>
+</p>
+
+<p>
+  <strong>Periodo:</strong>
+  <%= @ordenha.periodo %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @ordenha.quantidade %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @ordenha.animal %>
+</p>
+
+<%= link_to 'Edit', edit_ordenha_path(@ordenha) %> |
+<%= link_to 'Back', ordenhas_path %>

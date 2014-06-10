@@ -1,0 +1,37 @@
+<h1>Listing exames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Descricao</th>
+      <th>Efetuado</th>
+      <th>Resultado</th>
+      <th>Informacoes</th>
+      <th>Animal</th>
+      <th>Tipo exame</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exames.each do |exame| %>
+      <tr>
+        <td><%= exame.data %></td>
+        <td><%= exame.descricao %></td>
+        <td><%= exame.efetuado %></td>
+        <td><%= exame.resultado %></td>
+        <td><%= exame.informacoes %></td>
+        <td><%= exame.animal %></td>
+        <td><%= exame.tipo_exame %></td>
+        <td><%= link_to 'Show', exame %></td>
+        <td><%= link_to 'Edit', edit_exame_path(exame) %></td>
+        <td><%= link_to 'Destroy', exame, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exame', new_exame_path %>

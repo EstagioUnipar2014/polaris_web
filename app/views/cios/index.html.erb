@@ -1,0 +1,29 @@
+<h1>Listing cios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data cio</th>
+      <th>Previsao proximo</th>
+      <th>Animal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cios.each do |cio| %>
+      <tr>
+        <td><%= cio.data_cio %></td>
+        <td><%= cio.previsao_proximo %></td>
+        <td><%= cio.animal %></td>
+        <td><%= link_to 'Show', cio %></td>
+        <td><%= link_to 'Edit', edit_cio_path(cio) %></td>
+        <td><%= link_to 'Destroy', cio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cio', new_cio_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @proprietario.nome %>
+</p>
+
+<p>
+  <strong>Data nascimento:</strong>
+  <%= @proprietario.data_nascimento %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @proprietario.cpf %>
+</p>
+
+<%= link_to 'Edit', edit_proprietario_path(@proprietario) %> |
+<%= link_to 'Back', proprietarios_path %>

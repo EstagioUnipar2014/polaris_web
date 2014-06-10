@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identificacao: MyString
+  nome: MyString
+  data_nascimento: 2014-06-05
+  sexo: MyString
+  ativo: false
+  lactacao: false
+  nascido_na_propriedade: false
+  informacoes: MyString
+
+two:
+  identificacao: MyString
+  nome: MyString
+  data_nascimento: 2014-06-05
+  sexo: MyString
+  ativo: false
+  lactacao: false
+  nascido_na_propriedade: false
+  informacoes: MyString

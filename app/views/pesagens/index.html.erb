@@ -1,0 +1,29 @@
+<h1>Listing pesagens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Peso</th>
+      <th>Data pesagem</th>
+      <th>Animal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pesagens.each do |pesagem| %>
+      <tr>
+        <td><%= pesagem.peso %></td>
+        <td><%= pesagem.data_pesagem %></td>
+        <td><%= pesagem.animal %></td>
+        <td><%= link_to 'Show', pesagem %></td>
+        <td><%= link_to 'Edit', edit_pesagem_path(pesagem) %></td>
+        <td><%= link_to 'Destroy', pesagem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pesagem', new_pesagem_path %>
