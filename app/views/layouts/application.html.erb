@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<% if usuario_signed_in? %>
+  <%= render 'layouts/header_logged' %>
+<% else %>
+  <%= render 'layouts/header_unlogged' %>
+<% end %>
+<main>
+  <%= yield %>
+</main>
 <footer>
 	<%= link_to('Sair', destroy_usuario_session_path, :method => :delete) %>
 </footer>
