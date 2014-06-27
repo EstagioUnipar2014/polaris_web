@@ -6,7 +6,7 @@
       <li><%= link_to "Contato", "/contato", class: "header-contato" %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Entrar", '/usuarios/sign_in', class: "header-login" %></li>
+      <li><%= link_to('Sair', destroy_usuario_session_path, :method => :delete, class: "header-login") %></li>
     </ul>
   </nav>
 </header>

@@ -2,11 +2,9 @@ Rails.application.routes.draw do
 
   root :to => 'pages#index'
 
-  get 'pages/index'
+  match "/sobre", to: "pages#sobre", via: [:get]
 
-  get 'pages/sobre'
-
-  get 'pages/contato'
+  match "/contato", to: "pages#contato", via: [:get]
 
   devise_for :usuarios
   resources :proprietarios
