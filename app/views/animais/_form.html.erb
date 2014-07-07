@@ -19,13 +19,22 @@
     <%= f.label :nome %><br>
     <%= f.text_field :nome %>
   </div>
-  <div class="field">
+  <div class="field" >
     <%= f.label :data_nascimento %><br>
     <%= f.date_select :data_nascimento %>
   </div>
   <div class="field">
+  	 <%= f.label :raca %><br>
+     <%= f.collection_select(:raca_id, Raca.all, :id, :nome ) %>
+    <a href="#" id="mostrar">Cadastrar Raca</a> 
+  </div>	
+  <div class="field">
+  	 <%= f.label :classificacao %><br>
+     <%= f.collection_select(:classificacao_id, Classificacao.all, :id, :nome ) %>
+  </div>	
+  <div class="field">
     <%= f.label :sexo %><br>
-    <%= f.text_field :sexo %>
+    <%= f.select :sexo, options_for_select(["Fêmea", "Macho"]), :class => 'genForm_dropBox' %>
   </div>
   <div class="field">
     <%= f.label :ativo %><br>
@@ -46,4 +55,4 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+<% end %>	

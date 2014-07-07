@@ -1,0 +1,10 @@
+$(document).ready(function(){
+	$("#ocultar").click(function(event){
+		event.preventDefault();
+		$("#novaRaca").hide("slow");
+	});
+	$("#mostrar").click(function(event){
+		event.preventDefault();
+		$("#novaRaca").show(3000);
+	});
+});
