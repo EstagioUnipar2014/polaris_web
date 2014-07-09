@@ -1,10 +1,7 @@
-$(document).ready(function(){
-	$("#ocultar").click(function(event){
-		event.preventDefault();
-		$("#novaRaca").hide("slow");
-	});
-	$("#mostrar").click(function(event){
-		event.preventDefault();
-		$("#novaRaca").show(3000);
-	});
-});
+mostrarDiv = function(nomeDiv){
+	$(nomeDiv).show(3000);
+};
+
+ocultarDiv = function(nomeDiv){
+	$(nomeDiv).hide("slow");
+};

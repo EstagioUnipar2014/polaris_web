@@ -11,6 +11,16 @@
 </p>
 
 <p>
+  <strong>Raça:</strong>
+  <%= @animal.raca.nome %>
+</p>
+
+<p>
+  <strong>Classificacao:</strong>
+  <%= @animal.classificacao.descricao %>
+</p>
+
+<p>
   <strong>Data nascimento:</strong>
   <%= @animal.data_nascimento %>
 </p>
@@ -18,6 +28,11 @@
 <p>
   <strong>Sexo:</strong>
   <%= @animal.sexo %>
+</p>
+
+<p>
+  <strong>Ultima pesagen:</strong>
+  <%= @animal.pesagens.last.peso %> Kg
 </p>
 
 <p>
@@ -33,12 +48,26 @@
 <p>
   <strong>Nascido na propriedade:</strong>
   <%= @animal.nascido_na_propriedade %>
-</p>
+</p
 
 <p>
   <strong>Informacoes:</strong>
   <%= @animal.informacoes %>
 </p>
 
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
+<div id="novaVacina" style="display:none">
+  <h2>Agendar vacina</h2> 	
+  <%= render 'vacinas/form' %>
+</div>
+
+<a href="#" onclick="mostrarDiv(novaVacina)" >Agendar vascina</a><br>
+
+<div id="novoExame" style="display:none">
+  <h2>Agendar exame</h2> 	
+  <%= render 'exames/form' %>
+</div>
+
+<a href="#" onclick="mostrarDiv(novoExame)" >Agendar exame</a><br>
+
+<%= link_to 'Editar', edit_animal_path(@animal) %> |
 <%= link_to 'Back', animais_path %>

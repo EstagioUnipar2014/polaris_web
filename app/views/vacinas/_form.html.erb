@@ -10,28 +10,32 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
-    <%= f.label :data_vacina %><br>
-    <%= f.date_select :data_vacina %>
+    <%= f.label :animal_id %>
+    <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome ) %>
   </div>
   <div class="field">
-    <%= f.label :efetuada %><br>
-    <%= f.check_box :efetuada %>
+    <%= f.label :tipo_vacina %>
+    <%= f.collection_select( :tipo_vacina_id, TipoVacina.all, :id, :descricao) %>
   </div>
-  <div class="field">
-    <%= f.label :dosagem %><br>
+   <div class="field">
+    <%= f.label :medicamento %>
+    <%= f.collection_select( :medicamento_id, Medicamento.all, :id, :nomeTipo) %>
+  </div>
+   <div class="field">
+    <%= f.label :dosagem %>
     <%= f.text_field :dosagem %>
   </div>
   <div class="field">
-    <%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %>
+    <%= f.label :data_vacina %>
+    <%= f.date_select :data_vacina %>
   </div>
   <div class="field">
-    <%= f.label :tipo_vacina_id %><br>
-    <%= f.text_field :tipo_vacina_id %>
+    <%= f.label :efetuada %>
+    <%= f.check_box :efetuada %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Cadastrar' %>
   </div>
 <% end %>

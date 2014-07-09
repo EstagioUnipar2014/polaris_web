@@ -12,32 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :data %><br>
+    <%= f.label :animal %>
+    <%= f.collection_select(:animal_id, Animal.all, :id, :identificacaoNome) %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_exame_id %>
+    <%= f.collection_select( :tipo_exame_id, TipoExame.all, :id, :descricao ) %>
+  </div>
+  <div class="field">
+    <%= f.label :data %>
     <%= f.date_select :data %>
   </div>
   <div class="field">
-    <%= f.label :descricao %><br>
+    <%= f.label :descricao %>
     <%= f.text_field :descricao %>
   </div>
   <div class="field">
-    <%= f.label :efetuado %><br>
+    <%= f.label :efetuado %>
     <%= f.check_box :efetuado %>
   </div>
   <div class="field">
-    <%= f.label :resultado %><br>
+    <%= f.label :resultado %>
     <%= f.text_field :resultado %>
   </div>
   <div class="field">
-    <%= f.label :informacoes %><br>
+    <%= f.label :informacoes %>
     <%= f.text_field :informacoes %>
-  </div>
-  <div class="field">
-    <%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo_exame_id %><br>
-    <%= f.text_field :tipo_exame_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,10 +1,12 @@
-<h1>Listing animais</h1>
+<h1>Lista de animais</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Identificacao</th>
       <th>Nome</th>
+      <th>Raça</th>
+      <th>Classificacao</th>
       <th>Data nascimento</th>
       <th>Sexo</th>
       <th>Ativo</th>
@@ -20,15 +22,17 @@
       <tr>
         <td><%= animal.identificacao %></td>
         <td><%= animal.nome %></td>
+        <td><%= animal.raca.nome %></td>
+        <td><%= animal.classificacao.descricao %></td>
         <td><%= animal.data_nascimento %></td>
         <td><%= animal.sexo %></td>
         <td><%= animal.ativo %></td>
         <td><%= animal.lactacao %></td>
         <td><%= animal.nascido_na_propriedade %></td>
         <td><%= animal.informacoes %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'abrir', animal %></td>
+        <td><%= link_to 'editar', edit_animal_path(animal) %></td>
+        <td><%= link_to 'excluir', animal, method: :delete, data: { confirm: 'Deseja excluir?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Animal', new_animal_path %>
+<%= link_to 'Novo animal', new_animal_path %>
