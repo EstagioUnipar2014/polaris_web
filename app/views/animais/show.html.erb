@@ -31,8 +31,11 @@
 </p>
 
 <p>
-  <strong>Ultima pesagen:</strong>
-  <%= @animal.pesagens.last.peso %> Kg
+  <strong>Ultima pesagem:</strong>
+  <% if !@animal.pesagens.empty? %> 
+  	<%= @animal.pesagens.last.peso %> Kg
+  <% end %>
+  <%= link_to 'Nova pesagen', new_pesagem_path %>	
 </p>
 
 <p>

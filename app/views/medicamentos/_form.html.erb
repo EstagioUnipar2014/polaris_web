@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %><br>
+    <%= f.label :nome %>
     <%= f.text_field :nome %>
   </div>
   <div class="field">
-    <%= f.label :tipo_medicamento_id %><br>
-    <%= f.text_field :tipo_medicamento_id %>
+    <%= f.label :tipo_medicamento %>
+    <%= f.collection_select( :tipo_medicamento_id, TipoMedicamento.all, :id, :descricao ) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Cadastrar' %>
   </div>
 <% end %>
