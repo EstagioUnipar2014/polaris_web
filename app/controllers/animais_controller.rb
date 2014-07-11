@@ -10,6 +10,8 @@ class AnimaisController < ApplicationController
   # GET /animais/1
   # GET /animais/1.json
   def show
+    @vacina = Vacina.new
+    @exame = Exame.new
   end
 
   # GET /animais/new
@@ -69,6 +71,6 @@ class AnimaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-      params.require(:animal).permit(:identificacao, :nome, :data_nascimento, :sexo, :ativo, :lactacao, :nascido_na_propriedade, :informacoes)
+      params.require(:animal).permit(:identificacao, :nome, :data_nascimento, :sexo, :ativo, :lactacao, :nascido_na_propriedade, :informacoes, :raca_id, :classificacao_id)
     end
 end

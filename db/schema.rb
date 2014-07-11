@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610005238) do
+ActiveRecord::Schema.define(version: 20140709163807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,13 @@ ActiveRecord::Schema.define(version: 20140610005238) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "propriedade_id"
+    t.integer  "raca_id"
+    t.integer  "classificacao_id"
   end
 
+  add_index "animais", ["classificacao_id"], name: "index_animais_on_classificacao_id", using: :btree
   add_index "animais", ["propriedade_id"], name: "index_animais_on_propriedade_id", using: :btree
+  add_index "animais", ["raca_id"], name: "index_animais_on_raca_id", using: :btree
 
   create_table "animal_dieta", force: true do |t|
     t.date     "data_inicio"
@@ -285,9 +289,11 @@ ActiveRecord::Schema.define(version: 20140610005238) do
     t.integer  "tipo_vacina_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "medicamento_id"
   end
 
   add_index "vacinas", ["animal_id"], name: "index_vacinas_on_animal_id", using: :btree
+  add_index "vacinas", ["medicamento_id"], name: "index_vacinas_on_medicamento_id", using: :btree
   add_index "vacinas", ["tipo_vacina_id"], name: "index_vacinas_on_tipo_vacina_id", using: :btree
 
 end

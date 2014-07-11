@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
 
   ### Popular gems integration
   
-  config.authorize_with :cancan
+  #config.authorize_with :cancan
 
   ## == Devise ==
   # config.authenticate_with do

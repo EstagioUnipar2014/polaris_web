@@ -1,6 +1,6 @@
 class RacasController < ApplicationController
   before_action :set_raca, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /racas
   # GET /racas.json
   def index

@@ -12,38 +12,46 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :identificacao %><br>
+    <%= f.label :identificacao %>
     <%= f.text_field :identificacao %>
   </div>
   <div class="field">
-    <%= f.label :nome %><br>
+    <%= f.label :nome %>
     <%= f.text_field :nome %>
   </div>
-  <div class="field">
-    <%= f.label :data_nascimento %><br>
+  <div class="field" >
+    <%= f.label :data_nascimento %>
     <%= f.date_select :data_nascimento %>
   </div>
   <div class="field">
-    <%= f.label :sexo %><br>
-    <%= f.text_field :sexo %>
+  	 <%= f.label :raca %>
+     <%= f.collection_select( :raca_id, Raca.all, :id, :nome ) %>
+  </div>	
+  <div class="field">
+  	 <%= f.label :classificacao %>
+     <%= f.collection_select( :classificacao_id, Classificacao.all, :id, :descricao ) %>
+  </div>	
+  <div class="field">
+    <%= f.label :sexo %>
+    <%= f.select :sexo, options_for_select(["Fêmea", "Macho"]), :class => 'genForm_dropBox' %>
   </div>
   <div class="field">
-    <%= f.label :ativo %><br>
+    <%= f.label :ativo %>
     <%= f.check_box :ativo %>
   </div>
   <div class="field">
-    <%= f.label :lactacao %><br>
+    <%= f.label :lactacao %>
     <%= f.check_box :lactacao %>
   </div>
   <div class="field">
-    <%= f.label :nascido_na_propriedade %><br>
+    <%= f.label :nascido_na_propriedade %>
     <%= f.check_box :nascido_na_propriedade %>
   </div>
   <div class="field">
-    <%= f.label :informacoes %><br>
+    <%= f.label :informacoes %>
     <%= f.text_field :informacoes %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Cadastrar'%>
   </div>
-<% end %>
+<% end %>	

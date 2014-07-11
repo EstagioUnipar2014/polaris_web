@@ -22,6 +22,8 @@
         <tr>
         <td><%= animal.identificacao %></td>
         <td><%= animal.nome %></td>
+        <td><%= animal.raca.nome %></td>
+        <td><%= animal.classificacao.descricao %></td>
         <td><%= animal.data_nascimento %></td>
         <td><%= animal.sexo %></td>
         <% if  animal.ativo %>
@@ -40,9 +42,9 @@
           <td><%= image_tag "icon-false.png"%></td>
         <% end %>
         <td><%= animal.informacoes %></td>
-        <td><%= link_to 'Detalhes', animal %></td>
-        <td><%= link_to 'Editar', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Apagar', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'abrir', animal %></td>
+        <td><%= link_to 'editar', edit_animal_path(animal) %></td>
+        <td><%= link_to 'excluir', animal, method: :delete, data: { confirm: 'Deseja excluir?' } %></td>
       </tr>
     <% end %>
       </tbody>
@@ -51,3 +53,4 @@
 </div>
     <br>
 
+<%= link_to 'Novo animal', new_animal_path %>
