@@ -27,13 +27,17 @@
 
 <p>
   <strong>Animal:</strong>
-  <%= @exame.animal %>
+  <%= @exame.animal.identificacao+' '+@exame.animal.nome %>
 </p>
 
 <p>
   <strong>Tipo exame:</strong>
-  <%= @exame.tipo_exame %>
+  <%= @exame.tipo_exame.descricao %>
 </p>
+
+<p>
+	<%= @exame.doencas %>
+</p>	
 
 <%= link_to 'Edit', edit_exame_path(@exame) %> |
 <%= link_to 'Back', exames_path %>
