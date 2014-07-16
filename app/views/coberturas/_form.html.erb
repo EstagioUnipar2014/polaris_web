@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :data %><br>
+    <%= f.label :animal %>
+    <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome ) %>
+  </div>
+   <div class="field">
+    <%= f.label :cio_id %>
+    <%= f.collection_select( :cio_id, Cio.all, :id, :id ) %>
+  </div>
+  <div class="field">
+    <%= f.label :data %>
     <%= f.date_select :data %>
   </div>
-  <div class="field">
-    <%= f.label :cio_id %><br>
-    <%= f.text_field :cio_id %>
-  </div>
-  <div class="field">
-    <%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Cadastrar' %>
   </div>
 <% end %>
