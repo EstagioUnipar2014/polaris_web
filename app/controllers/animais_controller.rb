@@ -27,7 +27,6 @@ class AnimaisController < ApplicationController
   # POST /animais.json
   def create
     @animal = Animal.new(animal_params)
-
     respond_to do |format|
       if @animal.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
