@@ -24,7 +24,8 @@ class ExamesController < ApplicationController
   # POST /exames
   # POST /exames.json
   def create
-    @exame = Exame.new(exame_params)
+    @exame = Exame.new(exame_params) 
+    @exame.doencas << Doenca.all
 
     respond_to do |format|
       if @exame.save
@@ -69,6 +70,6 @@ class ExamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exame_params
-      params.require(:exame).permit(:data, :descricao, :efetuado, :resultado, :informacoes, :animal_id, :tipo_exame_id)
+      params.require(:exame).permit(:data, :descricao, :efetuado, :resultado, :informacoes, :animal_id, :tipo_exame_id, :doencas)
     end
 end

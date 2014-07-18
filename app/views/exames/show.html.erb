@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Animal:</strong>
+  <%= @exame.animal.identificacao+' '+@exame.animal.nome %>
+</p>
+
+<p>
+  <strong>Tipo exame:</strong>
+  <%= @exame.tipo_exame.descricao %>
+</p>
+
+<p>
   <strong>Data:</strong>
   <%= @exame.data %>
 </p>
@@ -10,6 +20,15 @@
   <%= @exame.descricao %>
 </p>
 
+<p>
+	<strong>Lista de doenças</strong>
+</p>
+
+<ul>
+	<% @exame.doencas.each do |doenca| %>
+			<li><%= doenca.nome %></li>
+ 	<% end %>
+</ul> 	
 <p>
   <strong>Efetuado:</strong>
   <%= @exame.efetuado %>
@@ -25,19 +44,6 @@
   <%= @exame.informacoes %>
 </p>
 
-<p>
-  <strong>Animal:</strong>
-  <%= @exame.animal.identificacao+' '+@exame.animal.nome %>
-</p>
-
-<p>
-  <strong>Tipo exame:</strong>
-  <%= @exame.tipo_exame.descricao %>
-</p>
-
-<p>
-	<%= @exame.doencas %>
-</p>	
 
 <%= link_to 'Edit', edit_exame_path(@exame) %> |
 <%= link_to 'Back', exames_path %>

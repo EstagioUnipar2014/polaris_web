@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :doenca_exame %>
-    <%= f.collection_select( :doencas, Doenca.all, :id, :nome, { :multiple => true, :size => 1 } ) %>
+    <%= f.collection_select(:doenca_ids, Doenca.all, :id, :nome, {}, {:multiple => true})%>
     <%= link_to 'Nova doença', new_doenca_path %>
   </div>
   <div class="field">
