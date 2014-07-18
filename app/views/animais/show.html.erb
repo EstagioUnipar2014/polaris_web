@@ -1,76 +1,77 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class='panel panel-default'>
+  <p>
   <strong>Identificacao:</strong>
   <%= @animal.identificacao %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Nome:</strong>
   <%= @animal.nome %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Raça:</strong>
   <%= @animal.raca.nome %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Classificacao:</strong>
   <%= @animal.classificacao.descricao %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Data nascimento:</strong>
   <%= @animal.data_nascimento %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Sexo:</strong>
   <%= @animal.sexo %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Ultima pesagem:</strong>
   <% if !@animal.pesagens.empty? %> 
-  	<%= @animal.pesagens.last.peso %> Kg
-  <% end %>
+    <%= @animal.pesagens.last.peso %> Kg
+<% end %>
   <%= link_to 'Nova pesagen', new_pesagem_path %>	
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Ativo:</strong>
   <%= @animal.ativo %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Lactacao:</strong>
   <%= @animal.lactacao %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Nascido na propriedade:</strong>
   <%= @animal.nascido_na_propriedade %>
-</p
+  </p
 
-<p>
+  <p>
   <strong>Informacoes:</strong>
   <%= @animal.informacoes %>
-</p>
+  </p>
 
-<div id="novaVacina" style="display:none">
-  <h2>Agendar vacina</h2> 	
-  <%= render 'vacinas/form' %>
+  <div id="nova-vacina" style="display:none">
+    <h2>Agendar vacina</h2> 	
+    <%= render 'vacinas/form', :locals => {:animal => params[:id]} %>
+  </div>
+
+  <a id='nova-vacina-button'>Nova vacina</a><br>
+
+  <div id="novo-exame" style="display:none">
+    <h2>Agendar exame</h2> 	
+    <%= render 'exames/form', :animal => @animal%>
+  </div>
+
+  <a id='novo-exame-button'>Novo exame</a><br>
+
+  <%= link_to 'Editar', edit_animal_path(@animal) %> |
+  <%= link_to 'Voltar', animais_path %>
 </div>
-
-<a href="#" onclick="mostrarDiv(novaVacina)" >Agendar vascina</a><br>
-
-<div id="novoExame" style="display:none">
-  <h2>Agendar exame</h2> 	
-  <%= render 'exames/form' %>
-</div>
-
-<a href="#" onclick="mostrarDiv(novoExame)" >Agendar exame</a><br>
-
-<%= link_to 'Editar', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animais_path %>
