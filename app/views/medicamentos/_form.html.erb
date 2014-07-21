@@ -18,6 +18,7 @@
   <div class="field">
     <%= f.label :tipo_medicamento %>
     <%= f.collection_select( :tipo_medicamento_id, TipoMedicamento.all, :id, :descricao ) %>
+    <%= link_to 'Novo tipo exame', new_tipo_exame_path %>
   </div>
   <div class="actions">
     <%= f.submit 'Cadastrar' %>

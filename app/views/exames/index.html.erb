@@ -22,8 +22,8 @@
         <td><%= exame.efetuado %></td>
         <td><%= exame.resultado %></td>
         <td><%= exame.informacoes %></td>
-        <td><%= exame.animal %></td>
-        <td><%= exame.tipo_exame %></td>
+        <td><%= exame.animal.identificacao+' '+exame.animal.nome %></td>
+        <td><%= exame.tipo_exame.descricao %></td>
         <td><%= link_to 'Show', exame %></td>
         <td><%= link_to 'Edit', edit_exame_path(exame) %></td>
         <td><%= link_to 'Destroy', exame, method: :delete, data: { confirm: 'Are you sure?' } %></td>

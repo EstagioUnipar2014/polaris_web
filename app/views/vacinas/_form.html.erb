@@ -22,10 +22,12 @@
   <div class="field">
     <%= f.label :tipo_vacina %>
     <%= f.collection_select( :tipo_vacina_id, TipoVacina.all, :id, :descricao) %>
+    <%= link_to 'Novo tipo vacina', new_tipo_vacina_path %>
   </div>
    <div class="field">
     <%= f.label :medicamento %>
     <%= f.collection_select( :medicamento_id, Medicamento.all, :id, :nomeTipo) %>
+      <%= link_to 'Novo medicamento', new_medicamento_path %>
   </div>
    <div class="field">
     <%= f.label :dosagem %>

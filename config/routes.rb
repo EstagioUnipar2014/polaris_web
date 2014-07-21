@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'doencas_exame/pagina_1'
+
+  get 'doencas_exame/pagina_2'
+
   root :to => 'pages#index'
 
   match "/sobre", to: "pages#sobre", via: [:get]

@@ -18,6 +18,12 @@
   <div class="field">
     <%= f.label :tipo_exame_id %>
     <%= f.collection_select( :tipo_exame_id, TipoExame.all, :id, :descricao ) %>
+    <%= link_to 'Novo tipo exame', new_tipo_exame_path %>
+  </div>
+  <div class="field">
+    <%= f.label :doenca_exame %>
+    <%= f.collection_select( :doencas, Doenca.all, :id, :nome, { :multiple => true, :size => 1 } ) %>
+    <%= link_to 'Nova doença', new_doenca_path %>
   </div>
   <div class="field">
     <%= f.label :data %>
@@ -37,9 +43,9 @@
   </div>
   <div class="field">
     <%= f.label :informacoes %>
-    <%= f.text_field :informacoes %>
+    <%= f.text_area :informacoes, :size => "25x4" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Cadastrar' %>
   </div>
 <% end %>

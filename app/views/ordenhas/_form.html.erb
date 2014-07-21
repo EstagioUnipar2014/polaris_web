@@ -10,22 +10,21 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :data %><br>
-    <%= f.date_select :data %>
+ <div class="field">
+    <%= f.label :animal %>
+    <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome )%>
   </div>
   <div class="field">
-    <%= f.label :periodo %><br>
+    <%= f.label :quantidade %>
+    <%= f.text_field :quantidade %>
+  </div>
+   <div class="field">
+    <%= f.label :periodo %>
     <%= f.number_field :periodo %>
   </div>
   <div class="field">
-    <%= f.label :quantidade %><br>
-    <%= f.text_field :quantidade %>
-  </div>
-  <div class="field">
-    <%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %>
+    <%= f.label :data %>
+    <%= f.date_select :data %>
   </div>
   <div class="actions">
     <%= f.submit %>

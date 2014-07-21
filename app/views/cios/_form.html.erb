@@ -10,20 +10,19 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :data_cio %><br>
+    <%= f.label :animal %>
+    <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome) %>
+  </div>
+  <div class="field">
+    <%= f.label :data_cio %>
     <%= f.date_select :data_cio %>
   </div>
   <div class="field">
-    <%= f.label :previsao_proximo %><br>
+    <%= f.label :previsao_proximo %>
     <%= f.date_select :previsao_proximo %>
   </div>
-  <div class="field">
-    <%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Cadastrar' %>
   </div>
 <% end %>
