@@ -11,10 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :animal %>
-    <%= f.collection_select(:animal_id, Animal.all, :id, :identificacaoNome) %>
-  </div>
+  <% if @animal %>
+    <%= f.hidden_field :animal_id, :value => @animal.id %>
+  <% else %>
+    <div class="field">
+      <%= f.label :animal %>
+      <%= f.collection_select(:animal_id, Animal.all, :id, :identificacaoNome) %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :tipo_exame_id %>
     <%= f.collection_select( :tipo_exame_id, TipoExame.all, :id, :descricao ) %>
@@ -22,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :doenca_exame %>
-    <%= f.collection_select( :doencas, Doenca.all, :id, :nome, { :multiple => true, :size => 1 } ) %>
+    <%= f.collection_select( :doencas, Doenca.all, :id, :nome, { :multiple => true } ) %>
     <%= link_to 'Nova doença', new_doenca_path %>
   </div>
   <div class="field">

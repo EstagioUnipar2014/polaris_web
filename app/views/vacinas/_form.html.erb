@@ -10,9 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <% if :animal %> 
-    <% p :locals[:animal] %>
-    <%= f.hidden_field :animal_id, :value => :animal %>
+  <% if @animal %> 
+    <%= f.hidden_field :animal_id, :value => @animal.id %>
   <% else %>
     <div class="field">
       <%= f.label :animal_id %>

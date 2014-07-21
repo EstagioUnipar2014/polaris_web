@@ -68,14 +68,14 @@
 
   <div id="nova-vacina" style="display:none">
     <h2>Agendar vacina</h2> 	
-    <%= render 'vacinas/form', :locals => {:animal => params[:id]} %>
+    <%= render 'vacinas/form' %>
   </div>
 
   <a id='nova-vacina-button'>Nova vacina</a><br>
 
   <div id="novo-exame" style="display:none">
     <h2>Agendar exame</h2> 	
-    <%= render 'exames/form', :animal => @animal%>
+    <%= render 'exames/form' %>
   </div>
 
   <a id='novo-exame-button'>Novo exame</a><br>
