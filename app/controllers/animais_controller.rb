@@ -12,6 +12,7 @@ class AnimaisController < ApplicationController
   def show
     @vacina = Vacina.new
     @exame = Exame.new
+    @pesagem = Pesagem.new
   end
 
   # GET /animais/new

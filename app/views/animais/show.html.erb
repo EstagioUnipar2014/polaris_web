@@ -43,8 +43,12 @@
   <strong>Ultima pesagem:</strong>
   <% if !@animal.pesagens.empty? %> 
     <%= @animal.pesagens.last.peso %> Kg
-<% end %>
-  <%= link_to 'Nova pesagen', new_pesagem_path %>	
+  <% end %>
+  <div id="nova-pesagem" style="display:none">
+    <h2>Nova Pesagem</h2> 	
+    <%= render 'pesagens/form' %>
+  </div>
+  <a id='nova-pesagem-button'>Nova pesagem </a>
   </p>
 
   <p>

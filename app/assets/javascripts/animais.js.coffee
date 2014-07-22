@@ -6,4 +6,7 @@ $ ->
     $('#nova-vacina').show()
 
   $('#novo-exame-button').on "click", ->
-      $('#novo-exame').show()
+    $('#novo-exame').show()
+
+  $('#nova-pesagem-button').on "click", ->
+    $('#nova-pesagem').show()
