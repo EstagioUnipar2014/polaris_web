@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Polaris
   class Application < Rails::Application
+    config.filepicker_rails.api_key = "AaJoETgDdQB20GkSLN2yXz"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
