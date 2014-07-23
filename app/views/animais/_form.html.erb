@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="foto-input">
+  <div class="foto-input field">
     <% if @animal.foto_principal %>
-      <%= filepicker_image_tag @animal.foto_principal, w:400, h:400, fit:'clip' %>
+      <%# filepicker_image_tag @animal.foto_principal, w:400, h:400, fit:'clip' %>
     <% else %>
 
     <% end %>
-    <%= f.filepicker_field :foto_principal %>
+    <%# f.filepicker_field :foto_principal %>
   </div>
   <div class="field">
     <%= f.label :identificacao %>
-    <%= f.text_field :identificacao %>
+    <%= f.text_field :identificacao, class: 'input' %>
   </div>
   <div class="field">
     <%= f.label :nome %>
