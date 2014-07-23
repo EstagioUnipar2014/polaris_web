@@ -10,13 +10,18 @@
       </ul>
     </div>
   <% end %>
- <div class="field">
-    <%= f.label :animal %>
-    <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome ) %>
-  </div>
+  <% if @animal %>
+    <% p "passou" %>
+    <%= f.hidden_field :animal_id, :value => @animal.id %>
+  <% else %>
+    <div class="field">
+      <%= f.label :animal %>
+      <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome ) %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :peso %>
-    <%= f.text_field :peso %>
+    <%= f.number_field :peso %>
   </div>
   <div class="field">
     <%= f.label :data_pesagem %>

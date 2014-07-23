@@ -1,70 +1,74 @@
 <p id="notice"><%= notice %></p>
-
-<h2>Dados do animal</h2>
-<p>
+<div class='panel panel-default'>
+  <h2>Dados do animal</h2>
+  <p>
   <strong>Identificacao:</strong>
   <%= @animal.identificacao %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Nome:</strong>
   <%= @animal.nome %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Raça:</strong>
   <%= @animal.raca.nome %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Classificacao:</strong>
   <%= @animal.classificacao.descricao %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Data nascimento:</strong>
   <%= @animal.data_nascimento %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Sexo:</strong>
   <%= @animal.sexo %>
-</p>
+  </p>
 
-<p>
+  <p>
   <% if !@animal.cios.empty? %>
-	 <strong>Data de cio prevista:</strong>
-	 <%= @animal.cios.last.data_cio%>
-  <% end %>  	
-</p>	
+    <strong>Data de cio prevista:</strong>
+  <%= @animal.cios.last.data_cio%>
+<% end %>  	
+  </p>	
 
-<p>
+  <p>
   <strong>Ultima pesagem:</strong>
   <% if !@animal.pesagens.empty? %> 
-  	<%= @animal.pesagens.last.peso %> Kg
+    <%= @animal.pesagens.last.peso %> Kg
   <% end %>
-  <%= link_to 'Nova pesagen', new_pesagem_path %>	
-</p>
+  <div id="nova-pesagem" style="display:none">
+    <h2>Nova Pesagem</h2> 	
+    <%= render 'pesagens/form' %>
+  </div>
+  <a id='nova-pesagem-button'>Nova pesagem </a>
+  </p>
 
-<p>
+  <p>
   <strong>Ativo:</strong>
   <%= @animal.ativo %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Lactacao:</strong>
   <%= @animal.lactacao %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Nascido na propriedade:</strong>
   <%= @animal.nascido_na_propriedade %>
-</p
+  </p>
 
-<p>
+  <p>
   <strong>Informacoes:</strong>
   <%= @animal.informacoes %>
-</p>
+  </p>
 
 <div>
   <% if !@animal.vacinas.pendente.empty? %>	
@@ -79,8 +83,7 @@
   <h3>Agendar vacina</h3> 	
   <%= render 'vacinas/form' %>
 </div>
-
-<a href="#" onclick="mostrarDiv(novaVacina)" >Agendar vascina</a><br>
+  <a id='nova-vacina-button'>Nova vacina</a><br>
 
 <div>
   <% if !@animal.exames.pendente.empty? %>	
@@ -96,7 +99,8 @@
   <%= render 'exames/form' %>
 </div>
 
-<a href="#" onclick="mostrarDiv(novoExame)" >Agendar exame</a><br>
+  <a id='novo-exame-button'>Novo exame</a><br>
 
-<%= link_to 'Editar', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animais_path %>
+  <%= link_to 'Editar', edit_animal_path(@animal) %> |
+  <%= link_to 'Voltar', animais_path %>
+</div>
