@@ -32,10 +32,10 @@
 </p>
 
 <p>
-	<% if !@animal.cios.empty? %>
-	  <strong>Data de cio prevista:</strong>
-	  <%= @animal.cios.last.data_cio%>
-	<% end %>  	
+  <% if !@animal.cios.empty? %>
+	 <strong>Data de cio prevista:</strong>
+	 <%= @animal.cios.last.data_cio%>
+  <% end %>  	
 </p>	
 
 <p>
@@ -66,12 +66,30 @@
   <%= @animal.informacoes %>
 </p>
 
+<div>
+  <% if !@animal.vacinas.pendente.empty? %>	
+	  <h3>Vacinas Pendentes</h3>	
+	  <% @animal.vacinas.pendente.each do |vacina| %>
+	  	<p><%= vacina.id %></p>
+	  <% end %>
+  <% end %>	  
+</div>
+	
 <div id="novaVacina" style="display:none">
-  <h2>Agendar vacina</h2> 	
+  <h3>Agendar vacina</h3> 	
   <%= render 'vacinas/form' %>
 </div>
 
 <a href="#" onclick="mostrarDiv(novaVacina)" >Agendar vascina</a><br>
+
+<div>
+  <% if !@animal.exames.pendente.empty? %>	
+	  <h3>Exames Pendentes</h3>	
+	  <% @animal.exames.pendente.each do |exame| %>
+	  	<p><%= exame.id %></p>
+	  <% end %>
+  <% end %>	  
+</div>
 
 <div id="novoExame" style="display:none">
   <h2>Agendar exame</h2> 	
