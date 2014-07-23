@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class='panel panel-default'>
   <h2>Dados do animal</h2>
+  
   <p>
   <strong>Identificacao:</strong>
   <%= @animal.identificacao %>
@@ -79,7 +80,7 @@
   <% end %>	  
 </div>
 	
-<div id="novaVacina" style="display:none">
+<div id="nova-vacina" style="display:none">
   <h3>Agendar vacina</h3> 	
   <%= render 'vacinas/form' %>
 </div>
@@ -94,7 +95,7 @@
   <% end %>	  
 </div>
 
-<div id="novoExame" style="display:none">
+<div id="novo-exame" style="display:none">
   <h2>Agendar exame</h2> 	
   <%= render 'exames/form' %>
 </div>
