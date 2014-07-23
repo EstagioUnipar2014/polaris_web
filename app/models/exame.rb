@@ -4,4 +4,6 @@ class Exame < ActiveRecord::Base
   has_and_belongs_to_many :doencas, dependent: :destroy
   
   validates :animal_id, :tipo_exame_id, presence: true
+  
+  scope :pendente, -> {where(efetuado: false)}
 end
