@@ -1,6 +1,7 @@
 class Alimento < ActiveRecord::Base
-  has_and_belongs_to_many :ciclos
-  
+  has_many :medidas
+  has_many :ciclos, :through => :medidas
+
   validates_presence_of :descricao
   validates_uniqueness_of :descricao, :case_sensitive => false
 end
