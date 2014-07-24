@@ -23,10 +23,19 @@
     <%= f.label :peso %>
     <%= f.number_field :peso %>
   </div>
-  <div class="field">
-    <%= f.label :data_pesagem %>
-    <%= f.date_select :data_pesagem %>
+  <div id="sandbox-container" class="span5 col-md-5">
+  	<%= f.label :data_pessagem %>
+    <%= f.text_field :data_pesagem %>
   </div>
+   <script>
+  	$('#sandbox-container input').datepicker({
+    	language: "pt-BR",
+    	format : 'yyyy/mm/dd',
+    	calendarWeeks: true,
+    	autoclose: true,
+    	todayHighlight: true
+	});
+  </script>   
   <div class="actions">
     <%= f.submit 'Cadastrar '%>
   </div>

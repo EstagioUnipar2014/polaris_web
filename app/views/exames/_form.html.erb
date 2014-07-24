@@ -29,10 +29,19 @@
     <%= f.collection_select(:doenca_ids, Doenca.all, :id, :nome, {}, {:multiple => true})%>
     <%= link_to 'Nova doença', new_doenca_path %>
   </div>
-  <div class="field">
-    <%= f.label :data %>
-    <%= f.date_select :data %>
-  </div>
+  <div id="sandbox-container" class="span5 col-md-5">
+  	<%= f.label :data %>
+    <%= f.text_field :data %>
+  </div>   
+   <script>
+  	$('#sandbox-container input').datepicker({
+    	language: "pt-BR",
+    	format : 'yyyy/mm/dd',
+    	calendarWeeks: true,
+    	autoclose: true,
+    	todayHighlight: true
+	});
+  </script>
   <div class="field">
     <%= f.label :descricao %>
     <%= f.text_field :descricao %>
