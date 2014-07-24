@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :dietas
+
   get 'doencas_exame/pagina_1'
 
   get 'doencas_exame/pagina_2'
