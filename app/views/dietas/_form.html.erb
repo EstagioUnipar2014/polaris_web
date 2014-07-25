@@ -1,0 +1,27 @@
+<%= form_for(@dieta) do |f| %>
+  <% if @dieta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dieta.errors.count, "error") %> prohibited this dieta from being saved:</h2>
+
+      <ul>
+      <% @dieta.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %><br>
+    <%= f.text_field :descricao %>
+  </div>
+  <%= f.fields_for :ciclos do |c| %>
+    <div class="field">
+      <%= c.label :descricao %>
+      <%= c.text_field :descricao %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
