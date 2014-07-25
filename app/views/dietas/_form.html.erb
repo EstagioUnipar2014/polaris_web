@@ -15,6 +15,12 @@
     <%= f.label :descricao %><br>
     <%= f.text_field :descricao %>
   </div>
+  <%= f.fields_for :ciclos do |c| %>
+    <div class="field">
+      <%= c.label :descricao %>
+      <%= c.text_field :descricao %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

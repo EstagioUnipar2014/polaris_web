@@ -3,6 +3,8 @@ class Ciclo < ActiveRecord::Base
   has_many :medidas
   has_many :alimentos, :through => :medidas
 
+  accepts_nested_attributes_for :alimentos
+
   validates_presence_of :descricao
   validates_uniqueness_of :descricao
 end

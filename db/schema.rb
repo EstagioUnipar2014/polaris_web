@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724010424) do
+ActiveRecord::Schema.define(version: 20140725003924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(version: 20140724010424) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ciclos_dietas", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "dieta_id"
+    t.integer  "ciclo_id"
+  end
+
+  add_index "ciclos_dietas", ["ciclo_id"], name: "index_ciclos_dietas_on_ciclo_id", using: :btree
+  add_index "ciclos_dietas", ["dieta_id"], name: "index_ciclos_dietas_on_dieta_id", using: :btree
 
   create_table "cios", force: true do |t|
     t.date     "data_cio"

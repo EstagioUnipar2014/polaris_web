@@ -15,6 +15,14 @@
     <%= f.label :descricao %><br>
     <%= f.text_field :descricao %>
   </div>
+  <%= f.fields_for :medidas do |m| %>
+    <div class="field">
+      <%= m.text_field :quantidade %>
+    </div>
+    <%= m.fields_for :alimentos do |a|%>
+      <%= a.text_field :descricao %>
+    <% end %>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
