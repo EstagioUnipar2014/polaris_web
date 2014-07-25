@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= filepicker_js_include_tag %>
+<%# filepicker_js_include_tag %>
 <%# if usuario_signed_in? %>
  <% if true %>
   <%= render 'layouts/header_logged' %>
@@ -18,6 +18,7 @@
   <%= yield %>
 </main>
 <footer>
+  <%= render 'layouts/footer' %>
 </footer>
 </body>
 </html>

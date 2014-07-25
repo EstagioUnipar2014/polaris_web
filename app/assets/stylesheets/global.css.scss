@@ -1,5 +1,13 @@
 $color1: #7db9e8;
 $bg-color: #DBDBDB;
+$bg-container-color: #EDEDED;
+$container-border: #929292;
+.input{
+  border: 2px solid $container-border;
+  border-radius: 10px;
+  height: 30px;
+  width: 150px;
+}
 body{
   background-color: $bg-color !important;
   header{
@@ -27,13 +35,22 @@ body{
       border-radius: 10px;
       background-color: $color1;
     }
+    .container{
+      width: 94%;
+      border: 3px solid $container-border;
+      border-radius: 20px;
+      background-color: $bg-container-color;
+      margin: 0 auto;
+      padding-left: 2%;
+      text-align: left;
+    }
   }
 }
 .login-input{
   width: 70%;
   display: inline;
 }
-.header-login{
+.header-sair{
   margin-right: 15px;
 }
 .page-title{
@@ -42,4 +59,37 @@ body{
 }
 .navbar-brand, li{
   color: black !important;
+}
+.header-text{
+  color: black !important;
+  &:hover{
+    opacity: 0.7;
+  }
+}
+.logo{
+  &:hover{opacity: 0.7;}
+}
+a{
+  color: black !important;
+  background-color: transparent !important;
+  &:hover{opacity: 0.7;}
+  text-decoration: none !important;
+}
+.novo-animal-link{
+  float: right;
+}
+.footer-container{
+  height: 25px;
+  background: #1e5799; /* Old browsers */
+  background: -moz-linear-gradient(top, #1e5799 0%, #207cca 76%, #207cca 76%, #207cca 77%, #2989d8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(76%,#207cca), color-stop(76%,#207cca), color-stop(77%,#207cca), color-stop(100%,#2989d8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #1e5799 0%,#207cca 76%,#207cca 76%,#207cca 77%,#2989d8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #1e5799 0%,#207cca 76%,#207cca 76%,#207cca 77%,#2989d8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #1e5799 0%,#207cca 76%,#207cca 76%,#207cca 77%,#2989d8 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #1e5799 0%,#207cca 76%,#207cca 76%,#207cca 77%,#2989d8 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#2989d8',GradientType=0 ); /* IE6-9 */
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  color: black;
 }
