@@ -27,10 +27,19 @@
     <%= f.label :nome %>
     <%= f.text_field :nome %>
   </div>
-  <div class="field" >
-    <%= f.label :data_nascimento %>
-    <%= f.date_select :data_nascimento %>
-  </div>
+  <div id="sandbox-container">
+  	<%= f.label :data_nascimento%>
+    <%= f.text_field :data_nascimento %>
+  </div>   
+   <script>
+  	$('#sandbox-container input').datepicker({
+    	language: "pt-BR",
+    	format : 'yyyy/mm/dd',
+    	calendarWeeks: true,
+    	autoclose: true,
+    	todayHighlight: true
+	});
+  </script>
   <div class="field">
   	 <%= f.label :raca %>
      <%= f.collection_select( :raca_id, Raca.all, :id, :nome ) %>
