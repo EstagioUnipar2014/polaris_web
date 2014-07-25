@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725003924) do
+ActiveRecord::Schema.define(version: 20140725231725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20140725003924) do
   add_index "animais", ["propriedade_id"], name: "index_animais_on_propriedade_id", using: :btree
   add_index "animais", ["raca_id"], name: "index_animais_on_raca_id", using: :btree
 
+  create_table "animais_doencas", force: true do |t|
+    t.integer  "animal_id"
+    t.integer  "doenca_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "animais_doencas", ["animal_id"], name: "index_animais_doencas_on_animal_id", using: :btree
+  add_index "animais_doencas", ["doenca_id"], name: "index_animais_doencas_on_doenca_id", using: :btree
+
   create_table "animal_dieta", force: true do |t|
     t.date     "data_inicio"
     t.date     "data_fim"
@@ -56,10 +66,8 @@ ActiveRecord::Schema.define(version: 20140725003924) do
   add_index "animal_dieta", ["dieta_id"], name: "index_animal_dieta_on_dieta_id", using: :btree
 
   create_table "animal_doencas", force: true do |t|
-    t.date     "data_inicio"
-    t.date     "data_fim"
-    t.integer  "doenca_id"
     t.integer  "animal_id"
+    t.integer  "doenca_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
