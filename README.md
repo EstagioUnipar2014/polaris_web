@@ -10,9 +10,15 @@ Em um futuro, também será implementado um sistema de gerenciamento financeiro.
 Configuração e instalação
 -----
 
+Arquivo de configuração do banco de dados:
 ``` sh
-  bundle install
-  rake db:create
-  rake db:migrate
-  rails s
+cp /config/database.yml.tmp /config/database.yml
+```
+
+Configuração do ambiente rails:
+``` sh
+bundle install
+rake db:create
+rake db:migrate
+rails s
 ```
