@@ -10,3 +10,8 @@ $ ->
 
   $('#nova-pesagem-button').on "click", ->
     $('#nova-pesagem').show()
+    
+  $('#new_vacina').bind "ajax:success", (event, data) ->
+    $('#nova-vacina').hide()
+    alert("Vacina agendada com sucesso")  
+   

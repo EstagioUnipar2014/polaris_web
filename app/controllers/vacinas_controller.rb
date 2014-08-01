@@ -30,6 +30,7 @@ class VacinasController < ApplicationController
       if @vacina.save
         format.html { redirect_to @vacina, notice: 'Vacina was successfully created.' }
         format.json { render :show, status: :created, location: @vacina }
+        format.js { head :ok }
       else
         format.html { render :new }
         format.json { render json: @vacina.errors, status: :unprocessable_entity }
