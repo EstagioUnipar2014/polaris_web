@@ -35,6 +35,7 @@ gem 'spring',        group: :development
 gem 'filepicker-rails'
 gem 'nested_form'
 gem 'bootstrap-datepicker-rails'
+gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
