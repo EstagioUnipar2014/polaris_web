@@ -25,12 +25,12 @@ class ExamesController < ApplicationController
   # POST /exames.json
   def create
     @exame = Exame.new(exame_params) 
-    @exame.doencas << Doenca.all
 
     respond_to do |format|
       if @exame.save
         format.html { redirect_to @exame, notice: 'Exame was successfully created.' }
         format.json { render :show, status: :created, location: @exame }
+        format.js   { head :ok }
       else
         format.html { render :new }
         format.json { render json: @exame.errors, status: :unprocessable_entity }
@@ -70,6 +70,6 @@ class ExamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exame_params
-      params.require(:exame).permit(:data, :descricao, :efetuado, :resultado, :informacoes, :animal_id, :tipo_exame_id, :doencas)
+      params.require(:exame).permit(:data, :descricao, :efetuado, :resultado, :informacoes, :animal_id, :tipo_exame_id, doenca_ids: [])
     end
 end

@@ -1,4 +1,10 @@
-<%= form_for(@exame) do |f| %>
+<% remoto = false %>
+
+<% if @animal %>
+  <% remoto = true %>
+<% end %>
+
+<%= form_for(@exame, remote: remoto) do |f| %>
   <% if @exame.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@exame.errors.count, "error") %> prohibited this exame from being saved:</h2>
@@ -26,7 +32,7 @@
   </div>
   <div class="field">
     <%= f.label :doenca_exame %>
-    <%= f.collection_select(:doenca_ids, Doenca.all, :id, :nome, {}, {:multiple => true})%>
+    <%= f.collection_select(:doenca_ids, Doenca.all, :id, :nome,{}, {:multiple => true})%>
     <%= link_to 'Nova doença', new_doenca_path %>
   </div>
   <div id="sandbox-container">

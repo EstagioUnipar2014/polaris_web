@@ -1,4 +1,10 @@
-<%= form_for(@pesagem) do |f| %>
+<% remoto = false %>
+
+<% if @animal %>
+  <% remoto = true %>
+<% end %>  
+  
+<%= form_for(@pesagem, remote: remoto) do |f| %>
   <% if @pesagem.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pesagem.errors.count, "error") %> prohibited this pesagem from being saved:</h2>

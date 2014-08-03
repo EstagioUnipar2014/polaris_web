@@ -30,6 +30,7 @@ class PesagensController < ApplicationController
       if @pesagem.save
         format.html { redirect_to @pesagem, notice: 'Pesagem was successfully created.' }
         format.json { render :show, status: :created, location: @pesagem }
+        format.js   {head :ok}
       else
         format.html { render :new }
         format.json { render json: @pesagem.errors, status: :unprocessable_entity }
