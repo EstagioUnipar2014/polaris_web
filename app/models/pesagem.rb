@@ -1,5 +1,6 @@
 class Pesagem < ActiveRecord::Base
   belongs_to :animal
-  
-  validates :animal_id, :peso, presence: true
+  validates :animal, presence: true
+  validates :peso, presence: true
+  validates :data_pesagem, presence: true
 end
