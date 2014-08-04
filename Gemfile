@@ -43,6 +43,7 @@ group :test do
     gem 'shoulda-matchers', require: false
 end
 gem 'autotest-rails', :group => [:development, :test]
+gem 'ZenTest'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

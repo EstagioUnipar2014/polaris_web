@@ -15,9 +15,10 @@ class Animal < ActiveRecord::Base
 
   accepts_nested_attributes_for :vacinas, :allow_destroy => true
 
-  validates :identificacao, :sexo, :raca_id, :classificacao_id, presence: true
-  validates :identificacao, uniqueness: true
-  validates_numericality_of :identificacao
+  validates :identificacao, presence: true, uniqueness: true
+  validates :sexo, presence: true
+  validates :raca, presence: true
+  validates :classificacao, presence: true
 
   def identificacaoNome
     identificacao+', '+nome
