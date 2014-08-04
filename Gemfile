@@ -36,6 +36,13 @@ gem 'filepicker-rails'
 gem 'nested_form'
 gem 'bootstrap-datepicker-rails'
 gem 'rails_12factor', group: :production
+group :development, :test do
+    gem 'rspec-rails', '~> 3.0.0'
+end
+group :test do
+    gem 'shoulda-matchers', require: false
+end
+gem 'autotest-rails', :group => [:development, :test]
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
