@@ -4,8 +4,8 @@ class ExamesController < ApplicationController
   # GET /exames
   # GET /exames.json
   def index
-    if params[:format]
-      @exames = Exame.animal(params[:format])
+    if params[:animal_id]
+      @exames = Exame.animal(params[:animal_id])
     else
       @exames = Exame.propriedade(current_usuario)
     end
@@ -28,7 +28,7 @@ class ExamesController < ApplicationController
   # POST /exames
   # POST /exames.json
   def create
-    @exame = Exame.new(exame_params) 
+    @exame = Exame.new(exame_params)
 
     respond_to do |format|
       if @exame.save
