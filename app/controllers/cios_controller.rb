@@ -4,7 +4,7 @@ class CiosController < ApplicationController
   # GET /cios
   # GET /cios.json
   def index
-    @cios = Cio.all
+    @cios = Cio.propriedade(current_usuario)
   end
 
   # GET /cios/1

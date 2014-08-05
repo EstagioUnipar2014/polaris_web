@@ -12,7 +12,7 @@
   <% end %>
  <div class="field">
     <%= f.label :animal %>
-    <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome )%>
+    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario), :id, :identificacaoNome )%>
   </div>
   <div class="field">
     <%= f.label :quantidade %>

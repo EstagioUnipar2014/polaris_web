@@ -12,16 +12,25 @@
   <% end %>
   <div class="field">
     <%= f.label :animal %>
-    <%= f.collection_select( :animal_id, Animal.all, :id, :identificacaoNome) %>
+    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario), :id, :identificacaoNome) %>
   </div>
-  <div class="field">
-    <%= f.label :data_cio %>
-    <%= f.date_select :data_cio %>
-  </div>
-  <div class="field">
-    <%= f.label :previsao_proximo %>
-    <%= f.date_select :previsao_proximo %>
-  </div>
+  <div id="sandbox-container">
+  	<%= f.label :data_cio %>
+    <%= f.text_field :data_cio %>
+  </div>  
+  <div id="sandbox-container">
+  	<%= f.label :previsao_proximo %>
+    <%= f.text_field :previsao_proximo %>
+  </div>   
+   <script>
+  	$('#sandbox-container input').datepicker({
+    	language: "pt-BR",
+    	format : 'yyyy/mm/dd',
+    	calendarWeeks: true,
+    	autoclose: true,
+    	todayHighlight: true
+	});
+  </script>
   <div class="actions">
     <%= f.submit 'Cadastrar' %>
   </div>

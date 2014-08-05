@@ -4,7 +4,7 @@ class AnimaisController < ApplicationController
   # GET /animais
   # GET /animais.json
   def index
-    @animais = Animal.all
+    @animais = Animal.propriedade(current_usuario)
   end
 
   # GET /animais/1
@@ -71,6 +71,6 @@ class AnimaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-      params.require(:animal).permit(:identificacao, :nome, :data_nascimento, :sexo, :ativo, :lactacao, :nascido_na_propriedade, :informacoes, :raca_id, :classificacao_id)
+      params.require(:animal).permit(:identificacao, :nome, :data_nascimento, :sexo, :ativo, :lactacao, :nascido_na_propriedade, :informacoes, :raca_id, :classificacao_id, :propriedade_id)
     end
 end

@@ -4,7 +4,7 @@ class OrdenhasController < ApplicationController
   # GET /ordenhas
   # GET /ordenhas.json
   def index
-    @ordenhas = Ordenha.all
+    @ordenhas = Ordenha.propriedade(current_usuario)
   end
 
   # GET /ordenhas/1

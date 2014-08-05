@@ -1,6 +1,7 @@
 class Animal < ActiveRecord::Base
   belongs_to :raca
   belongs_to :classificacao
+  belongs_to :propriedade
 
   has_many :pesagens, dependent: :destroy
   has_many :vacinas,  dependent: :destroy, :inverse_of => :animal
@@ -18,6 +19,8 @@ class Animal < ActiveRecord::Base
   validates :identificacao, :sexo, :raca_id, :classificacao_id, presence: true
   validates :identificacao, uniqueness: true
   validates_numericality_of :identificacao
+
+  scope :propriedade, ->(usuario) {where(:propriedade_id => usuario.propriedade_id)}
 
   def identificacaoNome
     identificacao+', '+nome

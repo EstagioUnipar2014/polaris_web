@@ -4,7 +4,11 @@ class PesagensController < ApplicationController
   # GET /pesagens
   # GET /pesagens.json
   def index
-    @pesagens = Pesagem.all
+    if params[:format]
+      @pesagens = Pesagem.animal(params[:format])
+    else  
+      @pesagens = Pesagem.propriedade(current_usuario)
+    end
   end
 
   # GET /pesagens/1

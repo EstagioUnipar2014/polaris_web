@@ -2,10 +2,6 @@ Rails.application.routes.draw do
 
   resources :dietas
 
-  get 'doencas_exame/pagina_1'
-
-  get 'doencas_exame/pagina_2'
-
   root :to => 'pages#index'
 
   match "/sobre", to: "pages#sobre", via: [:get]
@@ -32,8 +28,6 @@ Rails.application.routes.draw do
   resources :coberturas
 
   resources :cios
-
-  resources :dieta
 
   resources :ciclos
 

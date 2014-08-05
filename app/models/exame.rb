@@ -6,4 +6,8 @@ class Exame < ActiveRecord::Base
   validates :animal_id, :tipo_exame_id, presence: true
   
   scope :pendente, -> {where(efetuado: false)}
+  
+  scope :propriedade, ->(usuario) {Exame.joins(:animal).where("animais.propriedade_id = ?", usuario.propriedade_id)}
+  
+  scope :animal, ->(animal) {where(:animal_id => animal)}
 end

@@ -4,7 +4,7 @@ class CoberturasController < ApplicationController
   # GET /coberturas
   # GET /coberturas.json
   def index
-    @coberturas = Cobertura.all
+    @coberturas = Cobertura.propriedade(current_usuario)
   end
 
   # GET /coberturas/1

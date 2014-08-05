@@ -4,4 +4,6 @@ class Pesagem < ActiveRecord::Base
   validates :animal_id, :peso, presence: true
   
   scope :animal, ->(animal) {where(:animal_id => animal)}
+  
+  scope :propriedade, ->(usuario) {Pesagem.joins(:animal).where("animais.propriedade_id = ?", usuario.propriedade_id)}
 end

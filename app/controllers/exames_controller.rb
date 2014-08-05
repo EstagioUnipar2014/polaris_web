@@ -4,7 +4,11 @@ class ExamesController < ApplicationController
   # GET /exames
   # GET /exames.json
   def index
-    @exames = Exame.all
+    if params[:format]
+      @exames = Exame.animal(params[:format])
+    else
+      @exames = Exame.propriedade(current_usuario)
+    end
   end
 
   # GET /exames/1

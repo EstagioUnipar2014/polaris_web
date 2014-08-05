@@ -15,12 +15,28 @@
     <%= f.label :descricao %><br>
     <%= f.text_field :descricao %>
   </div>
-  <%= f.fields_for :ciclos do |c| %>
-    <div class="field">
-      <%= c.label :descricao %>
-      <%= c.text_field :descricao %>
-    </div>
-  <% end %>
+ 
+  <table border="1" id="tabela_ciclos">
+  	<thead>
+  		<th></th>
+  		<th>Ciclo</th>	
+  		<th>Alimento </th>
+  	</thead>
+  	<% Ciclo.all.each do |ciclo| %>
+  		<tr>
+  			<td><%= f.check_box(:ciclo_ids, { :multiple => true }, @dieta) %></td>
+  			<td><%= ciclo.descricao %></td>
+  			<td>
+  			<% ciclo.alimentos.each do |alimento|%>
+  				<% alimento.medidas.peso(ciclo).each do |peso| %>
+  					<p><%= alimento.descricao %>, <%= peso.quantidade %></p>
+  				<% end %>		
+  			<% end %>
+  			</td>			
+  		</tr>
+  	<% end %>	
+  </table>	
+ 
   <div class="actions">
     <%= f.submit %>
   </div>

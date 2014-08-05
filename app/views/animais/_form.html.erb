@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+	
+  <%= f.hidden_field :propriedade_id, :value => current_usuario.propriedade_id %>
+	
   <div class="foto-input field">
     <% if @animal.foto_principal %>
       <%# filepicker_image_tag @animal.foto_principal, w:400, h:400, fit:'clip' %>
