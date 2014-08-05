@@ -44,6 +44,7 @@ group :test do
 end
 gem 'autotest-rails', :group => [:development, :test]
 gem 'ZenTest'
+gem 'coveralls', require: false
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

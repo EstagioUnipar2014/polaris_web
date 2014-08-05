@@ -1,5 +1,7 @@
-Sistema de gerenciamento de propriedades leiteiras Polaris. [![Coverage Status](https://coveralls.io/repos/EstagioUnipar2014/polaris_web/badge.png)]
+Sistema de gerenciamento de propriedades leiteiras Polaris.
 =====
+![Build Status](https://travis-ci.org/EstagioUnipar2014/polaris_web.svg?branch=master)
+![Coverage Status](https://coveralls.io/repos/EstagioUnipar2014/polaris_web/badge.png)
 
 Este é um sistema para o gerenciamento de propriedades rurais, que focam na produção de leite.
 
