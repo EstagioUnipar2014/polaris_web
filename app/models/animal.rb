@@ -22,6 +22,8 @@ class Animal < ActiveRecord::Base
   validates :classificacao, presence: true
 
   scope :propriedade, ->(usuario) {where(:propriedade_id => usuario.propriedade_id)}
+  scope :macho, -> {where(:sexo => 'M')}
+  scope :ativo, -> {where(:ativo => true)}
 
   def identificacaoNome
     identificacao+', '+nome

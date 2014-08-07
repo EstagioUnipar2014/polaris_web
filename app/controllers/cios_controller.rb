@@ -15,6 +15,7 @@ class CiosController < ApplicationController
   # GET /cios/new
   def new
     @cio = Cio.new
+    @cio.build_cobertura
   end
 
   # GET /cios/1/edit
@@ -69,6 +70,6 @@ class CiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cio_params
-      params.require(:cio).permit(:data_cio, :previsao_proximo, :animal_id)
+      params.require(:cio).permit(:data_cio, :previsao_proximo, :animal_id, cobertura_attributes: [:animal_id, :data])
     end
 end

@@ -1,4 +1,4 @@
-<%= form_for(@cio) do |f| %>
+<%= nested_form_for(@cio) do |f| %>
   <% if @cio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cio.errors.count, "error") %> prohibited this cio from being saved:</h2>
@@ -12,8 +12,12 @@
   <% end %>
   <div class="field">
     <%= f.label :animal %>
-    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario), :id, :identificacaoNome) %>
+    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario).ativo, :id, :identificacaoNome) %>
   </div>
+  <%= f.fields_for :cobertura do |c| %>
+  	<%= c.label :cobertura %>
+  	<%= c.collection_select( :animal_id, Animal.propriedade(current_usuario).macho.ativo, :id, :identificacaoNome )%>
+  <% end %>	
   <div id="sandbox-container">
   	<%= f.label :data_cio %>
     <%= f.text_field :data_cio %>
