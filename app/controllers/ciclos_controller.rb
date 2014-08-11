@@ -15,6 +15,7 @@ class CiclosController < ApplicationController
   # GET /ciclos/new
   def new
     @ciclo = Ciclo.new
+    @ciclo.medidas.build()
   end
 
   # GET /ciclos/1/edit
@@ -69,6 +70,6 @@ class CiclosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ciclo_params
-      params.require(:ciclo).permit(:descricao)
+      params.require(:ciclo).permit(:descricao, medidas_attributes: [:id, :quantidade, alimentos_attributes: [:descricao] ])
     end
 end

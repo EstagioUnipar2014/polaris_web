@@ -35,8 +35,11 @@
   <p>
   <% if !@animal.cios.empty? %>
     <strong>Data de cio prevista:</strong>
-  <%= @animal.cios.last.data_cio%>
-<% end %>  	
+    <% cio = @animal.cios.last %>
+  	<%= cio.data_cio %></br>
+  	<Strong>Cobertura prevista:</strong>
+  	<%= cio.cobertura.animal.identificacaoNome %>
+  <% end %>  	
   </p>	
 
   <p id="peso">
@@ -71,37 +74,21 @@
   <strong>Informacoes:</strong>
   <%= @animal.informacoes %>
   </p>
-
-<div>
-  <% if !@animal.vacinas.pendente.empty? %>	
-	  <h3>Vacinas Pendentes</h3>	
-	  <% @animal.vacinas.pendente.each do |vacina| %>
-	  	<p><%= vacina.id %></p>
-	  <% end %>
-  <% end %>	  
-</div>
 	
 <div id="nova-vacina" style="display:none">
   <h3>Agendar vacina</h3> 	
   <%= render 'vacinas/form' %>
 </div>
-  <a id='nova-vacina-button'>Nova vacina</a><br>
-
-<div>
-  <% if !@animal.exames.pendente.empty? %>	
-	  <h3>Exames Pendentes</h3>	
-	  <% @animal.exames.pendente.each do |exame| %>
-	  	<p><%= exame.id %></p>
-	  <% end %>
-  <% end %>	  
-</div>
+  <a id='nova-vacina-button'>Nova vacina</a>  |
+  <%= link_to 'Historico de vacinas', vacinas_path(@animal.id)%></br>
 
 <div id="novo-exame" style="display:none">
   <h2>Agendar exame</h2> 	
   <%= render 'exames/form' %>
 </div>
 
-  <a id='novo-exame-button'>Novo exame</a><br>
+  <a id='novo-exame-button'>Novo exame</a>    |
+  <%= link_to 'Historico de exames', exames_path(@animal.id)%></br>
 
   <%= link_to 'Editar', edit_animal_path(@animal) %> |
   <%= link_to 'Voltar', animais_path %>
