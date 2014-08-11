@@ -54,7 +54,7 @@
   </div>	
   <div class="field">
     <%= f.label :sexo %>
-    <%= f.select :sexo, options_for_select(["F", "M"]), :class => 'genForm_dropBox' %>
+    <%= f.select :sexo, options_for_select(['F', 'M'], :selected => @animal.sexo)%>
   </div>
   <div class="field">
     <%= f.label :ativo %>

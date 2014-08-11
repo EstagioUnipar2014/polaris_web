@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Animal:</strong>
+  <%= @cio.animal.identificacaoNome %>
+</p>
+
+<p>
   <strong>Data cio:</strong>
   <%= @cio.data_cio %>
 </p>
@@ -10,10 +15,5 @@
   <%= @cio.previsao_proximo %>
 </p>
 
-<p>
-  <strong>Animal:</strong>
-  <%= @cio.animal %>
-</p>
-
-<%= link_to 'Edit', edit_cio_path(@cio) %> |
-<%= link_to 'Back', cios_path %>
+<%= link_to 'Editar', edit_cio_path(@cio) %> |
+<%= link_to 'Voltar', cios_path %>

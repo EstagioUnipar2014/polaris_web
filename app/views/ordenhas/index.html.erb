@@ -1,12 +1,12 @@
-<h1>Listing ordenhas</h1>
+<h1>Ordenhas</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Animal</th>
       <th>Data</th>
       <th>Periodo</th>
       <th>Quantidade</th>
-      <th>Animal</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,13 +14,13 @@
   <tbody>
     <% @ordenhas.each do |ordenha| %>
       <tr>
+      	<td><%= ordenha.animal.identificacaoNome %></td>
         <td><%= ordenha.data %></td>
         <td><%= ordenha.periodo %></td>
         <td><%= ordenha.quantidade %></td>
-        <td><%= ordenha.animal %></td>
-        <td><%= link_to 'Show', ordenha %></td>
-        <td><%= link_to 'Edit', edit_ordenha_path(ordenha) %></td>
-        <td><%= link_to 'Destroy', ordenha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Abrir', ordenha %></td>
+        <td><%= link_to 'Editar', edit_ordenha_path(ordenha) %></td>
+        <td><%= link_to 'Excluir', ordenha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

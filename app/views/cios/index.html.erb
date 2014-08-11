@@ -1,29 +1,29 @@
-<h1>Listing cios</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="page-title animais">Cios</span>
+    <%= link_to 'Novo cio', new_cio_path, class: 'novo-animal-link' %>
+    <table class="table table-condensed">
+  	  <thead>
+        <tr>
+          <th>Animal</th>
+      	  <th>Data cio</th>
+      	  <th>Previsao proximo</th>
+      	  <th colspan="3"></th>
+    	</tr>
+  	  </thead>
+  	  <tbody>
+    	<% @cios.each do |cio| %>
+      	  <tr>
+      	  	<td><%= cio.animal.identificacaoNome %></td>
+        	<td><%= cio.data_cio %></td>
+        	<td><%= cio.previsao_proximo %></td>
+        	<td><%= link_to 'Abrir', cio %></td>
+        	<td><%= link_to 'Editar', edit_cio_path(cio) %></td>
+        	<td><%= link_to 'Excluir', cio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      	  </tr>
+    	<% end %>
+  	  </tbody>
+	</table>
+  </div>
+</div>  	
 
-<table>
-  <thead>
-    <tr>
-      <th>Data cio</th>
-      <th>Previsao proximo</th>
-      <th>Animal</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cios.each do |cio| %>
-      <tr>
-        <td><%= cio.data_cio %></td>
-        <td><%= cio.previsao_proximo %></td>
-        <td><%= cio.animal %></td>
-        <td><%= link_to 'Show', cio %></td>
-        <td><%= link_to 'Edit', edit_cio_path(cio) %></td>
-        <td><%= link_to 'Destroy', cio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Cio', new_cio_path %>

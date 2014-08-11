@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :animal %>
-    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario), :id, :identificacaoNome ) %>
+    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario).macho.ativo, :id, :identificacaoNome ) %>
   </div>
    <div class="field">
     <%= f.label :cio_id %>
