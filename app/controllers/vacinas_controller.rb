@@ -4,11 +4,11 @@ class VacinasController < ApplicationController
   # GET /vacinas
   # GET /vacinas.json
   def index
-    if params[:format]
-      @vacinas = Vacina.animal(params[:format])
+    if params[:animal_id]
+      @vacinas = Vacina.animal(params[:animal_id])
     else
       @vacinas = Vacina.propriedade(current_usuario)
-    end  
+    end
   end
 
   # GET /vacinas/1

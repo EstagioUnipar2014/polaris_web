@@ -46,7 +46,7 @@
   <strong>Ultima pesagem:</strong>
   <% if !@animal.pesagens.empty? %> 
    	<%= @animal.pesagens.last.peso %> Kg<br>
-   	<%= link_to 'Historico de pesagens', pesagens_path(@animal.id) %>
+    <%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %>
   <% end %>
   <div id="nova-pesagem" style="display:none">
     <h2>Nova Pesagem</h2> 	
