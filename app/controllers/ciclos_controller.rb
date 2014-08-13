@@ -15,7 +15,8 @@ class CiclosController < ApplicationController
   # GET /ciclos/new
   def new
     @ciclo = Ciclo.new
-    @ciclo.medidas.build()
+    @ciclo.medidas.build
+    @ciclo.alimentos.build
   end
 
   # GET /ciclos/1/edit

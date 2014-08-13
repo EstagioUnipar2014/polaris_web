@@ -1,0 +1,7 @@
+<div class="field medida-partial">
+  <%= f.label :medida %><br>	
+  <%= f.text_field :quantidade %>
+  <%= f.collection_select :unidade, Unidades.all, :id, :abreviacao %>
+  <%= f.collection_select :alimento, Alimento.all, :id, :descricao %>
+  <%= f.link_to_remove "Remove"%>
+</div>
