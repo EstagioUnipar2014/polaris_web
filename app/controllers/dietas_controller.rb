@@ -15,6 +15,7 @@ class DietasController < ApplicationController
   # GET /dietas/new
   def new
     @dieta = Dieta.new
+    @dieta.ciclos.build
   end
 
   # GET /dietas/1/edit
@@ -69,6 +70,6 @@ class DietasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dieta_params
-      params.require(:dieta).permit(:descricao, ciclos_attributes: [:id, :descricao, :_detroy])
+      params.require(:dieta).permit(:descricao, ciclos_attributes: [:id, :descricao, :_detroy, medidas_attributes: [:quantidade, :alimento_id]])
     end
 end

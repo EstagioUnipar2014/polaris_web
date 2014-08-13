@@ -19,11 +19,8 @@
     <div class="field">
       <%= m.label :medida %><br>	
       <%= m.text_field :quantidade %>
+      <%= m.collection_select :alimento, Alimento.all, :id, :descricao %>
     </div>
-    <%= m.fields_for :alimentos do |a|%>
-      <%= a.label :alimento%><br>
-      <%= a.text_field :descricao %>
-    <% end %>
   <% end %>
   <div class="actions">
     <%= f.submit %>
