@@ -1,25 +1,27 @@
-<%= nested_form_for(@dieta) do |f| %>
-  <% if @dieta.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dieta.errors.count, "error") %> prohibited this dieta from being saved:</h2>
+<div class="panel panel-default">
+  <%= nested_form_for(@dieta) do |f| %>
+    <% if @dieta.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@dieta.errors.count, "error") %> prohibited this dieta from being saved:</h2>
 
-      <ul>
-      <% @dieta.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @dieta.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :descricao %><br>
+      <%= f.text_field :descricao %>
+    </div>
+    
+    <%= f.fields_for :ciclos %>
+    <p><%= f.link_to_add 'Add ciclo', :ciclos %></p>
+    
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_field :descricao %>
-  </div>
-  
-  <%= f.fields_for :ciclos %>
-  <p><%= f.link_to_add 'Add ciclo', :ciclos %></p>
- 	
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
