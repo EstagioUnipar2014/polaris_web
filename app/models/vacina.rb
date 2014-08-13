@@ -10,7 +10,7 @@ class Vacina < ActiveRecord::Base
 
   scope :pendente, -> { where(efetuada: false) }
   
-  scope :propriedade, ->(usuario) {Vacina.joins(:animal).where("animais.porpriedade_id = ?", usuario.propriedade_id)}
+  scope :propriedade, ->(usuario) {Vacina.joins(:animal).where("animais.propriedade_id = ?", usuario.propriedade_id)}
   
   scope :animal, ->(animal) {where(:animal_id => animal)}
 end

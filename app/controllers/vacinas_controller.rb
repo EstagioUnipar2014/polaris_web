@@ -38,6 +38,7 @@ class VacinasController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @vacina.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

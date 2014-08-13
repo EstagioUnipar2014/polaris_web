@@ -37,7 +37,8 @@ class PesagensController < ApplicationController
         format.js   {head :ok}
       else
         format.html { render :new }
-        format.json { render json: @pesagem.errors, status: :unprocessable_entity }
+        format.json { render json: @pesagem.errors.full_message, status: :unprocessable_entity }
+        format.js{}
       end
     end
   end

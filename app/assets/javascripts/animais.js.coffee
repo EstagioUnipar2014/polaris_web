@@ -15,15 +15,27 @@ $ ->
     $('#nova-vacina').hide()
     alert("Vacina agendada com sucesso")  
     
+  $('#new_vacina').bind "ajax:error", (event, data) ->
+    $('#nova-vacina').hide()  
+    alert("Deu merda")  
+    
   $('#new_exame').bind "ajax:success", (event, data) ->
     $('#novo-exame').hide()
     alert("Exame agendada com sucesso")
+    
+  $('#new_exame').bind "ajax:error", (event, data) ->
+    $('#novo-exame').hide()  
+    alert("Deu merda")  
     
   $('#new_pesagem').bind "ajax:success", (event, data) ->
     $('#nova-pesagem').hide()
     peso = $('#pesagem_peso').val()
     $('#peso').html("<strong>Ultima pesagem: </strong>"+peso+" Kg")
     alert("Nova pesagem cadastrada com sucesso ")  
+    
+  $('#new_pesagem').bind "ajax:error", (event, data) ->
+    $('#nova-pesagem').hide()  
+    alert("Deu merda")  
     
         
    
