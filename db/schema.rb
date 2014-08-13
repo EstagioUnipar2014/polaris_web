@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725231725) do
+ActiveRecord::Schema.define(version: 20140813005825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20140725231725) do
 
   add_index "animal_dieta", ["animal_id"], name: "index_animal_dieta_on_animal_id", using: :btree
   add_index "animal_dieta", ["dieta_id"], name: "index_animal_dieta_on_dieta_id", using: :btree
+
+  create_table "animal_doencas", force: true do |t|
+    t.integer  "animal_id"
+    t.integer  "doenca_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "animal_doencas", ["animal_id"], name: "index_animal_doencas_on_animal_id", using: :btree
+  add_index "animal_doencas", ["doenca_id"], name: "index_animal_doencas_on_doenca_id", using: :btree
 
   create_table "animals", force: true do |t|
     t.string   "identificacao"
@@ -193,10 +203,12 @@ ActiveRecord::Schema.define(version: 20140725231725) do
     t.integer  "ciclo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unidades_id"
   end
 
   add_index "medidas", ["alimento_id"], name: "index_medidas_on_alimento_id", using: :btree
   add_index "medidas", ["ciclo_id"], name: "index_medidas_on_ciclo_id", using: :btree
+  add_index "medidas", ["unidades_id"], name: "index_medidas_on_unidades_id", using: :btree
 
   create_table "ordenhas", force: true do |t|
     t.date     "data"
@@ -265,6 +277,14 @@ ActiveRecord::Schema.define(version: 20140725231725) do
     t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "unidades", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "abreviacao"
+    t.string   "tipo"
   end
 
   create_table "usuarios", force: true do |t|
