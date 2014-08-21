@@ -17,7 +17,7 @@ $ ->
     
   $('#new_vacina').bind "ajax:error", (event, data) ->
     $('#nova-vacina').hide()  
-    alert("Deu merda")  
+    alert("Erro")  
     
   $('#new_exame').bind "ajax:success", (event, data) ->
     $('#novo-exame').hide()
@@ -25,7 +25,7 @@ $ ->
     
   $('#new_exame').bind "ajax:error", (event, data) ->
     $('#novo-exame').hide()  
-    alert("Deu merda")  
+    alert("Erro")  
     
   $('#new_pesagem').bind "ajax:success", (event, data) ->
     $('#nova-pesagem').hide()
@@ -35,7 +35,7 @@ $ ->
     
   $('#new_pesagem').bind "ajax:error", (event, data) ->
     $('#nova-pesagem').hide()  
-    alert("Deu merda")  
+    alert("Erro")  
     
         
    
