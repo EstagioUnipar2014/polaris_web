@@ -17,6 +17,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'ciclo_dieta', 'ciclos_dietas'
   inflect.plural 'animal_dieta', 'animal_dieta'
   inflect.irregular 'animal_doenca', 'animais_doencas'
+  inflect.irregular 'notificacao', 'notificacoes'
 #   inflect.uncountable %w( fish sheep )
 end
 
