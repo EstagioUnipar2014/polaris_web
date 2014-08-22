@@ -1,9 +1,11 @@
 class Usuario < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  belongs_to :propriedade
+
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
-         
+
   def login=(login)
     @login = login
   end

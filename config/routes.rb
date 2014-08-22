@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  match '/notificacoes', to: "notificacoes#index", via: [:get, :post]
+
   resources :dietas
 
   root :to => 'pages#index'
