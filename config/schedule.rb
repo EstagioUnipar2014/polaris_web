@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every :day, :at => "22:29" do
+every :day, :at => "20:03" do
   runner "Notificacao.vacinas_pendentes_do_dia", :output => "/home/tafarel/cron.log"
   runner "Notificacao.vacinas_vencidas", :output => "/home/tafarel/cron.log"
 end

@@ -1,4 +1,9 @@
 class Notificacao < ActiveRecord::Base
+
+  belongs_to :propriedade
+
+  scope :da_propriedade, ->(propriedade_id) {where :propriedade_id => propriedade_id}
+
   def self.vacinas_pendentes_do_dia
     pendentes = Vacina.pendente.do_dia
     pendentes.each do |vacina|
