@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class='panel panel-default'>
   <h2>Dados do animal</h2>
-  
+
   <p>
   <strong>Identificacao:</strong>
   <%= @animal.identificacao %>
@@ -80,7 +80,7 @@
   <%= render 'vacinas/form' %>
 </div>
   <a id='nova-vacina-button'>Nova vacina</a>  |
-  <%= link_to 'Historico de vacinas', vacinas_path(@animal.id)%></br>
+  <%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
 
 <div id="novo-exame" style="display:none">
   <h2>Agendar exame</h2> 	
@@ -88,7 +88,7 @@
 </div>
 
   <a id='novo-exame-button'>Novo exame</a>    |
-  <%= link_to 'Historico de exames', exames_path(@animal.id)%></br>
+  <%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
 
   <%= link_to 'Editar', edit_animal_path(@animal) %> |
   <%= link_to 'Voltar', animais_path %>

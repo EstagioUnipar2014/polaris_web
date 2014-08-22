@@ -38,6 +38,7 @@ class ExamesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @exame.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
