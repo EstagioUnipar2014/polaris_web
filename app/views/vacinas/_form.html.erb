@@ -16,26 +16,27 @@
     </div>
   <% end %>
   <% if @animal %> 
-    <%= f.hidden_field :animal_id, :value => @animal.id %>
+    <%= f.hidden_field :animal , :value => @animal.id %>
   <% else %>
     <div class="field">
-      <%= f.label :animal_id %>
-      <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario), :id, :identificacaoNome ) %>
+      <%= f.label :animal %>
+      <%= f.collection_select( :animal , Animal.propriedade(current_usuario), :id, :identificacaoNome ) %>
     </div>
   <% end %>
   <div class="field">
     <%= f.label :tipo_vacina %>
-    <%= f.collection_select( :tipo_vacina_id, TipoVacina.all, :id, :descricao) %>
+    <%= f.collection_select( :tipo_vacina , TipoVacina.all, :id, :descricao) %>
     <%= link_to 'Novo tipo vacina', new_tipo_vacina_path %>
   </div>
    <div class="field">
     <%= f.label :medicamento %>
-    <%= f.collection_select( :medicamento_id, Medicamento.all, :id, :nomeTipo) %>
+    <%= f.collection_select( :medicamento , Medicamento.all, :id, :nomeTipo) %>
       <%= link_to 'Novo medicamento', new_medicamento_path %>
   </div>
    <div class="field">
     <%= f.label :dosagem %>
     <%= f.text_field :dosagem %>
+    <%= f.collection_select(:unidade, Unidades.all, :id, :abreviacao) %>
   </div>
   <div id="sandbox-container">
   	<%= f.label :data_vacina %>

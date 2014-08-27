@@ -11,9 +11,11 @@
     <tbody>
     <% @notificacoes.each do |notificacao| %>
       <tr>
-        <%= link_to notificacao.url do %>
-          <td><%= notificacao.mensagem %></td>
-        <% end %>
+      	<td>
+          <%= link_to (notificacao.url) do %>
+            <%= notificacao.mensagem %>
+          <% end %>
+        </td>	
       </tr>
     <% end %>
     </tbody>
