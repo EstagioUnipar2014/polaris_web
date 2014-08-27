@@ -12,4 +12,10 @@ class Exame < ActiveRecord::Base
   scope :propriedade, ->(usuario) {Exame.joins(:animal).where("animais.propriedade_id = ?", usuario.propriedade_id)}
   
   scope :animal, ->(animal) {where(:animal_id => animal)}
+  
+  scope :do_dia, -> {where(:data => Date.today)}
+  
+  scope :do_dia_anterior, -> {where(:data => Date.yesterday)}
+  
+  scope :vencidos, -> {where("data < ?", Date.today).pendente}
 end

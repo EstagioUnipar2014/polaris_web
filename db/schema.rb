@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821234657) do
+ActiveRecord::Schema.define(version: 20140825165600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,16 +64,6 @@ ActiveRecord::Schema.define(version: 20140821234657) do
 
   add_index "animal_dieta", ["animal_id"], name: "index_animal_dieta_on_animal_id", using: :btree
   add_index "animal_dieta", ["dieta_id"], name: "index_animal_dieta_on_dieta_id", using: :btree
-
-  create_table "animal_doencas", force: true do |t|
-    t.integer  "animal_id"
-    t.integer  "doenca_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "animal_doencas", ["animal_id"], name: "index_animal_doencas_on_animal_id", using: :btree
-  add_index "animal_doencas", ["doenca_id"], name: "index_animal_doencas_on_doenca_id", using: :btree
 
   create_table "animals", force: true do |t|
     t.string   "identificacao"
@@ -239,9 +229,11 @@ ActiveRecord::Schema.define(version: 20140821234657) do
     t.integer  "animal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unidade_id"
   end
 
   add_index "pesagens", ["animal_id"], name: "index_pesagens_on_animal_id", using: :btree
+  add_index "pesagens", ["unidade_id"], name: "index_pesagens_on_unidade_id", using: :btree
 
   create_table "propriedades", force: true do |t|
     t.string   "nome"
@@ -331,10 +323,12 @@ ActiveRecord::Schema.define(version: 20140821234657) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "medicamento_id"
+    t.integer  "unidade_id"
   end
 
   add_index "vacinas", ["animal_id"], name: "index_vacinas_on_animal_id", using: :btree
   add_index "vacinas", ["medicamento_id"], name: "index_vacinas_on_medicamento_id", using: :btree
   add_index "vacinas", ["tipo_vacina_id"], name: "index_vacinas_on_tipo_vacina_id", using: :btree
+  add_index "vacinas", ["unidade_id"], name: "index_vacinas_on_unidade_id", using: :btree
 
 end

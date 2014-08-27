@@ -12,7 +12,7 @@ class Notificacao < ActiveRecord::Base
       @notificacao.url = "/vacinas/#{vacina.id}"
       @notificacao.data = Date.today
       @notificacao.propriedade = vacina.animal.propriedade
-      @notificacao.save
+      @notificacao.save  
     end
   end
 
@@ -24,7 +24,30 @@ class Notificacao < ActiveRecord::Base
       @notificacao.url = "/vacinas/#{vacina.id}"
       @notificacao.data = Date.today
       @notificacao.propriedade = vacina.animal.propriedade
-      @notificacao.save
+      @notificacao.save  
     end
   end
+  
+  def self.exames_pendentes_do_dia
+    pendente = Exame.pendente.do_dia
+    pendente.each do |exame|
+      @notificacao = Notificacao.new 
+      @notificacao.url = "exames/#{exame.id}"
+      @notificacao.data = Date.today
+      @notificacao.propriedade = exame.animal.propriedade
+      @notificacao.save  
+    end
+  end
+  
+  def self.exames_vencidos
+    pendente = Exame.vencidos
+    pendente.each do |exame|
+      @notificacao = Notificacao.new 
+      @notificacao.url = "exames/#{exame.id}"
+      @notificacao.data = Date.today
+      @notificacao.propriedade = exame.animal.propriedade
+      @notificacao.save  
+    end
+  end
+  
 end
