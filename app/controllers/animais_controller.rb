@@ -13,6 +13,7 @@ class AnimaisController < ApplicationController
     @vacina = Vacina.new
     @exame = Exame.new
     @pesagem = Pesagem.new
+    @animal_dieta = AnimalDieta.new
   end
 
   # GET /animais/new

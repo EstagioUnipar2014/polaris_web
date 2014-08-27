@@ -83,12 +83,24 @@
     <%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
 
   <div id="novo-exame" class="panel" style="display:none">
-    <h2>Agendar exame</h2> 	
+    <h3>Agendar exame</h3> 	
     <%= render 'exames/form' %>
   </div>
 
     <a id='novo-exame-button'>Novo exame</a>    |
     <%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
+
+    <div id="vincular-dieta">
+      <h3>Vincular dieta</h3>
+      <p>
+      <strong>Dieta atual:</strong>
+      <%= @animal.animal_dieta.ativa.first.dieta.descricao %>
+      </p>
+      <%= form_for @animal_dieta do |f| %>
+        <%= f.collection_select :dieta_id, Dieta.all, :id, :descricao %>
+        <%= f.submit "Vincular" %>
+      <% end %>
+    </div>
 
     <%= link_to 'Editar', edit_animal_path(@animal) %> |
     <%= link_to 'Voltar', animais_path %>

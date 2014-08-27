@@ -13,12 +13,12 @@
     <% end %>
 
     <div class="field">
-      <%= f.label 'Descrição dieta' %><br>
+      <%= f.label 'Dieta do dia' %><br>
       <%= f.text_field :descricao %>
     </div>
     
     <%= f.fields_for :ciclos %>
-    <p><%= f.link_to_add 'Add ciclo', :ciclos %></p>
+    <p><%= f.link_to_add 'Adicionar período', :ciclos %></p>
     
     <div class="actions">
       <%= f.submit %>
