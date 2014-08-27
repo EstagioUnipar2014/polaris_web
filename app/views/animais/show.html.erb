@@ -1,95 +1,96 @@
 <p id="notice"><%= notice %></p>
 <div class='panel panel-default'>
-  <h2>Dados do animal</h2>
+  <h2 class='left'>Dados do animal</h2>
+  <div class="dados-animal">
+    <p>
+    <strong>Identificacao:</strong>
+    <%= @animal.identificacao %>
+    </p>
 
-  <p>
-  <strong>Identificacao:</strong>
-  <%= @animal.identificacao %>
-  </p>
+    <p>
+    <strong>Nome:</strong>
+    <%= @animal.nome %>
+    </p>
 
-  <p>
-  <strong>Nome:</strong>
-  <%= @animal.nome %>
-  </p>
+    <p>
+    <strong>Raça:</strong>
+    <%= @animal.raca.nome %>
+    </p>
 
-  <p>
-  <strong>Raça:</strong>
-  <%= @animal.raca.nome %>
-  </p>
+    <p>
+    <strong>Classificacao:</strong>
+    <%= @animal.classificacao.descricao %>
+    </p>
 
-  <p>
-  <strong>Classificacao:</strong>
-  <%= @animal.classificacao.descricao %>
-  </p>
+    <p>
+    <strong>Data nascimento:</strong>
+    <%= @animal.data_nascimento %>
+    </p>
 
-  <p>
-  <strong>Data nascimento:</strong>
-  <%= @animal.data_nascimento %>
-  </p>
+    <p>
+    <strong>Sexo:</strong>
+    <%= @animal.sexo %>
+    </p>
 
-  <p>
-  <strong>Sexo:</strong>
-  <%= @animal.sexo %>
-  </p>
+    <p>
+    <% if !@animal.cios.empty? %>
+      <strong>Data de cio prevista:</strong>
+      <% cio = @animal.cios.last %>
+      <%= cio.data_cio %></br>
+      <Strong>Cobertura prevista:</strong>
+      <%= cio.cobertura.animal.identificacaoNome %>
+    <% end %>  	
+    </p>	
 
-  <p>
-  <% if !@animal.cios.empty? %>
-    <strong>Data de cio prevista:</strong>
-    <% cio = @animal.cios.last %>
-  	<%= cio.data_cio %></br>
-  	<Strong>Cobertura prevista:</strong>
-  	<%= cio.cobertura.animal.identificacaoNome %>
-  <% end %>  	
-  </p>	
+    <p id="peso">
+    <strong>Ultima pesagem:</strong>
+    <% if !@animal.pesagens.empty? %> 
+      <%= @animal.pesagens.last.peso %> Kg<br>
+      <%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %>
+    <% end %>
+    <div id="nova-pesagem" class="panel" style="display:none">
+      <h2>Nova Pesagem</h2> 	
+      <%= render 'pesagens/form' %>
+    </div>
+    <a id='nova-pesagem-button'>Nova pesagem </a>
+    </p>
 
-  <p id="peso">
-  <strong>Ultima pesagem:</strong>
-  <% if !@animal.pesagens.empty? %> 
-   	<%= @animal.pesagens.last.peso %> Kg<br>
-    <%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %>
-  <% end %>
-  <div id="nova-pesagem" style="display:none">
-    <h2>Nova Pesagem</h2> 	
-    <%= render 'pesagens/form' %>
+    <p>
+    <strong>Ativo:</strong>
+    <%= @animal.ativo %>
+    </p>
+
+    <p>
+    <strong>Lactacao:</strong>
+    <%= @animal.lactacao %>
+    </p>
+
+    <p>
+    <strong>Nascido na propriedade:</strong>
+    <%= @animal.nascido_na_propriedade %>
+    </p>
+
+    <p>
+    <strong>Informacoes:</strong>
+    <%= @animal.informacoes %>
+    </p>
+    
+  <div id="nova-vacina" class="panel" style="display:none">
+    <h3>Agendar vacina</h3> 	
+    <%= render 'vacinas/form' %>
   </div>
-  <a id='nova-pesagem-button'>Nova pesagem </a>
-  </p>
+    <a id='nova-vacina-button'>Nova vacina</a>  |
+    <%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
 
-  <p>
-  <strong>Ativo:</strong>
-  <%= @animal.ativo %>
-  </p>
+  <div id="novo-exame" class="panel" style="display:none">
+    <h2>Agendar exame</h2> 	
+    <%= render 'exames/form' %>
+  </div>
 
-  <p>
-  <strong>Lactacao:</strong>
-  <%= @animal.lactacao %>
-  </p>
+    <a id='novo-exame-button'>Novo exame</a>    |
+    <%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
 
-  <p>
-  <strong>Nascido na propriedade:</strong>
-  <%= @animal.nascido_na_propriedade %>
-  </p>
-
-  <p>
-  <strong>Informacoes:</strong>
-  <%= @animal.informacoes %>
-  </p>
-	
-<div id="nova-vacina" style="display:none">
-  <h3>Agendar vacina</h3> 	
-  <%= render 'vacinas/form' %>
+    <%= link_to 'Editar', edit_animal_path(@animal) %> |
+    <%= link_to 'Voltar', animais_path %>
 </div>
-  <a id='nova-vacina-button'>Nova vacina</a>  |
-  <%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
-
-<div id="novo-exame" style="display:none">
-  <h2>Agendar exame</h2> 	
-  <%= render 'exames/form' %>
-</div>
-
-  <a id='novo-exame-button'>Novo exame</a>    |
-  <%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
-
-  <%= link_to 'Editar', edit_animal_path(@animal) %> |
-  <%= link_to 'Voltar', animais_path %>
 </div>
