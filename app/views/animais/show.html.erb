@@ -94,10 +94,18 @@
       <h3>Vincular dieta</h3>
       <p>
       <strong>Dieta atual:</strong>
-      <%= @animal.animal_dieta.ativa.first.dieta.descricao %>
+      <% dieta_atual = @animal.dietas.blank? %>
+      <% if !dieta_atual %>
+        <%= @animal.dietas.last.descricao %>
+      <% end %>
       </p>
-      <%= form_for @animal_dieta do |f| %>
-        <%= f.collection_select :dieta_id, Dieta.all, :id, :descricao %>
+      <%= form_for @animal do |f| %>
+        <%= f.fields_for :animal_dieta do |d| %>	
+	  <%if d.object.id.nil? %>
+	    <%= d.hidden_field :data_inicio, :value => Date.today %>
+            <%= d.collection_select :dieta_id, Dieta.all, :id, :descricao %>
+    	  <% end %>
+        <% end %>
         <%= f.submit "Vincular" %>
       <% end %>
     </div>

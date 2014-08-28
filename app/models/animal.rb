@@ -15,6 +15,7 @@ class Animal < ActiveRecord::Base
   has_many :dietas, :through => :animal_dieta
 
   accepts_nested_attributes_for :vacinas, :allow_destroy => true
+  accepts_nested_attributes_for :animal_dieta
 
   validates :identificacao, presence: true, uniqueness: true
   validates :sexo, presence: true
