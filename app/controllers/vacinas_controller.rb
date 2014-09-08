@@ -75,6 +75,6 @@ class VacinasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vacina_params
-      params.require(:vacina).permit(:data_vacina, :efetuada, :dosagem, :animal_id, :tipo_vacina_id, :medicamento_id)
+      params.require(:vacina).permit(:data_vacina, :unidade, :efetuada, :dosagem, :animal_id, :tipo_vacina_id, :medicamento_id)
     end
 end

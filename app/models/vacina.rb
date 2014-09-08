@@ -2,7 +2,7 @@ class Vacina < ActiveRecord::Base
   belongs_to :animal, :inverse_of => :vacinas
   belongs_to :tipo_vacina
   belongs_to :medicamento
-  belongs_to :unidade
+  belongs_to :unidades
 
   validates :animal,  presence: true
   validates :tipo_vacina, presence: true

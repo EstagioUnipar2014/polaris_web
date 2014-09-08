@@ -4,6 +4,16 @@
   <strong>Descricao:</strong>
   <%= @dieta.descricao %>
 </p>
-
-<%= link_to 'Edit', edit_dieta_path(@dieta) %> |
-<%= link_to 'Back', dietas_path %>
+<% @dieta.ciclos.each do |ciclo| %>
+  <Strong>Periodo:</strong>
+  <%= ciclo.descricao %></br>
+  <% ciclo.alimentos.each do |alimento| %>
+    <%= alimento.descricao %>
+    <% alimento.medidas.each do |medida| %>
+      <%= medida.unidade.nome %>
+      <%= meidade.quantidade %>
+    <% end %>	
+  <% end %>
+<% end %>
+<%= link_to 'Editar', edit_dieta_path(@dieta) %> 
+<%= link_to 'Voltar', dietas_path %>
