@@ -22,16 +22,13 @@
     <%# f.filepicker_field :foto_principal %>
   </div>
   <div class="field">
-    <%= f.label :identificacao %>
-    <%= f.text_field :identificacao, class: 'input' %>
+    <%= f.text_field :identificacao, class: 'form-control animal-input', placeholder: "Identificação" %>
   </div>
   <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome, class: 'input' %>
+    <%= f.text_field :nome, class: 'form-control animal-input', placeholder: "Nome" %>
   </div>
   <div id="sandbox-container">
-  	<%= f.label :data_nascimento%>
-    <%= f.text_field :data_nascimento, class: 'input' %>
+    <%= f.text_field :data_nascimento, class: 'form-control animal-input', placeholder: "Data de nascimento" %>
   </div>   
    <script>
   	$('#sandbox-container input').datepicker({
@@ -44,17 +41,17 @@
   </script>
   <div class="field">
   	 <%= f.label :raca %>
-     <%= f.collection_select( :raca_id, Raca.all, :id, :nome ) %>
+     <%= f.collection_select( :raca_id, Raca.all, :id, :nome, {}, {class: "form-control animal-input"}) %>
      <%= link_to 'Nova raça', new_raca_path %>
   </div>	
   <div class="field">
   	 <%= f.label :classificacao %>
-     <%= f.collection_select( :classificacao_id, Classificacao.all, :id, :descricao ) %>
+     <%= f.collection_select( :classificacao_id, Classificacao.all, :id, :descricao, {}, {class: "form-control animal-input"}) %>
      <%= link_to 'Nova classificação', new_classificacao_path %>
   </div>	
   <div class="field">
     <%= f.label :sexo %>
-    <%= f.select :sexo, options_for_select(['F', 'M'], :selected => @animal.sexo)%>
+    <%= f.select :sexo, options_for_select(['Feminino', 'Masculino'], :selected => @animal.sexo), {}, {class: "form-control animal-input"}%>
   </div>
   <div class="field">
     <%= f.label :ativo %>
@@ -69,10 +66,9 @@
     <%= f.check_box :nascido_na_propriedade %>
   </div>
   <div class="field">
-    <%= f.label :informacoes %>
-    <%= f.text_area :informacoes, :size => "25x4" %>
+    <%= f.text_area :informacoes, :size => "25x4", class:'form-control', placeholder: "Informações" %>
   </div>
   <div class="actions">
-    <%= f.submit 'Cadastrar'%>
+    <%= f.submit 'Cadastrar', class: "btn btn-md btn-primary" %>
   </div>
 <% end %>	
