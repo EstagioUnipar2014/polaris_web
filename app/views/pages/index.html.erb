@@ -1,2 +1,16 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<div class="row">
+  <div class="col-md-3">
+    <h3>Feed de notícias</h3>
+    <div class='feed-noticias'>
+      <%= render partial: "layouts/feed" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+  </div>
+  <div class="col-md-3">
+    <h3>Meteorologia</h3>
+    <div class='previsao-tempo'>
+      <%= render partial: "layouts/previsao" %>
+    </div>
+  </div>
+</div>

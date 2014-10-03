@@ -8,8 +8,7 @@
 </head>
 <body>
 <%# filepicker_js_include_tag %>
-<%# if usuario_signed_in? %>
- <% if true %>
+<% if usuario_signed_in? %>
   <%= render 'layouts/header_logged' %>
 <% else %>
   <%= render 'layouts/header_unlogged' %>
