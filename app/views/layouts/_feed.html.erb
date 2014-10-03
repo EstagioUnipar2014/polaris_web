@@ -1,0 +1,8 @@
+<% @feed.entries.each do |noticia| %>
+  <div class="well">
+    <%= link_to noticia.url, target: "blank" do %>
+    <p><b><%= noticia.title %></b></p>
+    <p><%= noticia.summary %></p>
+    <% end %>
+  </div>
+<% end %>
