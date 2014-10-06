@@ -7,9 +7,9 @@ class AnimaisController < ApplicationController
     @animais = Animal.propriedade(current_usuario)
 
     respond_to do |format|
- 	format.html
-	format.pdf {render pdf: "animais"
-	} 
+ 	    format.html
+	    format.pdf {render pdf: "animais"
+	                } 
     end	
   end
 

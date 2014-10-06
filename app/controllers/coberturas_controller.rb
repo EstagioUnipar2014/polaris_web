@@ -5,6 +5,12 @@ class CoberturasController < ApplicationController
   # GET /coberturas.json
   def index
     @coberturas = Cobertura.propriedade(current_usuario)
+    
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "animais"
+                  } 
+    end 
   end
 
   # GET /coberturas/1

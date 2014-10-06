@@ -5,6 +5,12 @@ class CiosController < ApplicationController
   # GET /cios.json
   def index
     @cios = Cio.propriedade(current_usuario)
+    
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "animais"
+                  } 
+    end 
   end
 
   # GET /cios/1

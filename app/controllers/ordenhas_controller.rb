@@ -5,6 +5,12 @@ class OrdenhasController < ApplicationController
   # GET /ordenhas.json
   def index
     @ordenhas = Ordenha.propriedade(current_usuario)
+    
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "animais"
+                  } 
+    end 
   end
 
   # GET /ordenhas/1
