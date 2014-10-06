@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     if usuario_signed_in?
       @feed = Feedjira::Feed.fetch_and_parse('http://www.ruralbr.com.br/ultimas-noticias-rss/')
       @previsao = Feedjira::Feed.fetch_and_parse('http://www.climatempo.com.br/rss/regioes.xml')
-      byebug
+      
       render 'index'
     else
       render 'index_unlogged'

@@ -33,6 +33,7 @@ class Notificacao < ActiveRecord::Base
     pendente.each do |exame|
       @notificacao = Notificacao.new 
       @notificacao.url = "exames/#{exame.id}"
+      @notificacao.mensagem = "O animal #{exame.animal.identificaNome}, possui um exame marcado"
       @notificacao.data = Date.today
       @notificacao.propriedade = exame.animal.propriedade
       @notificacao.save  
