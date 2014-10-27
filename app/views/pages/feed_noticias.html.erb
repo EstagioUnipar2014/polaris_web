@@ -1,4 +1,4 @@
-<% @feed.entries.each do |noticia| %>
+<% @feed.entries.each do |noticia| rescue {} %>
   <div class="well">
     <%= link_to noticia.url, target: "blank" do %>
     <p><b><%= noticia.title %></b></p>
