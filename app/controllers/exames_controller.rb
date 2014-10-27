@@ -9,6 +9,12 @@ class ExamesController < ApplicationController
     else
       @exames = Exame.propriedade(current_usuario)
     end
+    
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "animais"
+                  } 
+    end 
   end
 
   # GET /exames/1

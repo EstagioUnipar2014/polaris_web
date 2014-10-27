@@ -9,6 +9,12 @@ class VacinasController < ApplicationController
     else
       @vacinas = Vacina.propriedade(current_usuario)
     end
+    
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "animais"
+                  } 
+    end 
   end
 
   # GET /vacinas/1

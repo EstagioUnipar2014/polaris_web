@@ -9,6 +9,12 @@ class PesagensController < ApplicationController
     else
       @pesagens = Pesagem.propriedade(current_usuario)
     end
+    
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "animais"
+                  } 
+    end 
   end
 
   # GET /pesagens/1
