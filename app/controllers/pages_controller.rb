@@ -16,4 +16,7 @@ class PagesController < ApplicationController
 
   def contato
   end
+
+  def feed_noticias
+  end
 end

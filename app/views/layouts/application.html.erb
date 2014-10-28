@@ -8,17 +8,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%# filepicker_js_include_tag %>
-<% if usuario_signed_in? %>
-  <%= render 'layouts/header_logged' %>
-<% else %>
-  <%= render 'layouts/header_unlogged' %>
-<% end %>
-<main>
-  <%= yield %>
-</main>
-<footer>
-  <%= render 'layouts/footer' %>
-</footer>
+  <%# filepicker_js_include_tag %>
+  <header>
+    <% if usuario_signed_in? %>
+      <%= render 'layouts/header_logged' %>
+    <% else %>
+      <%= render 'layouts/header_unlogged' %>
+    <% end %>
+  </header>
+  <main class="container">
+    <%= yield %>
+  </main>
+  <footer>
+    <%= render 'layouts/footer' %>
+  </footer>
 </body>
 </html>
