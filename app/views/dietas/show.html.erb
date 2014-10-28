@@ -7,12 +7,12 @@
 <% @dieta.ciclos.each do |ciclo| %>
   <Strong>Periodo:</strong>
   <%= ciclo.descricao %></br>
-  <% ciclo.alimentos.each do |alimento| %>
-    <%= alimento.descricao %>
-    <% alimento.medidas.each do |medida| %>
-      <%= medida.unidade.nome %>
-      <%= meidade.quantidade %>
-    <% end %>	
+  <% ciclo.medidas.peso(ciclo).each do |medida| %>
+  	<span>Alimento: </span>
+    <%= medida.alimento.descricao %>
+    <%= medida.quantidade %>
+    <%= medida.unidade.abreviacao %>
+    <br>
   <% end %>
 <% end %>
 <%= link_to 'Editar', edit_dieta_path(@dieta) %> 

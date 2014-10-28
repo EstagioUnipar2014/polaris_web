@@ -12,10 +12,7 @@ class AnimaisController < ApplicationController
 
     respond_to do |format|
  	    format.html
-	    format.pdf {render pdf: "Animais",
-	                  :header => {:html => { :template => 'layouts/_header.pdf.erb'}},
-	                    :margin => {:top => 30, :bottom => 20, :left => 30, :right => 20}
-	                } 
+	    format.pdf {render pdf: "Animais"} 
     end	
   end
 

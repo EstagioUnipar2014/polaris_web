@@ -23,9 +23,9 @@ gem 'feedjira'
 
 gem 'byebug'
 
-gem 'wkhtmltopdf-binary'
-
 gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
