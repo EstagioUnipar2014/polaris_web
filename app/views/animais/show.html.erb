@@ -79,6 +79,7 @@
     <h3>Agendar vacina</h3> 	
     <%= render 'vacinas/form' %>
   </div>
+  
     <a id='nova-vacina-button'>Nova vacina</a>  |
     <%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
 
@@ -89,7 +90,14 @@
 
     <a id='novo-exame-button'>Novo exame</a>    |
     <%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
-
+	
+	<div>
+		<h3>Doenças</h3>
+		<p>
+			<%= link_to 'Doenças animal', "/animal/#{@animal.id}/doencas" %>	
+		</p>
+	</div>	
+	
     <div id="vincular-dieta">
       <h3>Vincular dieta</h3>
       <p>

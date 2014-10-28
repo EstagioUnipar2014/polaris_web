@@ -1,6 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <span class="page-title animais">Exames</span>
+    <%= link_to 'Relatorio', exames_path(:format => 'pdf') %>
     <%= link_to 'Novo exame', new_exame_path, class: 'novo-animal-link' %>
     <table class="table table-condensed">
       <thead>

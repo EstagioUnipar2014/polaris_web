@@ -8,7 +8,9 @@ class CiosController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.pdf {render pdf: "animais"
+      format.pdf {render pdf: "animais",
+                    :header => {:html => { :template => 'layouts/_header.pdf.erb'}},
+                      :margin => {:top => 30, :bottom => 20, :left => 30, :right => 20}
                   } 
     end 
   end

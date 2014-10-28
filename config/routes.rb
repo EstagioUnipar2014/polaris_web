@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   match "/sobre", to: "pages#sobre", via: [:get]
 
   match "/contato", to: "pages#contato", via: [:get]
-
+  
   devise_for :usuarios
+  
   resources :proprietarios
 
   resources :exames
@@ -48,6 +49,8 @@ Rails.application.routes.draw do
   resources :classificacoes
 
   resources :animais
+
+  match 'animais/:animal_id/doencas', to: 'animais#animal_doencas', via: [:get, :post]  
 
   match 'animal/:animal_id/pesagens', to: 'pesagens#index', via: [:get, :post]
 

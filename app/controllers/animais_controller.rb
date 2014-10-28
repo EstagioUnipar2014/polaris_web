@@ -1,6 +1,10 @@
 class AnimaisController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
+  def animal_doencas
+    @doencas = Animal.find(params[:animal_id]).doencas
+  end
+  
   # GET /animais
   # GET /animais.json
   def index
@@ -8,7 +12,9 @@ class AnimaisController < ApplicationController
 
     respond_to do |format|
  	    format.html
-	    format.pdf {render pdf: "animais"
+	    format.pdf {render pdf: "Animais",
+	                  :header => {:html => { :template => 'layouts/_header.pdf.erb'}},
+	                    :margin => {:top => 30, :bottom => 20, :left => 30, :right => 20}
 	                } 
     end	
   end

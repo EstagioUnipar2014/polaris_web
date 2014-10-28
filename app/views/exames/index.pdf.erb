@@ -1,0 +1,27 @@
+ <table>
+   <thead>
+     <tr>
+       <th>Animal</th>
+       <th>Descricao</th>
+       <th>Tipo exame</th>
+       <th>Data</th>
+       <th>Efetuado</th>
+       <th>Resultado</th>
+       <th>Informacoes</th>
+     </tr>
+  	 </thead>
+
+  	 <tbody>
+      <% @exames.each do |exame| %>
+      	<tr>
+      	  <td><%= exame.animal.identificacaoNome%></td>
+      	  <td><%= exame.descricao %></td>
+      	  <td><%= exame.tipo_exame.descricao %></td>
+          <td><%= exame.data %></td>
+          <td><%= exame.efetuado %></td>
+          <td><%= exame.resultado %></td>
+          <td><%= exame.informacoes %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

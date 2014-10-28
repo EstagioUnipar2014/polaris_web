@@ -10,7 +10,8 @@ class Animal < ActiveRecord::Base
   has_many :cios,     dependent: :destroy
   has_many :coberturas, dependent: :destroy
 
-  has_and_belongs_to_many :doencas
+  has_many :animal_doencas
+  has_many :doencas, :through => :animal_doencas
   has_many :animal_dieta
   has_many :dietas, :through => :animal_dieta
 

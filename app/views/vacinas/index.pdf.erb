@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+   	  <th>Animal</th>	
+   	  <th>Tipo vacina</th>
+   	  <th>Dosagem</th>
+      <th>Data vacina</th>
+      <th>Efetuada</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vacinas.each do |vacina| %>
+      <tr>
+        <td><%= vacina.animal.identificacaoNome %></td>
+      	<td><%= vacina.tipo_vacina.descricao %></td>
+      	<td><%= vacina.dosagem %></td>
+        <td><%= vacina.data_vacina %></td>
+        <td><%= vacina.efetuada %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

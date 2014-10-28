@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="page-title animais">Doenças Animal</span>
+    <table class="table table-condensed">
+      <thead>
+       <tr>
+        <th>Nome</th>
+       </tr>
+      </thead>
+
+  <tbody>
+    <% @doencas.each do |doenca| %>
+      <tr>
+        <td><%= doenca.nome %></td>
+      </tr>
+   <% end %>
+    </tbody>
+	</table>
+  </div>
+</div>  	
+
+
