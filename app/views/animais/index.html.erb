@@ -14,7 +14,7 @@
           <th>Sexo</th>
           <th>Ativo</th>
           <th>Lactação</th>
-          <th>Nasc. na Propriedade</th>
+          <th>Nasc. na Prop.</th>
           <th>Informaçẽos</th>
           <th colspan="3"></th>
         </tr>
@@ -29,21 +29,9 @@
         <td><%= animal.classificacao.descricao %></td>
         <td><%= animal.data_nascimento %></td>
         <td><%= animal.sexo %></td>
-        <% if  animal.ativo %>
-          <td><%= image_tag "icon-true.png"%></td>
-        <% else %>
-          <td><%= image_tag "icon-false.png"%></td>
-        <% end %>
-        <% if  animal.lactacao %>
-          <td><%= image_tag "icon-true.png"%></td>
-        <% else %>
-          <td><%= image_tag "icon-false.png"%></td>
-        <% end %>
-        <% if  animal.nascido_na_propriedade %>
-          <td><%= image_tag "icon-true.png"%></td>
-        <% else %>
-          <td><%= image_tag "icon-false.png"%></td>
-        <% end %>
+        <td><%= t_f(animal.ativo) %></td>
+        <td><%= t_f(animal.lactacao) %>
+        <td><%= t_f(animal.nascido_na_propriedade) %>
         <td><%= animal.informacoes %></td>
         <td><%= link_to 'abrir', animal %></td>
         <td><%= link_to 'editar', edit_animal_path(animal) %></td>
