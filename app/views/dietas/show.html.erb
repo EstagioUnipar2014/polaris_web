@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @dieta.descricao %>
+<p id="notice">
+	<%= notice %>
 </p>
-<% @dieta.ciclos.each do |ciclo| %>
-  <Strong>Periodo:</strong>
-  <%= ciclo.descricao %></br>
-  <% ciclo.medidas.peso(ciclo).each do |medida| %>
-  	<span>Alimento: </span>
-    <%= medida.alimento.descricao %>
-    <%= medida.quantidade %>
-    <%= medida.unidade.abreviacao %>
-    <br>
-  <% end %>
-<% end %>
-<%= link_to 'Editar', edit_dieta_path(@dieta) %> 
-<%= link_to 'Voltar', dietas_path %>
+<div class='panel panel-default'>
+	<h2 class='left'>Dieta</h2>
+	<div class="dados-animal">
+		<p>
+			<strong>Dieta:</strong>
+			<%= @dieta.descricao %>
+		</p>
+		<% @dieta.ciclos.each do |ciclo| %>
+		<Strong>Periodo:</strong>
+		<%= ciclo.descricao %></br>
+		<% ciclo.medidas.peso(ciclo).each do |medida| %>
+		<span>Alimento: </span>
+		<%= medida.alimento.descricao %>
+		<%= medida.quantidade %>
+		<br>
+		<% end %>
+		<% end %>
+		<%= link_to 'Editar', edit_dieta_path(@dieta) %>
+		<%= link_to 'Voltar', dietas_path %>
+	</div>
+</div>

@@ -24,7 +24,7 @@
       	  <td><%= exame.descricao %></td>
       	  <td><%= exame.tipo_exame.descricao %></td>
           <td><%= exame.data %></td>
-          <td><%= exame.efetuado %></td>
+          <td><%= t exame.efetuado.class %></td>
           <td><%= exame.resultado %></td>
           <td><%= exame.informacoes %></td>
           <td><%= link_to 'Abrir', exame %></td>

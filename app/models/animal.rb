@@ -4,7 +4,7 @@ class Animal < ActiveRecord::Base
   belongs_to :propriedade
 
   has_many :pesagens, dependent: :destroy
-  has_many :vacinas,  dependent: :destroy, :inverse_of => :animal
+  has_many :vacinas,  dependent: :destroy
   has_many :exames,   dependent: :destroy
   has_many :ordenhas, dependent: :destroy
   has_many :cios,     dependent: :destroy

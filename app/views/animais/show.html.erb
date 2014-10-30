@@ -1,125 +1,128 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+	<%= notice %>
+</p>
 <div class='panel panel-default'>
-  <h2 class='left'>Dados do animal</h2>
-  <div class="dados-animal">
-    <p>
-    <strong>Identificacao:</strong>
-    <%= @animal.identificacao %>
-    </p>
-
-    <p>
-    <strong>Nome:</strong>
-    <%= @animal.nome %>
-    </p>
-
-    <p>
-    <strong>Raça:</strong>
-    <%= @animal.raca.nome %>
-    </p>
-
-    <p>
-    <strong>Classificacao:</strong>
-    <%= @animal.classificacao.descricao %>
-    </p>
-
-    <p>
-    <strong>Data nascimento:</strong>
-    <%= @animal.data_nascimento %>
-    </p>
-
-    <p>
-    <strong>Sexo:</strong>
-    <%= @animal.sexo %>
-    </p>
-
-    <p>
-    <% if !@animal.cios.empty? %>
-      <strong>Data de cio prevista:</strong>
-      <% cio = @animal.cios.last %>
-      <%= cio.data_cio %></br>
-      <Strong>Cobertura prevista:</strong>
-      <%= cio.cobertura.animal.identificacaoNome %>
-    <% end %>  	
-    </p>	
-
-    <p id="peso">
-    <strong>Ultima pesagem:</strong>
-    <% if !@animal.pesagens.empty? %> 
-      <%= @animal.pesagens.last.peso %> Kg<br>
-      <%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %>
-    <% end %>
-    <div id="nova-pesagem" class="panel" style="display:none">
-      <h2>Nova Pesagem</h2> 	
-      <%= render 'pesagens/form' %>
-    </div>
-    <a id='nova-pesagem-button'>Nova pesagem </a>
-    </p>
-
-    <p>
-    <strong>Ativo:</strong>
-    <%= @animal.ativo %>
-    </p>
-
-    <p>
-    <strong>Lactacao:</strong>
-    <%= @animal.lactacao %>
-    </p>
-
-    <p>
-    <strong>Nascido na propriedade:</strong>
-    <%= @animal.nascido_na_propriedade %>
-    </p>
-
-    <p>
-    <strong>Informacoes:</strong>
-    <%= @animal.informacoes %>
-    </p>
-    
-  <div id="nova-vacina" class="panel" style="display:none">
-    <h3>Agendar vacina</h3> 	
-    <%= render 'vacinas/form' %>
-  </div>
-  
-    <a id='nova-vacina-button'>Nova vacina</a>  |
-    <%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
-
-  <div id="novo-exame" class="panel" style="display:none">
-    <h3>Agendar exame</h3> 	
-    <%= render 'exames/form' %>
-  </div>
-
-    <a id='novo-exame-button'>Novo exame</a>    |
-    <%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
-	
-	<div>
-		<h3>Doenças</h3>
+	<h2 class='left'>Dados do animal</h2>
+	<div class="dados-animal">
 		<p>
-			<%= link_to 'Doenças animal', "/animal/#{@animal.id}/doencas" %>	
+			<strong>Identificacao:</strong>
+			<%= @animal.identificacao %>
 		</p>
-	</div>	
-	
-    <div id="vincular-dieta">
-      <h3>Vincular dieta</h3>
-      <p>
-      <strong>Dieta atual:</strong>
-      <% if !@animal.dietas.blank? %>
-        <%= @animal.dietas.ativa.last.descricao %>
-      <% end %>
-      </p>
-      <%= form_for @animal do |f| %>
-        <%= f.fields_for :animal_dieta do |d| %>	
-	  <%if d.object.id.nil? %>
-	    <%= d.hidden_field :data_inicio, :value => Date.today %>
-            <%= d.collection_select :dieta_id, Dieta.all, :id, :descricao %>
-	  <%elsif d.object.data_fim.nil? %>
-	    <%= d.hidden_field :data_fim, :value => Date.today %>
-    	  <% end %>
-        <% end %>
-        <%= f.submit "Vincular" %>
-      <% end %>
-    </div>
 
-    <%= link_to 'Editar', edit_animal_path(@animal) %> |
-    <%= link_to 'Voltar', animais_path %>
-</div>
+		<p>
+			<strong>Nome:</strong>
+			<%= @animal.nome %>
+		</p>
+
+		<p>
+			<strong>Raça:</strong>
+			<%= @animal.raca.nome %>
+		</p>
+
+		<p>
+			<strong>Classificacao:</strong>
+			<%= @animal.classificacao.descricao %>
+		</p>
+
+		<p>
+			<strong>Data nascimento:</strong>
+			<%= @animal.data_nascimento %>
+		</p>
+
+		<p>
+			<strong>Sexo:</strong>
+			<%= @animal.sexo %>
+		</p>
+
+		<p>
+			<% if !@animal.cios.empty? %>
+			<strong>Data de cio prevista:</strong>
+			<% cio = @animal.cios.last %>
+			<%= cio.data_cio %></br>
+			<Strong>Cobertura prevista:</strong>
+			<%= cio.cobertura.animal.identificacaoNome %>
+			<% end %>
+		</p>
+
+		<p id="peso">
+			<strong>Ultima pesagem:</strong>
+			<% if !@animal.pesagens.empty? %>
+			<%= @animal.pesagens.last.peso %> Kg
+			<br>
+			<%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %>
+			<% end %>
+			<div id="nova-pesagem" class="panel" style="display:none">
+				<h2>Nova Pesagem</h2>
+				<%= render 'pesagens/form' %>
+			</div>
+			<a id='nova-pesagem-button'>Nova pesagem </a>
+		</p>
+
+		<p>
+			<strong>Ativo:</strong>
+			<%= @animal.ativo %>
+		</p>
+
+		<p>
+			<strong>Lactacao:</strong>
+			<%= @animal.lactacao %>
+		</p>
+
+		<p>
+			<strong>Nascido na propriedade:</strong>
+			<%= @animal.nascido_na_propriedade %>
+		</p>
+
+		<p>
+			<strong>Informacoes:</strong>
+			<%= @animal.informacoes %>
+		</p>
+
+		<div id="nova-vacina" class="panel" style="display:none">
+			<h3>Agendar vacina</h3>
+			<%= render 'vacinas/form' %>
+		</div>
+
+		<a id='nova-vacina-button'>Nova vacina</a>  |
+		<%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
+
+		<div id="novo-exame" class="panel" style="display:none">
+			<h3>Agendar exame</h3>
+			<%= render 'exames/form' %>
+		</div>
+
+		<a id='novo-exame-button'>Novo exame</a>    |
+		<%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
+
+		<div>
+			<h3>Doenças</h3>
+			<p>
+				<%= link_to 'Doenças animal', "/animal/#{@animal.id}/doencas" %>
+			</p>
+		</div>
+
+		<div id="vincular-dieta">
+			<h3>Vincular dieta</h3>
+			<p>
+				<strong>Dieta atual:</strong>
+				<% if !@animal.dietas.blank? %>
+				<%= @animal.dietas.ativa.last.descricao %>
+				<% end %>
+			</p>
+			<%= form_for @animal do |f| %>
+			<%= f.fields_for :animal_dieta do |d| %>
+			<%if d.object.id.nil? %>
+			<%= d.hidden_field :data_inicio, :value => Date.today %>
+			<%= d.collection_select :dieta_id, Dieta.all, :id, :descricao %>
+			<%elsif d.object.data_fim.nil? %>
+			<%= d.hidden_field :data_fim, :value => Date.today %>
+			<% end %>
+			<% end %>
+			<%= f.submit "Vincular" %>
+			<% end %>
+		</div>
+
+		<%= link_to 'Editar', edit_animal_path(@animal) %> |
+		<%= link_to 'Voltar', animais_path %>
+	</div>
 </div>

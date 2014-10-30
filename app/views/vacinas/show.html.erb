@@ -1,42 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Animal:</strong>
-  <%= @vacina.animal.identificacao %>
-  <%= @vacina.animal.nome %>
+<p id="notice">
+	<%= notice %>
 </p>
+<div class='panel panel-default'>
+	<h2 class='left'>Vacina</h2>
+	<div class="dados-animal">
 
-<p>
-  <strong>Tipo vacina:</strong>
-  <%= @vacina.tipo_vacina.descricao %>
-</p>
+		<p>
+			<strong>Animal:</strong>
+			<%= @vacina.animal.identificacao %>
+			<%= @vacina.animal.nome %>
+		</p>
 
-<p>
-  <strong>Medicamento:</strong>
-  <%= @vacina.medicamento.nome %>
-</p>
+		<p>
+			<strong>Tipo vacina:</strong>
+			<%= @vacina.tipo_vacina.descricao %>
+		</p>
 
-<p>
-  <strong>Tipo medicamento:</strong>
-  <%= @vacina.medicamento.tipo_medicamento.descricao %>
-</p>
+		<p>
+			<strong>Medicamento:</strong>
+			<%= @vacina.medicamento.nome %>
+		</p>
 
-<p>
-  <strong>Dosagem:</strong>
-  <%= @vacina.dosagem %>
-</p>
+		<p>
+			<strong>Tipo medicamento:</strong>
+			<%= @vacina.medicamento.tipo_medicamento.descricao %>
+		</p>
 
-<p>
-  <strong>Data vacina:</strong>
-  <%= @vacina.data_vacina %>
-</p>
+		<p>
+			<strong>Dosagem:</strong>
+			<%= @vacina.dosagem %>
+		</p>
 
-<p>
-  <strong>Efetuada:</strong>
-  <%= @vacina.efetuada %>
-</p>
+		<p>
+			<strong>Data vacina:</strong>
+			<%= @vacina.data_vacina %>
+		</p>
 
+		<p>
+			<strong>Efetuada:</strong>
+			<%= t @vacina.efetuada.class %>
+			<%= @vacina.unidades %>
+		</p>
 
-
-<%= link_to 'Editar', edit_vacina_path(@vacina) %> |
-<%= link_to 'Back', vacinas_path %>
+		<%= link_to 'Editar', edit_vacina_path(@vacina) %> |
+		<%= link_to 'Voltar', vacinas_path %>
+	</div>
+</div>

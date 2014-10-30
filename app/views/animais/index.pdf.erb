@@ -21,9 +21,9 @@
         <td><%= animal.classificacao.descricao %></td>
         <td><%= animal.data_nascimento %></td>
         <td><%= animal.sexo %></td>
-        <td><%= animal.ativo %></td>
-        <td><%= animal.lactacao %></td>
-        <td><%= animal.nascido_na_propriedade %></td>
+        <td><%= t animal.ativo.class %></td>
+        <td><%= t animal.lactacao.class %></td>
+        <td><%= t animal.nascido_na_propriedade.class %></td>
         <td><%= animal.informacoes %></td>
       </tr>
     <% end %>

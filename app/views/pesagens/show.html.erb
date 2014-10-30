@@ -1,25 +1,31 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Animal:</strong>
-  <%= @pesagem.animal.identificacao %>
+<p id="notice">
+	<%= notice %>
 </p>
+<div class='panel panel-default'>
+	<h2 class='left'>Pesagem</h2>
+	<div class="dados-animal">
 
-<p>
-  <strong>Nome:</strong>
-  <%= @pesagem.animal.nome %>
-</p>
+		<p>
+			<strong>Animal:</strong>
+			<%= @pesagem.animal.identificacao %>
+		</p>
 
-<p>
-  <strong>Peso:</strong>
-  <%= @pesagem.peso %>
-</p>
+		<p>
+			<strong>Nome:</strong>
+			<%= @pesagem.animal.nome %>
+		</p>
 
-<p>
-  <strong>Data pesagem:</strong>
-  <%= @pesagem.data_pesagem %>
-</p>
+		<p>
+			<strong>Peso:</strong>
+			<%= @pesagem.peso %>
+		</p>
 
+		<p>
+			<strong>Data pesagem:</strong>
+			<%= @pesagem.data_pesagem %>
+		</p>
 
-<%= link_to 'Editar', edit_pesagem_path(@pesagem) %> |
-<%= link_to 'Back', pesagens_path %>
+		<%= link_to 'Editar', edit_pesagem_path(@pesagem) %> |
+		<%= link_to 'Voltar', pesagens_path %>
+	</div>
+</div>	

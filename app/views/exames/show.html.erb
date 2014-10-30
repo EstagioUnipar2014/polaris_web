@@ -1,49 +1,56 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Animal:</strong>
-  <%= @exame.animal.identificacao+' '+@exame.animal.nome %>
+<p id="notice">
+	<%= notice %>
 </p>
+<div class='panel panel-default'>
+	<h2 class='left'>Exame</h2>
+	<div class="dados-animal">
 
-<p>
-  <strong>Tipo exame:</strong>
-  <%= @exame.tipo_exame.descricao %>
-</p>
+		<p>
+			<strong>Animal:</strong>
+			<%= @exame.animal.identificacao+' '+@exame.animal.nome %>
+		</p>
 
-<p>
-  <strong>Data:</strong>
-  <%= @exame.data %>
-</p>
+		<p>
+			<strong>Tipo exame:</strong>
+			<%= @exame.tipo_exame.descricao %>
+		</p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @exame.descricao %>
-</p>
+		<p>
+			<strong>Data:</strong>
+			<%= @exame.data %>
+		</p>
 
-<p>
-	<strong>Lista de doenças</strong>
-</p>
+		<p>
+			<strong>Descricao:</strong>
+			<%= @exame.descricao %>
+		</p>
 
-<ul>
-	<% @exame.doencas.each do |doenca| %>
-			<li><%= doenca.nome %></li>
- 	<% end %>
-</ul> 	
-<p>
-  <strong>Efetuado:</strong>
-  <%= @exame.efetuado %>
-</p>
+		<p>
+			<strong>Lista de doenças</strong>
+		</p>
 
-<p>
-  <strong>Resultado:</strong>
-  <%= @exame.resultado %>
-</p>
+		<p>
+			<% @exame.doencas.each do |doenca| %>
+			<span><%= doenca.nome %></span>
+			<br>
+			<% end %>
+		</p>
+		<p>
+			<strong>Efetuado:</strong>
+			<%= @exame.efetuado %>
+		</p>
 
-<p>
-  <strong>Informacoes:</strong>
-  <%= @exame.informacoes %>
-</p>
+		<p>
+			<strong>Resultado:</strong>
+			<%= @exame.resultado %>
+		</p>
 
+		<p>
+			<strong>Informacoes:</strong>
+			<%= @exame.informacoes %>
+		</p>
 
-<%= link_to 'Edit', edit_exame_path(@exame) %> |
-<%= link_to 'Back', exames_path %>
+		<%= link_to 'Edit', edit_exame_path(@exame) %> |
+		<%= link_to 'Back', exames_path %>
+	</div>
+</div>	

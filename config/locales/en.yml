@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  TrueClass: "Sim"
+  FalseClass: "Não"
