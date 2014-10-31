@@ -75,6 +75,6 @@ class CiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cio_params
-      params.require(:cio).permit(:data_cio, :previsao_proximo, :animal_id, cobertura_attributes: [:animal_id, :data])
+      params.require(:cio).permit(:data_cio, :animal_id, cobertura_attributes: [:animal_id])
     end
 end

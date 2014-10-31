@@ -17,8 +17,8 @@
       	  <tr>
       	  	<td><%= cio.animal.identificacaoNome %></td>
         	<td><%= cio.data_cio %></td>
-        	<td><%= cio.cobertura.animal.identificacaoNome rescue {} %></td>
-        	<td><%= cio.previsao_cio.data rescue {} %></td>
+        	<td><%= cio.cobertura.animal.identificacaoNome rescue '' %></td>
+        	<td><%= cio.previsao_cio.data rescue '' %></td>
         	<td><%= link_to 'Abrir', cio %></td>
         	<td><%= link_to 'Editar', edit_cio_path(cio) %></td>
         	<td><%= link_to 'Excluir', cio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
