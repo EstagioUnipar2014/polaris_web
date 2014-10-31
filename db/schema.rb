@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825165600) do
+ActiveRecord::Schema.define(version: 20141031222004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,16 +65,6 @@ ActiveRecord::Schema.define(version: 20140825165600) do
   add_index "animal_dieta", ["animal_id"], name: "index_animal_dieta_on_animal_id", using: :btree
   add_index "animal_dieta", ["dieta_id"], name: "index_animal_dieta_on_dieta_id", using: :btree
 
-  create_table "animal_doencas", force: true do |t|
-    t.integer  "animal_id"
-    t.integer  "doenca_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "animal_doencas", ["animal_id"], name: "index_animal_doencas_on_animal_id", using: :btree
-  add_index "animal_doencas", ["doenca_id"], name: "index_animal_doencas_on_doenca_id", using: :btree
-
   create_table "animals", force: true do |t|
     t.string   "identificacao"
     t.string   "nome"
@@ -116,7 +106,6 @@ ActiveRecord::Schema.define(version: 20140825165600) do
 
   create_table "cios", force: true do |t|
     t.date     "data_cio"
-    t.date     "previsao_proximo"
     t.integer  "animal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -244,6 +233,15 @@ ActiveRecord::Schema.define(version: 20140825165600) do
 
   add_index "pesagens", ["animal_id"], name: "index_pesagens_on_animal_id", using: :btree
   add_index "pesagens", ["unidade_id"], name: "index_pesagens_on_unidade_id", using: :btree
+
+  create_table "previsao_cios", force: true do |t|
+    t.date     "data"
+    t.integer  "cio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "previsao_cios", ["cio_id"], name: "index_previsao_cios_on_cio_id", using: :btree
 
   create_table "propriedades", force: true do |t|
     t.string   "nome"

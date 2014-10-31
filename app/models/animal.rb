@@ -25,6 +25,7 @@ class Animal < ActiveRecord::Base
 
   scope :propriedade, ->(usuario) {where(:propriedade_id => usuario.propriedade_id)}
   scope :macho, -> {where(:sexo => 'M')}
+  scope :femea, -> {where(:sexo => 'F')}
   scope :ativo, -> {where(:ativo => true)}
 
   def identificacaoNome

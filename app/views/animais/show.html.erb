@@ -60,17 +60,17 @@
 
 		<p>
 			<strong>Ativo:</strong>
-			<%= @animal.ativo %>
+			<%= t @animal.ativo.class %>
 		</p>
 
 		<p>
 			<strong>Lactacao:</strong>
-			<%= @animal.lactacao %>
+			<%= t @animal.lactacao.class %>
 		</p>
 
 		<p>
 			<strong>Nascido na propriedade:</strong>
-			<%= @animal.nascido_na_propriedade %>
+			<%= t @animal.nascido_na_propriedade.class %>
 		</p>
 
 		<p>
@@ -106,19 +106,19 @@
 			<p>
 				<strong>Dieta atual:</strong>
 				<% if !@animal.dietas.blank? %>
-				<%= @animal.dietas.ativa.last.descricao %>
+					<%= @animal.dietas.ativa.last.descricao %>
 				<% end %>
 			</p>
 			<%= form_for @animal do |f| %>
-			<%= f.fields_for :animal_dieta do |d| %>
-			<%if d.object.id.nil? %>
-			<%= d.hidden_field :data_inicio, :value => Date.today %>
-			<%= d.collection_select :dieta_id, Dieta.all, :id, :descricao %>
-			<%elsif d.object.data_fim.nil? %>
-			<%= d.hidden_field :data_fim, :value => Date.today %>
-			<% end %>
-			<% end %>
-			<%= f.submit "Vincular" %>
+				<%= f.fields_for :animal_dieta do |d| %>
+					<%if d.object.id.nil? %>
+						<%= d.hidden_field :data_inicio, :value => Date.today %>
+						<%= d.collection_select :dieta_id, Dieta.all, :id, :descricao %>
+					<%elsif d.object.data_fim.nil? %>
+						<%= d.hidden_field :data_fim, :value => Date.today %>
+					<% end %>
+				<% end %>
+				<%= f.submit "Vincular" %>
 			<% end %>
 		</div>
 

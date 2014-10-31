@@ -12,20 +12,17 @@
   <% end %>
   <div class="field">
     <%= f.label :animal %>
-    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario).ativo, :id, :identificacaoNome) %>
+    <%= f.collection_select( :animal_id, Animal.propriedade(current_usuario).femea.ativo, :id, :identificacaoNome) %>
   </div>
   <%= f.fields_for :cobertura do |c| %>
   	<%= c.label :cobertura %>
-  	<%= c.collection_select( :animal_id, Animal.propriedade(current_usuario).macho.ativo, :id, :identificacaoNome )%>
+  	<%= c.collection_select( :animal_id, Animal.propriedade(current_usuario).macho.ativo, :id, :identificacaoNome,
+  									include_blank: true)%>
   <% end %>	
   <div id="sandbox-container">
   	<%= f.label :data_cio %>
     <%= f.text_field :data_cio %>
   </div>  
-  <div id="sandbox-container">
-  	<%= f.label :previsao_proximo %>
-    <%= f.text_field :previsao_proximo %>
-  </div>   
    <script>
   	$('#sandbox-container input').datepicker({
     	language: "pt-BR",

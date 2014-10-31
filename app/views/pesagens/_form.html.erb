@@ -1,49 +1,51 @@
 <% remoto = false %>
 
 <% if @animal %>
-  <% remoto = true %>
-<% end %>  
-  
-<%= form_for(@pesagem, remote: remoto) do |f| %>
-  <% if @pesagem.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pesagem.errors.count, "error") %> prohibited this pesagem from being saved:</h2>
+	<% remoto = true %>
+<% end %>
 
-      <ul>
-      <% @pesagem.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <% if @animal %>
-    <% p "passou" %>
-    <%= f.hidden_field :animal , :value => @animal.id %>
-  <% else %>
-    <div class="field">
-      <%= f.label :animal %>
-      <%= f.collection_select( :animal , Animal.propriedade(current_usuario), :id, :identificacaoNome ) %>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :peso %>
-    <%= f.number_field :peso %>
-    <%= f.collection_select(:unidade, Unidades.all, :id, :abreviacao) %>
-  </div>
-  <div id="sandbox-container" >
-  	<%= f.label :data_pessagem %>
-    <%= f.text_field :data_pesagem %>
-  </div>
-   <script>
-  	$('#sandbox-container input').datepicker({
-    	language: "pt-BR",
-    	format : 'yyyy/mm/dd',
-    	calendarWeeks: true,
-    	autoclose: true,
-    	todayHighlight: true
-	});
-  </script>   
-  <div class="actions">
-    <%= f.submit 'Cadastrar' %>
-  </div>
+<%= form_for(@pesagem, remote: remoto) do |f| %>
+<% if @pesagem.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@pesagem.errors.count, "error") %> prohibited this pesagem from being saved:</h2>
+
+		<ul>
+			<% @pesagem.errors.full_messages.each do |message| %>
+			<li>
+				<%= message %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+<% if @animal %>
+	<% p "passou" %>
+	<%= f.hidden_field :animal_id , :value => @animal.id %>
+<% else %>
+	<div class="field">
+		<%= f.label :animal %>
+		<%= f.collection_select( :animal_id , Animal.propriedade(current_usuario), :id, :identificacaoNome ) %>
+	</div>
+<% end %>
+<div class="field">
+	<%= f.label :peso %>
+	<%= f.number_field :peso %>
+	<%= f.collection_select(:unidade, Unidades.all, :id, :abreviacao) %>
+</div>
+<div id="sandbox-container" >
+	<%= f.label :data_pessagem %>
+	<%= f.text_field :data_pesagem %>
+</div>
+<script>
+	$('#sandbox-container input').datepicker({
+		language : "pt-BR",
+		format : 'yyyy/mm/dd',
+		calendarWeeks : true,
+		autoclose : true,
+		todayHighlight : true
+	}); 
+</script>
+<div class="actions">
+	<%= f.submit 'Cadastrar' %>
+</div>
 <% end %>
