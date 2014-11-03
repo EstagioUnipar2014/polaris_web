@@ -76,4 +76,18 @@ class Notificacao < ActiveRecord::Base
     end
   end
   
+  def self.cios_previstos_do_dia
+    pendente = PrevisaoCio.do_dia
+    pendente.each do |previsao|
+      @notificacao = Notificacao.new
+      @notificacao.url = "cios/#{previsao.cio.id}"
+      if Notificacao.existe(@notificacao.url).blank?
+        @notificacao.mensagem = "O animal #{previsao.cio.animal.identificaNome}, tem cio previsto para #{cio.data_cio}"
+        @notificacao.data = Date.today
+        @notificacao.propriedade = previsao.cio.animal.propriedade
+        @notificacao.save
+      end
+    end
+  end
+  
 end
