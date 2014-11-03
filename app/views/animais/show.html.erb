@@ -40,7 +40,7 @@
 			<% cio = @animal.cios.last %>
 			<%= cio.data_cio %></br>
 			<Strong>Cobertura prevista:</strong>
-			<%= cio.cobertura.animal.identificacaoNome %>
+			<%= cio.cobertura.animal.identificacaoNome rescue ''%>
 			<% end %>
 		</p>
 

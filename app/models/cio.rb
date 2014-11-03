@@ -12,6 +12,8 @@ class Cio < ActiveRecord::Base
 
   scope :propriedade, ->(usuario) {Cio.joins(:animal).where("animais.propriedade_id = ?", usuario.propriedade_id)}
   
+  scope :do_dia, -> {where(:data_cio => Date.today)}
+  
   def criar_previsao_cio
     if self.cobertura.blank?
       previsao_cio = PrevisaoCio.new cio: self

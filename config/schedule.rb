@@ -21,4 +21,7 @@
 every :day, :at => "22:07" do
   runner "Notificacao.vacinas_pendentes_do_dia", :output => "/home/anderson/cron.log"
   runner "Notificacao.vacinas_vencidas", :output => "/home/anderson/cron.log"
+  runner "Notificacao.exames_pendentes_do_dia", :output => "/home/anderson/cron.log"
+  runner "Notificacao.exames_vencidos", :output => "/home/anderson/cron.log"
+  runner "Notificacao.cios_do_dia", :output => "/home/anderson/cron.log"
 end

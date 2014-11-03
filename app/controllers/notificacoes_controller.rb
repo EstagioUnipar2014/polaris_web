@@ -1,5 +1,5 @@
 class NotificacoesController < ApplicationController
   def index
-    @notificacoes = Notificacao.da_propriedade(current_usuario.propriedade)
+    @notificacoes = Notificacao.da_propriedade(current_usuario.propriedade).do_dia
   end
 end
