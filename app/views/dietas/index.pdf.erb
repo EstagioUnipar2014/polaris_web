@@ -1,0 +1,21 @@
+<% @dietas.each do |dieta| %>
+	<p>
+		<strong>Dieta:</strong>
+		<%= dieta.descricao %>
+	</p>
+	<% dieta.ciclos.each do |ciclo| %>
+		<Strong>Periodo:</strong>	
+		<%= ciclo.descricao %></br>
+		<span>Alimento: </span>
+		<ul>
+		<% ciclo.medidas.peso(ciclo).each do |medida| %>
+			<li>
+				<%= medida.alimento.descricao %>
+				<%= medida.quantidade %>
+				<%= medida.unidades.abreviacao%>
+			</li>
+		<% end %>
+		</ul>
+		</br>
+	<% end %>
+<% end %>
