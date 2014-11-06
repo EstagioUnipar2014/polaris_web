@@ -1,7 +1,8 @@
 class Propriedade < ActiveRecord::Base
-  has_many :animais
-  has_many :notificacoes
-  has_many :usuarios
+  has_many :animais, dependent: :destroy
+  has_many :notificacoes, dependent: :destroy
+  has_many :usuarios, dependent: :destroy
+  has_many :dietas, dependent: :destroy
   
   has_many :sociedade
   has_many :proprietarios, :through => :sociedade

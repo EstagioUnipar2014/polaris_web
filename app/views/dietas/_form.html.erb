@@ -10,6 +10,7 @@
         </ul>
       </div>
     <% end %>
+    <%= f.hidden_field :propriedade_id, :value => current_usuario.propriedade_id %>
 
     <div class="field">
       <%= f.label 'Dieta do dia' %><br>
@@ -20,7 +21,7 @@
     <p><%= f.link_to_add 'Adicionar período', :ciclos %></p>
     
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Salvar'%>
     </div>
   <% end %>
 
