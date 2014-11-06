@@ -1,5 +1,9 @@
 class AnimaisController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  
+  has_scope :ativo, :type => :boolean
+  has_scope :lactacao, :type => :boolean
+  has_scope :nascido_prorpiedade, :type => :boolean
 
   def animal_doencas
     @doencas = Animal.find(params[:animal_id]).doencas
@@ -8,7 +12,7 @@ class AnimaisController < ApplicationController
   # GET /animais
   # GET /animais.json
   def index
-    @animais = Animal.propriedade(current_usuario)
+    @animais = apply_scopes(Animal).propriedade(current_usuario)
 
     respond_to do |format|
  	    format.html

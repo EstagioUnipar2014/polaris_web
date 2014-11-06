@@ -1,25 +1,26 @@
-<h1>Listing racas</h1>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<span class="page-title animais">Raças</span>
+		<%= link_to 'Nova Raça', new_raca_path, class: 'novo-animal-link' %>
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+			<tbody>
+				<% @racas.each do |raca| %>
+					<tr>
+						<td><%= raca.nome %></td>
+						<td><%= link_to 'Abrir', raca %></td>
+						<td><%= link_to 'Editar', edit_raca_path(raca) %></td>
+						<td><%= link_to 'Excluir', raca, method: :delete, data: { confirm: 'Are you sure?' } %></td>								
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
 
-  <tbody>
-    <% @racas.each do |raca| %>
-      <tr>
-        <td><%= raca.nome %></td>
-        <td><%= link_to 'Show', raca %></td>
-        <td><%= link_to 'Edit', edit_raca_path(raca) %></td>
-        <td><%= link_to 'Destroy', raca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Raca', new_raca_path %>

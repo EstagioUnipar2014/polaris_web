@@ -5,6 +5,11 @@ class DietasController < ApplicationController
   # GET /dietas.json
   def index
     @dietas = Dieta.all
+    
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "Dietas"}
+    end
   end
 
   # GET /dietas/1
@@ -70,6 +75,6 @@ class DietasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dieta_params
-      params.require(:dieta).permit(:descricao, ciclos_attributes: [:id, :descricao, :_detroy, medidas_attributes: [:quantidade, :alimento_id, :unidades_id]])
+      params.require(:dieta).permit(:descricao, :propriedade, ciclos_attributes: [:id, :descricao, :_detroy, medidas_attributes: [:quantidade, :alimento_id, :unidades_id]])
     end
 end

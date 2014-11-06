@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   devise_for :usuarios
   
-  resources :proprietarios
+  #resources :proprietarios
 
   resources :exames
 
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   resources :alimentos
 
-  resources :propriedades
+  #resources :propriedades
 
   resources :ordenhas
 

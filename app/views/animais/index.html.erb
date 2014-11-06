@@ -1,3 +1,6 @@
+<% :filtro %>
+<%= select_tag(:filtro, options_for_select([['Todos', ''], ['Ativos', 'ativo=true'], ['Lactação', 'lactacao=true'], ['Nascido na prop.', 'nascido_propriedade=true']])) %>
+<%=link_to 'Filtrar', "animais?#{:filtro}"%>
 <div class="panel panel-default">
   <div class="panel-heading">
     <span class="page-title animais">Animais</span>
