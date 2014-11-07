@@ -12,8 +12,7 @@ class PesagensController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.pdf {render pdf: "animais"
-                  } 
+      format.pdf {render pdf: "animais"} 
     end 
   end
 
@@ -38,7 +37,7 @@ class PesagensController < ApplicationController
 
     respond_to do |format|
       if @pesagem.save
-        format.html { redirect_to @pesagem, notice: 'Pesagem was successfully created.' }
+        format.html { redirect_to @pesagem, notice: 'Pesagem cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @pesagem }
         format.js   {head :ok}
       else
@@ -54,7 +53,7 @@ class PesagensController < ApplicationController
   def update
     respond_to do |format|
       if @pesagem.update(pesagem_params)
-        format.html { redirect_to @pesagem, notice: 'Pesagem was successfully updated.' }
+        format.html { redirect_to @pesagem, notice: 'Pesagem editada com sucesso.' }
         format.json { render :show, status: :ok, location: @pesagem }
       else
         format.html { render :edit }
@@ -68,7 +67,7 @@ class PesagensController < ApplicationController
   def destroy
     @pesagem.destroy
     respond_to do |format|
-      format.html { redirect_to pesagens_url, notice: 'Pesagem was successfully destroyed.' }
+      format.html { redirect_to pesagens_url, notice: 'Pesagem excluida.' }
       format.json { head :no_content }
     end
   end

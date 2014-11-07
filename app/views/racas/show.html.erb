@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @raca.nome %>
+<p id="notice">
+	<%= notice %>
 </p>
 
-<%= link_to 'Edit', edit_raca_path(@raca) %> |
-<%= link_to 'Back', racas_path %>
+<div class='panel panel-default'>
+	<h2 class='left'>Raça</h2>
+	<div class="dados-animal">
+
+		<p>
+			<strong>Nome:</strong>
+			<%= @raca.nome %>
+		</p>
+
+		<%= link_to 'Editar', edit_raca_path(@raca) %> |
+		<%= link_to 'Voltar', racas_path %>
+	</div>
+</div>

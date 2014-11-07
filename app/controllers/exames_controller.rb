@@ -41,7 +41,7 @@ class ExamesController < ApplicationController
 
     respond_to do |format|
       if @exame.save
-        format.html { redirect_to @exame, notice: 'Exame was successfully created.' }
+        format.html { redirect_to @exame, notice: 'Exame cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @exame }
         format.js   { head :ok }
       else
@@ -57,7 +57,7 @@ class ExamesController < ApplicationController
   def update
     respond_to do |format|
       if @exame.update(exame_params)
-        format.html { redirect_to @exame, notice: 'Exame was successfully updated.' }
+        format.html { redirect_to @exame, notice: 'Exame editado com sucesso.' }
         format.json { render :show, status: :ok, location: @exame }
       else
         format.html { render :edit }
@@ -71,7 +71,7 @@ class ExamesController < ApplicationController
   def destroy
     @exame.destroy
     respond_to do |format|
-      format.html { redirect_to exames_url, notice: 'Exame was successfully destroyed.' }
+      format.html { redirect_to exames_url, notice: 'Exame excluidos.' }
       format.json { head :no_content }
     end
   end

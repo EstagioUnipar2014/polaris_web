@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Data:</strong>
-  <%= @ordenha.data %>
+<p id="notice">
+	<%= notice %>
 </p>
 
-<p>
-  <strong>Periodo:</strong>
-  <%= @ordenha.periodo %>
-</p>
+<div class='panel panel-default'>
+	<h2 class='left'>Ordenha</h2>
+	<div class="dados-animal">
 
-<p>
-  <strong>Quantidade:</strong>
-  <%= @ordenha.quantidade %>
-</p>
+		<p>
+			<strong>Data:</strong>
+			<%= @ordenha.data %>
+		</p>
 
-<p>
-  <strong>Animal:</strong>
-  <%= @ordenha.animal %>
-</p>
+		<p>
+			<strong>Periodo:</strong>
+			<%= @ordenha.periodo %>
+		</p>
 
-<%= link_to 'Edit', edit_ordenha_path(@ordenha) %> |
-<%= link_to 'Back', ordenhas_path %>
+		<p>
+			<strong>Quantidade:</strong>
+			<%= @ordenha.quantidade %>
+		</p>
+
+		<p>
+			<strong>Animal:</strong>
+			<%= @ordenha.animal %>
+		</p>
+
+		<%= link_to 'Editar', edit_ordenha_path(@ordenha) %> |
+		<%= link_to 'Voltar', ordenhas_path %>
+	</div>
+</div>

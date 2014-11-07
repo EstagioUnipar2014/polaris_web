@@ -34,7 +34,7 @@ class DietasController < ApplicationController
 
     respond_to do |format|
       if @dieta.save
-        format.html { redirect_to @dieta, notice: 'Dieta was successfully created.' }
+        format.html { redirect_to @dieta, notice: 'Dieta cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @dieta }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class DietasController < ApplicationController
   def update
     respond_to do |format|
       if @dieta.update(dieta_params)
-        format.html { redirect_to @dieta, notice: 'Dieta was successfully updated.' }
+        format.html { redirect_to @dieta, notice: 'Dieta editada com sucesso.' }
         format.json { render :show, status: :ok, location: @dieta }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class DietasController < ApplicationController
   def destroy
     @dieta.destroy
     respond_to do |format|
-      format.html { redirect_to dietas_url, notice: 'Dieta was successfully destroyed.' }
+      format.html { redirect_to dietas_url, notice: 'Dieta excluida.' }
       format.json { head :no_content }
     end
   end

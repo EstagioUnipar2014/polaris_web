@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @tipo_medicamento.descricao %>
+<p id="notice">
+	<%= notice %>
 </p>
 
-<%= link_to 'Edit', edit_tipo_medicamento_path(@tipo_medicamento) %> |
-<%= link_to 'Back', tipo_medicamentos_path %>
+<div class='panel panel-default'>
+	<h2 class='left'>Tipo Medicamento</h2>
+	<div class="dados-animal">
+
+		<p>
+			<strong>Descricao:</strong>
+			<%= @tipo_medicamento.descricao %>
+		</p>
+
+		<%= link_to 'Editar', edit_tipo_medicamento_path(@tipo_medicamento) %> |
+		<%= link_to 'Voltar', tipo_medicamentos_path %>
+	</div>
+</div>

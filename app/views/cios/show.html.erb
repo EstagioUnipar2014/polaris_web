@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Animal:</strong>
-  <%= @cio.animal.identificacaoNome %>
+<p id="notice">
+	<%= notice %>
 </p>
 
-<p>
-  <strong>Data cio:</strong>
-  <%= @cio.data_cio %>
-</p>
+<div class='panel panel-default'>
+	<h2 class='left'>Cio</h2>
+	<div class="dados-animal">
 
-<%= link_to 'Editar', edit_cio_path(@cio) %> |
-<%= link_to 'Voltar', cios_path %>
+		<p>
+			<strong>Animal:</strong>
+			<%= @cio.animal.identificacaoNome %>
+		</p>
+
+		<p>
+			<strong>Animal:</strong>
+			<%= @cio.cobertura.identificacaoNome  rescue '' %>
+		</p>
+
+		<p>
+			<strong>Data cio:</strong>
+			<%= @cio.data_cio %>
+		</p>
+
+		<%= link_to 'Editar', edit_cio_path(@cio) %> |
+		<%= link_to 'Voltar', cios_path %>
+	</div>
+</div>

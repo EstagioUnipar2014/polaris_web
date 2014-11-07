@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @doenca.nome %>
+<p id="notice">
+	<%= notice %>
 </p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @doenca.descricao %>
-</p>
+<div class='panel panel-default'>
+	<h2 class='left'>Doença</h2>
+	<div class="dados-animal">
 
-<%= link_to 'Edit', edit_doenca_path(@doenca) %> |
-<%= link_to 'Back', doencas_path %>
+		<p>
+			<strong>Nome:</strong>
+			<%= @doenca.nome %>
+		</p>
+
+		<p>
+			<strong>Descricao:</strong>
+			<%= @doenca.descricao %>
+		</p>
+
+		<%= link_to 'Editar', edit_doenca_path(@doenca) %> |
+		<%= link_to 'Voltar', doencas_path %>
+	</div>
+</div>

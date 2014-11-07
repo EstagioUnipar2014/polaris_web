@@ -1,9 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @tipo_vacina.descricao %>
+<p id="notice">
+	<%= notice %>
 </p>
+<div class='panel panel-default'>
+	<h2 class='left'>Tipo Vacina</h2>
+	<div class="dados-animal">
 
-<%= link_to 'Edit', edit_tipo_vacina_path(@tipo_vacina) %> |
-<%= link_to 'Back', tipo_vacinas_path %>
+		<p>
+			<strong>Descricao:</strong>
+			<%= @tipo_vacina.descricao %>
+		</p>
+
+		<%= link_to 'Editar', edit_tipo_vacina_path(@tipo_vacina) %> |
+		<%= link_to 'Voltar', tipo_vacinas_path %>
+	</div>
+</div>

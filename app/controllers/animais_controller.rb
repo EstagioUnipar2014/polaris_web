@@ -43,7 +43,7 @@ class AnimaisController < ApplicationController
     @animal = Animal.new(animal_params)
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
+        format.html { redirect_to @animal, notice: 'Animal cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @animal }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class AnimaisController < ApplicationController
   def update
     respond_to do |format|
       if @animal.update(animal_params)
-        format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
+        format.html { redirect_to @animal, notice: 'Animal editado com sucesso.' }
         format.json { render :show, status: :ok, location: @animal }
       else
         format.html { render :edit }
@@ -71,7 +71,7 @@ class AnimaisController < ApplicationController
   def destroy
     @animal.destroy
     respond_to do |format|
-      format.html { redirect_to animais_url, notice: 'Animal was successfully destroyed.' }
+      format.html { redirect_to animais_url, notice: 'Animal excluido com sucesso.' }
       format.json { head :no_content }
     end
   end

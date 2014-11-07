@@ -34,7 +34,7 @@ class CiosController < ApplicationController
 
     respond_to do |format|
       if @cio.save
-        format.html { redirect_to @cio, notice: 'Cio was successfully created.' }
+        format.html { redirect_to @cio, notice: 'Cio cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @cio }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class CiosController < ApplicationController
   def update
     respond_to do |format|
       if @cio.update(cio_params)
-        format.html { redirect_to @cio, notice: 'Cio was successfully updated.' }
+        format.html { redirect_to @cio, notice: 'Cio editado com sucesso.' }
         format.json { render :show, status: :ok, location: @cio }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class CiosController < ApplicationController
   def destroy
     @cio.destroy
     respond_to do |format|
-      format.html { redirect_to cios_url, notice: 'Cio was successfully destroyed.' }
+      format.html { redirect_to cios_url, notice: 'Cio excluido.' }
       format.json { head :no_content }
     end
   end
