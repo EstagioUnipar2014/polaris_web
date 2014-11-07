@@ -13,4 +13,10 @@ $ ->
     
   $('#relatorio-exames').on "click", ->
     window.location.href = "/exames.pdf" + $("#filtro-exames-select").val()   
+    
+  $('#filtro-vacinas-link').on "click", ->
+    window.location.href = "/vacinas" + $("#filtro-vacinas-select").val()
+    
+  $('#relatorio-vacinas').on "click", ->
+    window.location.href = "/vacinas.pdf" + $("#filtro-vacinas-select").val()   
  

@@ -1,13 +1,17 @@
 class VacinasController < ApplicationController
   before_action :set_vacina, only: [:show, :edit, :update, :destroy]
 
+  has_scope :pendente, :type => :boolean
+  has_scope :vencidas, :type => :boolean
+  has_scope :do_dia, :type => :boolean
+  
   # GET /vacinas
   # GET /vacinas.json
   def index
     if params[:animal_id]
-      @vacinas = Vacina.animal(params[:animal_id])
+      @vacinas = apply_scopes(Vacina).animal(params[:animal_id])
     else
-      @vacinas = Vacina.propriedade(current_usuario)
+      @vacinas = apply_scopes(Vacina).propriedade(current_usuario)
     end
     
     respond_to do |format|
