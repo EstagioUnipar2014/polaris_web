@@ -42,7 +42,16 @@ ready = ->
   $('#new_pesagem').bind "ajax:error", (event, data) ->
     $('#nova-pesagem').hide()  
     $('#new_pesagem')[0].reset();
-    alert("Erro")  
+    alert("Erro")
+       
+  $('#ocultar-pesagem').on "click", ->
+    $('#nova-pesagem').hide()     
+    
+  $('#ocultar-vacina').on "click", ->
+    $('#nova-vacina').hide()     
+    
+  $('#ocultar-exame').on "click", ->
+    $('#novo-exame').hide()         
     
 $(document).ready(ready)
 $(document).on('page:load ready', ready)    
