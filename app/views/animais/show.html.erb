@@ -113,7 +113,7 @@
 				<%= f.fields_for :animal_dieta do |d| %>
 					<%if d.object.id.nil? %>
 						<%= d.hidden_field :data_inicio, :value => Date.today %>
-						<%= d.collection_select :dieta_id, Dieta.all, :id, :descricao %>
+						<%= d.collection_select :dieta_id, Dieta.propriedade(current_usuario), :id, :descricao %>
 					<%elsif d.object.data_fim.nil? %>
 						<%= d.hidden_field :data_fim, :value => Date.today %>
 					<% end %>

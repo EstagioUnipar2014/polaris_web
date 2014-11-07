@@ -3,7 +3,7 @@ class AnimaisController < ApplicationController
   
   has_scope :ativo, :type => :boolean
   has_scope :lactacao, :type => :boolean
-  has_scope :nascido_prorpiedade, :type => :boolean
+  has_scope :nascido_propriedade, :type => :boolean
 
   def animal_doencas
     @doencas = Animal.find(params[:animal_id]).doencas
@@ -13,7 +13,6 @@ class AnimaisController < ApplicationController
   # GET /animais.json
   def index
     @animais = apply_scopes(Animal).propriedade(current_usuario)
-
     respond_to do |format|
  	    format.html
 	    format.pdf {render pdf: "Animais"} 

@@ -22,11 +22,20 @@
     <%= f.label :periodo %>
     <%= f.number_field :periodo %>
   </div>
-  <div class="field">
-    <%= f.label :data %>
-    <%= f.date_select :data %>
-  </div>
+  <div id="sandbox-container" >
+	<%= f.label :data %>
+	<%= f.text_field :data %>
+	</div>
+<script>
+	$('#sandbox-container input').datepicker({
+		language : "pt-BR",
+		format : 'yyyy/mm/dd',
+		calendarWeeks : true,
+		autoclose : true,
+		todayHighlight : true
+	}); 
+</script>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar'%>
   </div>
 <% end %>
