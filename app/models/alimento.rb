@@ -1,5 +1,5 @@
 class Alimento < ActiveRecord::Base
-  has_many :medidas
+  has_many :medidas, dependent: :restrict_with_error
   has_many :ciclos, :through => :medidas
 
   validates_presence_of :descricao

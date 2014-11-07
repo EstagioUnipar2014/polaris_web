@@ -9,9 +9,9 @@ class Cio < ActiveRecord::Base
   accepts_nested_attributes_for :cobertura, reject_if: proc { |attributes| attributes['animal_id'].blank? }
   
   validates :data_cio, presence: true
+  validates :animal_id, presence: true
 
   scope :propriedade, ->(usuario) {Cio.joins(:animal).where("animais.propriedade_id = ?", usuario.propriedade_id)}
-  
   scope :do_dia, -> {where(:data_cio => Date.today)}
   
   def criar_previsao_cio

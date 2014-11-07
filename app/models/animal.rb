@@ -10,9 +10,9 @@ class Animal < ActiveRecord::Base
   has_many :cios,     dependent: :destroy
   has_many :coberturas, dependent: :destroy
 
-  has_many :animal_doencas
+  has_many :animal_doencas, dependent: :destroy
   has_many :doencas, :through => :animal_doencas
-  has_many :animal_dieta
+  has_many :animal_dieta, dependent: :destroy
   has_many :dietas, :through => :animal_dieta
 
   accepts_nested_attributes_for :vacinas, :allow_destroy => true
@@ -24,8 +24,8 @@ class Animal < ActiveRecord::Base
   validates :classificacao, presence: true
 
   scope :propriedade, ->(usuario) {where(:propriedade_id => usuario.propriedade_id)}
-  scope :macho, -> {where(:sexo => 'M')}
-  scope :femea, -> {where(:sexo => 'F')}
+  scope :macho, -> {where(:sexo => 'Macho')}
+  scope :femea, -> {where(:sexo => 'Femea')}
   scope :ativo, -> {where(:ativo => true)}
   scope :lactacao, -> {where(:lactacao => true)}
   scope :nascido_propriedade, -> {where(:nascido_na_propriedade => true)}

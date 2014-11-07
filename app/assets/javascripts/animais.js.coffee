@@ -13,29 +13,37 @@ $ ->
     
   $('#new_vacina').bind "ajax:success", (event, data) ->
     $('#nova-vacina').hide()
+    $('#nova-vacina')[0].reset(); 
     alert("Vacina agendada com sucesso")  
     
   $('#new_vacina').bind "ajax:error", (event, data) ->
-    $('#nova-vacina').hide()  
+    $('#nova-vacina').hide() 
+    $('#nova-vacina')[0].reset(); 
     alert("Erro")  
     
   $('#new_exame').bind "ajax:success", (event, data) ->
     $('#novo-exame').hide()
+    $('#novo-exame')[0].reset();
     alert("Exame agendada com sucesso")
     
   $('#new_exame').bind "ajax:error", (event, data) ->
     $('#novo-exame').hide()  
+    $('#novo-exame')[0].reset();
     alert("Erro")  
     
   $('#new_pesagem').bind "ajax:success", (event, data) ->
     $('#nova-pesagem').hide()
     peso = $('#pesagem_peso').val()
     $('#peso').html("<strong>Ultima pesagem: </strong>"+peso+" Kg")
+    $('#new_pesagem')[0].reset();
     alert("Nova pesagem cadastrada com sucesso ")  
     
   $('#new_pesagem').bind "ajax:error", (event, data) ->
     $('#nova-pesagem').hide()  
+    $('#new_pesagem')[0].reset();
     alert("Erro")  
+    
+    
     
         
    

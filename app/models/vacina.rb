@@ -10,14 +10,9 @@ class Vacina < ActiveRecord::Base
   validates :dosagem, presence: true
 
   scope :pendente, -> { where(efetuada: false) }
-
   scope :propriedade, ->(usuario) {Vacina.joins(:animal).where("animais.propriedade_id = ?", usuario.propriedade_id)}
-
   scope :animal, ->(animal) {where(:animal_id => animal)}
-
   scope :do_dia, -> {where(:data_vacina => Date.today)}
-
   scope :do_dia_anterior, -> {where(:data_vacina => Date.yesterday)}
-
   scope :vencidas, -> {where("data_vacina < ?", Date.today).pendente}
 end
