@@ -1,7 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-$ ->
+ready = ->
+
   $('#nova-vacina-button').on "click", ->
     $('#nova-vacina').show()
 
@@ -43,6 +44,8 @@ $ ->
     $('#new_pesagem')[0].reset();
     alert("Erro")  
     
+$(document).ready(ready)
+$(document).on('page:load ready', ready)    
     
     
         
