@@ -8,4 +8,9 @@ $ ->
   $('#filtro-notificacoes-link').on "click", ->
     window.location.href = "/notificacoes" + $("#filtro-notificacoes-select").val()
     
+  $('#filtro-exames-link').on "click", ->
+    window.location.href = "/exames" + $("#filtro-exames-select").val()
+    
+  $('#relatorio-exames').on "click", ->
+    window.location.href = "/exames.pdf" + $("#filtro-exames-select").val()   
  

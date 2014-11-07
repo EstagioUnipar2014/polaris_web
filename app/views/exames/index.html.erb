@@ -1,7 +1,10 @@
+<%= select_tag( options_for_select( [[], ['Todos', ''], ['Pendente', '?pendente=true'],
+			 ['Vencidos', '?vencidos=true'], ['Do dia', '?do_dia=true']]),{}, :id => "filtro-exames-select") %>
+<a id="filtro-exames-link">Filtrar</a>
 <div class="panel panel-default">
   <div class="panel-heading">
     <span class="page-title animais">Exames</span>
-    <%= link_to 'Relatorio', exames_path(:format => 'pdf') %>
+    <a id="relatorio-exames">Relatorio</a>
     <%= link_to 'Novo exame', new_exame_path, class: 'novo-animal-link' %>
     <table class="table table-condensed">
       <thead>

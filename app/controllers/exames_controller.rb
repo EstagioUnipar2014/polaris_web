@@ -1,13 +1,17 @@
 class ExamesController < ApplicationController
   before_action :set_exame, only: [:show, :edit, :update, :destroy]
+  
+  has_scope :vencidos, :type => :boolean
+  has_scope :pendentes, :type => :boolean
+  has_scope :do_dia, :type => :boolean
 
   # GET /exames
   # GET /exames.json
   def index
     if params[:animal_id]
-      @exames = Exame.animal(params[:animal_id])
+      @exames = apply_scopes(Exame).animal(params[:animal_id])
     else
-      @exames = Exame.propriedade(current_usuario)
+      @exames = apply_scopes(Exame).propriedade(current_usuario)
     end
     
     respond_to do |format|
