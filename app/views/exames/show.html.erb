@@ -37,7 +37,7 @@
 		</p>
 		<p>
 			<strong>Efetuado:</strong>
-			<%= @exame.efetuado %>
+			<%= t @exame.efetuado.class %>
 		</p>
 
 		<p>
@@ -50,7 +50,7 @@
 			<%= @exame.informacoes %>
 		</p>
 
-		<%= link_to 'Edit', edit_exame_path(@exame) %> |
-		<%= link_to 'Back', exames_path %>
+		<%= link_to 'Editar', edit_exame_path(@exame) %> |
+		<%= link_to 'Voltar', exames_path %>
 	</div>
 </div>	

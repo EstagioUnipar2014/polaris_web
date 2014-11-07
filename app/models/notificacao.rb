@@ -1,10 +1,11 @@
 class Notificacao < ActiveRecord::Base
-
   belongs_to :propriedade
 
   scope :da_propriedade, ->(propriedade_id) {where :propriedade_id => propriedade_id}
   scope :existe, ->(url) {where(:url => url)}
   scope :do_dia, -> {where(:data => Date.today)}
+  scope :da_semana, -> {where("data >= ?",Date.today - 7.day)}
+  scope :do_mes, -> {where("EXTRACT(Month from data)||'-'||EXTRACT(Year from data) = ?", "#{Date.today.month}-#{Date.today.year}")}
 
   def self.vacinas_pendentes_do_dia
     pendentes = Vacina.pendente.do_dia

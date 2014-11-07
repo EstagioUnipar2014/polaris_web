@@ -8,7 +8,7 @@
       <li><%= link_to "Contato", "/contato", class: "header-text" %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to( 'Notificações', notificacoes_path) %></li>
+      <li><%= link_to( 'Notificações', notificacoes_path(:do_dia => true)) %></li>
       <li><%= link_to('Sair', destroy_usuario_session_path, :method => :delete, class: "header-sair") %></li>
     </ul>
   </nav>

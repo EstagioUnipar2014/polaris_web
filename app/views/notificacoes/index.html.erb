@@ -1,23 +1,24 @@
-<div class='panel panel-default'>
-  <div class='panel-heading'>
-    <span class='page-title'>Alertas</span>
-  </div>
-  <table class='table table-condensed'>
-    <thead>
-      <tr>
-        <th>Mensagem</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @notificacoes.each do |notificacao| %>
-      <tr>
-      	<td>
-          <%= link_to (notificacao.url) do %>
-            <%= notificacao.mensagem %>
-          <% end %>
-        </td>	
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<%= select_tag( options_for_select( [[], ['Todas', ''], ['Do dia', '?do_dia=true'],
+			 ['Ultimos 7 dias', '?da_semana=true'], ['Do mês.', '?do_mes=true']]),{}, :id => "filtro-notificacoes-select") %>
+<a id="filtro-notificacoes-link">Filtrar</a>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<span class="page-title animais">Notificações</span>
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Mensagem</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @notificacoes.each do |notificacao| %>
+					<tr>
+						<td> <%= link_to (notificacao.url) do %>
+						<%= notificacao.mensagem %>
+						<% end %> </td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>

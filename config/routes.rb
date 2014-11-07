@@ -52,15 +52,13 @@ Rails.application.routes.draw do
 
   resources :animais
 
-  match 'animais/:animal_id/doencas', to: 'animais#animal_doencas', via: [:get, :post]  
+  match 'animal/:animal_id/doencas', to: 'animais#animal_doencas', via: [:get, :post]  
 
   match 'animal/:animal_id/pesagens', to: 'pesagens#index', via: [:get, :post]
 
   match 'animal/:animal_id/vacinas', to: 'vacinas#index', via: [:get, :post]
 
   match 'animal/:animal_id/exames', to: 'exames#index', via: [:get, :post]
-
-  match 'animal/:animal_id/doencas', to: 'doencas#index', via: [:get, :post]
 
   mount RailsAdmin::Engine => '//admin', as: 'rails_admin'
   # The priority is based upon order of creation: first created -> highest priority.
