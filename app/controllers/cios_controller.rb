@@ -4,7 +4,7 @@ class CiosController < ApplicationController
   # GET /cios
   # GET /cios.json
   def index
-    @cios = Cio.propriedade(current_usuario)
+    @cios = Cio.includes(:animal, :cobertura).propriedade(current_usuario)
     
     respond_to do |format|
       format.html

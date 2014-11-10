@@ -12,7 +12,7 @@ class AnimaisController < ApplicationController
   # GET /animais
   # GET /animais.json
   def index
-    @animais = apply_scopes(Animal).propriedade(current_usuario)
+    @animais = apply_scopes(Animal).includes(:raca, :classificacao).propriedade(current_usuario)
     respond_to do |format|
  	    format.html
 	    format.pdf {render pdf: "Animais"} 

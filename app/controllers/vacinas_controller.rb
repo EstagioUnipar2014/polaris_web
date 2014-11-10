@@ -9,9 +9,9 @@ class VacinasController < ApplicationController
   # GET /vacinas.json
   def index
     if params[:animal_id]
-      @vacinas = apply_scopes(Vacina).animal(params[:animal_id])
+      @vacinas = apply_scopes(Vacina).includes(:animal, :tipo_vacina).animal(params[:animal_id])
     else
-      @vacinas = apply_scopes(Vacina).propriedade(current_usuario)
+      @vacinas = apply_scopes(Vacina).includes(:animal, :tipo_vacina).propriedade(current_usuario)
     end
     
     respond_to do |format|
@@ -47,7 +47,7 @@ class VacinasController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @vacina.errors, status: :unprocessable_entity }
-        format.js {}
+        format.js{}
       end
     end
   end

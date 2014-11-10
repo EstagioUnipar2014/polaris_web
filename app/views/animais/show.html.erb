@@ -43,7 +43,7 @@
 			<%= cio.cobertura.animal.identificacaoNome rescue ''%>
 			<% end %>
 		</p>
-
+		
 		<p id="peso">
 			<strong>Ultima pesagem:</strong>
 			<% if !@animal.pesagens.empty? %>
@@ -121,7 +121,7 @@
 						<%= d.hidden_field :data_fim, :value => Date.today %>
 					<% end %>
 				<% end %>
-				<%= f.submit "Vincular" %>
+				<%= f.submit "Vincular", :class => "btn btn-xs btn-primary"%>
 			<% end %>
 		</div>
 

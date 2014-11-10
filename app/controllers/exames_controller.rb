@@ -9,9 +9,9 @@ class ExamesController < ApplicationController
   # GET /exames.json
   def index
     if params[:animal_id]
-      @exames = apply_scopes(Exame).animal(params[:animal_id])
+      @exames = apply_scopes(Exame).includes(:animal ,:tipo_exame).animal(params[:animal_id])
     else
-      @exames = apply_scopes(Exame).propriedade(current_usuario)
+      @exames = apply_scopes(Exame).includes(:animal ,:tipo_exame).propriedade(current_usuario)
     end
     
     respond_to do |format|

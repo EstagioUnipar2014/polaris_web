@@ -14,22 +14,22 @@ ready = ->
     
   $('#new_vacina').bind "ajax:success", (event, data) ->
     $('#nova-vacina').hide()
-    $('#nova-vacina')[0].reset(); 
+    $('#new_vacina')[0].reset(); 
     alert("Vacina agendada com sucesso")  
     
   $('#new_vacina').bind "ajax:error", (event, data) ->
     $('#nova-vacina').hide() 
-    $('#nova-vacina')[0].reset(); 
+    $('#new_vacina')[0].reset(); 
     alert("Erro")  
     
   $('#new_exame').bind "ajax:success", (event, data) ->
     $('#novo-exame').hide()
-    $('#novo-exame')[0].reset();
+    $('#new_exame')[0].reset();
     alert("Exame agendada com sucesso")
     
   $('#new_exame').bind "ajax:error", (event, data) ->
     $('#novo-exame').hide()  
-    $('#novo-exame')[0].reset();
+    $('#new_exame')[0].reset();
     alert("Erro")  
     
   $('#new_pesagem').bind "ajax:success", (event, data) ->
@@ -54,7 +54,7 @@ ready = ->
     $('#novo-exame').hide()         
     
 $(document).ready(ready)
-$(document).on('page:load ready', ready)    
+$(document).on('page: ready', ready)    
     
     
         

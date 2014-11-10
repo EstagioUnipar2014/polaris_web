@@ -5,9 +5,9 @@ class PesagensController < ApplicationController
   # GET /pesagens.json
   def index
     if params[:animal_id]
-      @pesagens = Pesagem.animal(params[:animal_id])
+      @pesagens = Pesagem.includes(:animal).animal(params[:animal_id])
     else
-      @pesagens = Pesagem.propriedade(current_usuario)
+      @pesagens = Pesagem.includes(:animal).propriedade(current_usuario)
     end
     
     respond_to do |format|
