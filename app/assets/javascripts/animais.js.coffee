@@ -54,7 +54,7 @@ ready = ->
     $('#novo-exame').hide()         
     
 $(document).ready(ready)
-$(document).on('page: ready', ready)    
+$(document).on('page:load ready', ready)    
     
     
         

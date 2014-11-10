@@ -80,6 +80,6 @@ class PesagensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pesagem_params
-      params.require(:pesagem).permit(:peso, :data_pesagem, :animal_id)
+      params.require(:pesagem).permit(:peso, :data_pesagem, :animal_id, :unidade_id)
     end
 end

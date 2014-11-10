@@ -36,7 +36,7 @@
    <div class="field">
     <%= f.label :dosagem %>
     <%= f.text_field :dosagem %>
-    <%= f.collection_select(:unidades, Unidades.all, :id, :abreviacao) %>
+    <%= f.collection_select(:unidade_id, Unidade.all, :id, :abreviacao) %>
   </div>
   <div id="sandbox-container">
   	<%= f.label :data_vacina %>

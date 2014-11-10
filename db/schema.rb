@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106222857) do
+ActiveRecord::Schema.define(version: 20141110012030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,12 +195,12 @@ ActiveRecord::Schema.define(version: 20141106222857) do
     t.integer  "ciclo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "unidades_id"
+    t.integer  "unidade_id"
   end
 
   add_index "medidas", ["alimento_id"], name: "index_medidas_on_alimento_id", using: :btree
   add_index "medidas", ["ciclo_id"], name: "index_medidas_on_ciclo_id", using: :btree
-  add_index "medidas", ["unidades_id"], name: "index_medidas_on_unidades_id", using: :btree
+  add_index "medidas", ["unidade_id"], name: "index_medidas_on_unidade_id", using: :btree
 
   create_table "notificacoes", force: true do |t|
     t.string   "mensagem"

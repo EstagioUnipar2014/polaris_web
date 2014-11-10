@@ -47,11 +47,13 @@
 		<p id="peso">
 			<strong>Ultima pesagem:</strong>
 			<% if !@animal.pesagens.empty? %>
-			<%= @animal.pesagens.last.peso %> Kg
-			<br>
+			<% peso = @animal.pesagens.last %>
+			<%= peso.peso %> 
+			<%= peso.unidade.abreviacao %>
+			<br/><br/>
 			<%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %>
 			<% end %>
-			<div id="nova-pesagem" class="panel" style="display:none">
+			<div id="nova-pesagem" class="container" style="display:none">
 				<h2>Nova Pesagem</h2>
 				<%= render 'pesagens/form' %>
 				<a id="ocultar-pesagem">Cancelar</a>
@@ -79,16 +81,16 @@
 			<%= @animal.informacoes %>
 		</p>
 
-		<div id="nova-vacina" class="panel" style="display:none">
+		<div id="nova-vacina" class="container" style="display:none">
 			<h3>Agendar vacina</h3>
 			<%= render 'vacinas/form' %>
 			<a id="ocultar-vacina">Cancelar</a>
 		</div>
 
-		<a id='nova-vacina-button'>Nova vacina</a>  |
-		<%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %></br>
+		<a id='nova-vacina-button'>Nova vacina</a> |
+		<%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %><br/><br/>
 
-		<div id="novo-exame" class="panel" style="display:none">
+		<div id="novo-exame" class="container" style="display:none">
 			<h3>Agendar exame</h3>
 			<%= render 'exames/form' %>
 			<a id="ocultar-exame">Cancelar</a>
@@ -109,7 +111,8 @@
 			<p>
 				<strong>Dieta atual:</strong>
 				<% if !@animal.dietas.blank? %>
-					<%= @animal.dietas.ativa.last.descricao %>
+					<% dieta = @animal.dietas.ativa.last %>
+					<%= link_to dieta.descricao, dieta_path(dieta) %>
 				<% end %>
 			</p>
 			<%= form_for @animal do |f| %>

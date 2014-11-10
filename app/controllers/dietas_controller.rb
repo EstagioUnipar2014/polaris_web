@@ -75,6 +75,6 @@ class DietasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dieta_params
-      params.require(:dieta).permit(:descricao, :propriedade_id, ciclos_attributes: [:id, :descricao, :_detroy, medidas_attributes: [:quantidade, :alimento_id, :unidades_id]])
+      params.require(:dieta).permit(:descricao, :propriedade_id, ciclos_attributes: [:id, :descricao, :_detroy, medidas_attributes: [:quantidade, :alimento_id, :unidade_id]])
     end
 end

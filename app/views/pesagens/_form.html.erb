@@ -30,7 +30,7 @@
 <div class="field">
 	<%= f.label :peso %>
 	<%= f.number_field :peso %>
-	<%= f.collection_select(:unidade, Unidades.all, :id, :abreviacao) %>
+	<%= f.collection_select(:unidade_id, Unidade.all, :id, :abreviacao) %>
 </div>
 <div id="sandbox-container" >
 	<%= f.label :data_pessagem %>
