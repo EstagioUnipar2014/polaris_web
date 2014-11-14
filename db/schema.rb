@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110012030) do
+ActiveRecord::Schema.define(version: 20141113215933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -267,13 +267,13 @@ ActiveRecord::Schema.define(version: 20141110012030) do
   end
 
   create_table "sociedades", force: true do |t|
-    t.integer  "propridade_id"
+    t.integer  "propriedade_id"
     t.integer  "proprietario_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sociedades", ["propridade_id"], name: "index_sociedades_on_propridade_id", using: :btree
+  add_index "sociedades", ["propriedade_id"], name: "index_sociedades_on_propriedade_id", using: :btree
   add_index "sociedades", ["proprietario_id"], name: "index_sociedades_on_proprietario_id", using: :btree
 
   create_table "tipo_exames", force: true do |t|

@@ -44,21 +44,23 @@
 			<% end %>
 		</p>
 		
-		<p id="peso">
-			<strong>Ultima pesagem:</strong>
-			<% if !@animal.pesagens.empty? %>
-			<% peso = @animal.pesagens.last %>
-			<%= peso.peso %> 
-			<%= peso.unidade.abreviacao %>
-			<br/><br/>
-			<%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %>
-			<% end %>
+		<p>
+			<p id="peso">
+				<strong>Ultima pesagem:</strong>
+				<% if !@animal.pesagens.empty? %>
+					<% peso = @animal.pesagens.last %>
+					<%= peso.peso %> 
+					<%= peso.unidade.abreviacao %>
+			</p>
+				<p><%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %></p>
+				<% end %>
+				
 			<div id="nova-pesagem" class="container" style="display:none">
 				<h2>Nova Pesagem</h2>
 				<%= render 'pesagens/form' %>
 				<a id="ocultar-pesagem">Cancelar</a>
 			</div>
-			<a id='nova-pesagem-button'>Nova pesagem </a>
+			<p id='nova-pesagem-button'>Nova pesagem </p>
 		</p>
 
 		<p>
@@ -87,18 +89,22 @@
 			<a id="ocultar-vacina">Cancelar</a>
 		</div>
 
-		<a id='nova-vacina-button'>Nova vacina</a> |
-		<%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %><br/><br/>
-
+		<p>
+			<a id='nova-vacina-button'>Nova vacina</a> |
+			<%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %>
+		</p>
+		
 		<div id="novo-exame" class="container" style="display:none">
 			<h3>Agendar exame</h3>
 			<%= render 'exames/form' %>
 			<a id="ocultar-exame">Cancelar</a>
 		</div>
 
-		<a id='novo-exame-button'>Novo exame</a>    |
-		<%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %></br>
-
+		<p>
+			<a id='novo-exame-button'>Novo exame</a>    |
+			<%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %>
+		</p>
+	
 		<div>
 			<h3>Doenças</h3>
 			<p>

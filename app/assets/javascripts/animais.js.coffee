@@ -35,7 +35,8 @@ ready = ->
   $('#new_pesagem').bind "ajax:success", (event, data) ->
     $('#nova-pesagem').hide()
     peso = $('#pesagem_peso').val()
-    $('#peso').html("<strong>Ultima pesagem: </strong>"+peso+" Kg")
+    unidade = $('#pesagem_unidade_id option:selected').text()
+    $('#peso').html("<strong>Ultima pesagem: </strong>"+peso+" "+unidade)
     $('#new_pesagem')[0].reset();
     alert("Nova pesagem cadastrada com sucesso ")  
     
@@ -54,7 +55,7 @@ ready = ->
     $('#novo-exame').hide()         
     
 $(document).ready(ready)
-$(document).on('page:load ready', ready)    
+$(document).on('page:ready', ready)    
     
     
         

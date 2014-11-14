@@ -41,7 +41,7 @@ class Notificacao < ActiveRecord::Base
       @notificacao = Notificacao.new 
       @notificacao.url = "exames/#{exame.id}"
       if Notificacao.existe(@notificacao.url).blank?
-        @notificacao.mensagem = "O animal #{exame.animal.identificaNome}, possui um exame marcado"
+        @notificacao.mensagem = "O animal #{exame.animal.identificacaoNome}, possui um exame marcado"
         @notificacao.data = Date.today
         @notificacao.propriedade = exame.animal.propriedade
         @notificacao.save
@@ -55,7 +55,7 @@ class Notificacao < ActiveRecord::Base
       @notificacao = Notificacao.new 
       @notificacao.url = "exames/#{exame.id}"
       if Notificacao.existe(@notificacao.url).blank?
-        @notificacao.mensagem = "O animal #{exame.animal.identificaNome}, possui um exame marcado"
+        @notificacao.mensagem = "O animal #{exame.animal.identificacaoNome}, possui um exame marcado"
         @notificacao.data = Date.today
         @notificacao.propriedade = exame.animal.propriedade
         @notificacao.save
@@ -64,12 +64,12 @@ class Notificacao < ActiveRecord::Base
   end
   
   def self.cios_do_dia
-    pendente = Cios.do_dia
+    pendente = Cio.do_dia
     pendente.each do |cio|
       @notificacao = Notificacao.new
       @notificacao.url = "cios/#{cio.id}"
       if Notificacao.existe(@notificacao.url).blank?
-        @notificacao.mensagem = "O animal #{cio.animal.identificaNome}, tem cio previsto para #{cio.data_cio}"
+        @notificacao.mensagem = "O animal #{cio.animal.identificacaoNome}, tem cio previsto para #{cio.data_cio}"
         @notificacao.data = Date.today
         @notificacao.propriedade = cio.animal.propriedade
         @notificacao.save
@@ -83,7 +83,7 @@ class Notificacao < ActiveRecord::Base
       @notificacao = Notificacao.new
       @notificacao.url = "cios/#{previsao.cio.id}"
       if Notificacao.existe(@notificacao.url).blank?
-        @notificacao.mensagem = "O animal #{previsao.cio.animal.identificaNome}, tem cio previsto para #{cio.data_cio}"
+        @notificacao.mensagem = "O animal #{previsao.cio.animal.identificacaoNome}, tem cio previsto para #{cio.data_cio}"
         @notificacao.data = Date.today
         @notificacao.propriedade = previsao.cio.animal.propriedade
         @notificacao.save
