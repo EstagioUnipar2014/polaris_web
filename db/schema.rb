@@ -139,6 +139,16 @@ ActiveRecord::Schema.define(version: 20141113215933) do
 
   add_index "dietas", ["propriedade_id"], name: "index_dietas_on_propriedade_id", using: :btree
 
+  create_table "doenca_exames", force: true do |t|
+    t.integer  "doenca_id"
+    t.integer  "exame_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "doenca_exames", ["doenca_id"], name: "index_doenca_exames_on_doenca_id", using: :btree
+  add_index "doenca_exames", ["exame_id"], name: "index_doenca_exames_on_exame_id", using: :btree
+
   create_table "doencas", force: true do |t|
     t.string   "nome"
     t.string   "descricao"
@@ -153,8 +163,8 @@ ActiveRecord::Schema.define(version: 20141113215933) do
     t.datetime "updated_at"
   end
 
-  add_index "doencas_exames", ["doenca_id"], name: "index_doenca_exames_on_doenca_id", using: :btree
-  add_index "doencas_exames", ["exame_id"], name: "index_doenca_exames_on_exame_id", using: :btree
+  add_index "doencas_exames", ["doenca_id"], name: "index_doencas_exames_on_doenca_id", using: :btree
+  add_index "doencas_exames", ["exame_id"], name: "index_doencas_exames_on_exame_id", using: :btree
 
   create_table "exames", force: true do |t|
     t.date     "data"
