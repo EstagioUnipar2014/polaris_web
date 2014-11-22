@@ -127,7 +127,7 @@
 						<%= d.hidden_field :data_inicio, :value => Date.today %>
 						<%= d.collection_select :dieta_id, Dieta.propriedade(current_usuario), :id, :descricao %>
 					<%elsif d.object.data_fim.nil? %>
-						<%= d.hidden_field :data_fim, :value => Date.today %>
+						<%= d.hidden_field :data_fim, :value => Date.today %>	
 					<% end %>
 				<% end %>
 				<%= f.submit "Vincular", :class => "btn btn-xs btn-primary"%>

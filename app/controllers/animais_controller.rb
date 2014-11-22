@@ -25,7 +25,6 @@ class AnimaisController < ApplicationController
     @vacina = Vacina.new
     @exame = Exame.new
     @pesagem = Pesagem.new
-    @animal.animal_dieta.build
   end
 
   # GET /animais/new
@@ -84,6 +83,8 @@ class AnimaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-      params.require(:animal).permit(:identificacao, :nome, :data_nascimento, :sexo, :ativo, :lactacao, :nascido_na_propriedade, :informacoes, :raca_id, :classificacao_id, :propriedade_id, animal_dieta_attributes: [:id, :dieta_id, :data_inicio, :data_fim])
+      params.require(:animal).permit(:identificacao, :nome, :data_nascimento, :sexo, :ativo, :lactacao, 
+                    :nascido_na_propriedade, :informacoes, :raca_id, :classificacao_id, :propriedade_id,
+                    animal_dieta_attributes: [:id, :dieta_id, :data_inicio, :data_fim])
     end
 end

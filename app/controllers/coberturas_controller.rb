@@ -8,8 +8,7 @@ class CoberturasController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.pdf {render pdf: "animais"
-                  } 
+      format.pdf {render pdf: "animais" } 
     end 
   end
 

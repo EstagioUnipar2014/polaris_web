@@ -3,7 +3,7 @@ class Usuario < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :propriedade
 
-  #validates :propriedade, presence: true
+  validates :propriedade, presence: true
 
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :registerable
