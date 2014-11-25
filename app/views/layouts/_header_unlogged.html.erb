@@ -1,10 +1,12 @@
 <nav class="navbar navbar-default" role="navigation">
-  <ul class="nav navbar-nav">
-    <%= link_to "Polaris", root_path, class:'navbar-brand'%> 
-    <li><%= link_to "Sobre", "/sobre", class: "header-sobre" %></li>
-    <li><%= link_to "Contato", "/contato", class: "header-contato" %></li>
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to "Entrar", '/usuarios/sign_in', class: "header-login" %></li>
-  </ul>
+	<div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <%= link_to "Polaris", root_path, class:'navbar-brand'%> 
+      <li><%= link_to "Sobre", "/sobre", class: "header-sobre" %></li>
+      <li><%= link_to "Contato", "/contato", class: "header-contato" %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Entrar", '/usuarios/sign_in', class: "header-login" %></li>
+    </ul>
+  </div>
 </nav>
