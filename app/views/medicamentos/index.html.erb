@@ -15,7 +15,7 @@
 				<% @medicamentos.each do |medicamento| %>
 					<tr>
 						<td><%= medicamento.nome %></td>
-						<td><%= medicamento.tipo_medicamento %></td>
+						<td><%= medicamento.tipo_medicamento.descricao %></td>
 						<td><%= link_to 'Abir', medicamento %></td>
 						<td><%= link_to 'Editar', edit_medicamento_path(medicamento) %></td>
 						<td><%= link_to 'Excluir', medicamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
