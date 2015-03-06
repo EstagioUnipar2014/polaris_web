@@ -1,0 +1,7 @@
+$('#modal').modal('hide');
+$('#new_classificacao').bind("ajax:success", function(event, data, status){
+  descricao = "<%= @classificacao.descricao %>";
+  option = "<option value = '" + <%= @classificacao.id %> + "'>" + descricao + "</option>";
+  $('#animal_classificacao_id').append(option);
+});
+

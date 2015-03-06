@@ -4,33 +4,12 @@ $bg-container-color: #EDEDED;
 $container-border: #929292;
 $footer-background-color: #F8F8F8;
 $header-height: 50px;
-.input{
-  //border: 2px solid $container-border;
-  //border-radius: 10px;
-  height: 30px;
-  width: 150px;
-}
 html, body {
   width: 100%;
   height: 100%;
 }
 body{
   background-color: $bg-color !important;
-  main{
-    width: 100%;
-    text-align: center;
-  }
-}
-.login-input{
-  width: 70%;
-  display: inline;
-}
-.header-sair{
-  margin-right: 15px;
-}
-.page-title{
-  float: left;
-  font-size: 25px;
 }
 .navbar-brand, li{
   color: black !important;
@@ -44,29 +23,6 @@ body{
 .logo{
   &:hover{opacity: 0.7;}
 }
-a{
-  color: black !important;
-  background-color: transparent !important;
-  &:hover{opacity: 0.7;}
-  text-decoration: none !important;
-}
-.novo-animal-link{
-  float: right;
-}
-form{
-  text-align: left;
-}
-.fields{
-  padding-left: 20px;
-}
 header {
   width: 100%;
-}
-.vaca-inicio {
-  width: 700px;
-  height: 450px;
-}
-.feed-noticias {
-  height: 500px;
-  overflow-y : scroll;
 }

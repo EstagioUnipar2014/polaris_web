@@ -28,6 +28,7 @@ gem 'ZenTest'
 gem 'coveralls', require: false
 gem 'factory_girl_rails'
 gem 'whenever', :require => false
+gem 'simple_enum'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0.0'

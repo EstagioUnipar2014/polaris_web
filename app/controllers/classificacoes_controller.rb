@@ -30,6 +30,7 @@ class ClassificacoesController < ApplicationController
       if @classificacao.save
         format.html { redirect_to @classificacao, notice: 'Classificacao was successfully created.' }
         format.json { render :show, status: :created, location: @classificacao }
+        format.js   { render :show, status: :created, location: @classificacao }
       else
         format.html { render :new }
         format.json { render json: @classificacao.errors, status: :unprocessable_entity }

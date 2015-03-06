@@ -2,6 +2,7 @@ class Animal < ActiveRecord::Base
   belongs_to :raca
   belongs_to :classificacao
   belongs_to :propriedade
+  as_enum :sexo, ["Macho", "Fêmea"], map: :string
 
   has_many :pesagens, dependent: :destroy
   has_many :vacinas,  dependent: :destroy
