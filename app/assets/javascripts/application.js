@@ -14,8 +14,9 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery_nested_form
-//= require turbolinks
-//= require_tree .
 //= require bootstrap
 //= require bootstrap-datepicker
-
+//= require turbolinks
+//= require moment
+//= require fullcalendar
+//= require_tree .
