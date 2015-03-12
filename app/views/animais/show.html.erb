@@ -1,140 +1,178 @@
-<p id="notice">
-	<%= notice %>
-</p>
 <div class='panel panel-default'>
-	<h2 class='left'>Dados do animal</h2>
-	<div class="dados-animal">
-		<p>
-			<strong>Identificacao:</strong>
-			<%= @animal.identificacao %>
-		</p>
+  <div class='panel-heading'>
+    <h2><%= @animal.identificacao %></h2>
+  </div>
+  <div class='panel-body'>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-4">
+            <strong>Raça:</strong>
+            <%= @animal.raca.nome %>
+          </div>
 
-		<p>
-			<strong>Nome:</strong>
-			<%= @animal.nome %>
-		</p>
+          <div class="col-md-4">
+            <strong>Nome:</strong>
+            <%= @animal.nome %>
+          </div>
 
-		<p>
-			<strong>Raça:</strong>
-			<%= @animal.raca.nome %>
-		</p>
-
-		<p>
-			<strong>Classificacao:</strong>
-			<%= @animal.classificacao.descricao %>
-		</p>
-
-		<p>
-			<strong>Data nascimento:</strong>
-			<%= @animal.data_nascimento %>
-		</p>
-
-		<p>
-			<strong>Sexo:</strong>
-			<%= @animal.sexo %>
-		</p>
-
-		<p>
-			<% if !@animal.cios.empty? %>
-			<strong>Data de cio prevista:</strong>
-			<% cio = @animal.cios.last %>
-			<%= cio.data_cio %></br>
-			<Strong>Cobertura prevista:</strong>
-			<%= cio.cobertura.animal.identificacaoNome rescue ''%>
-			<% end %>
-		</p>
-		
-		<p>
-			<p id="peso">
-				<strong>Ultima pesagem:</strong>
-				<% if !@animal.pesagens.empty? %>
-					<% peso = @animal.pesagens.last %>
-					<%= peso.peso %> 
-					<%= peso.unidade.abreviacao %>
-			</p>
-				<p><%= link_to 'Historico de pesagens', "/animal/#{@animal.id}/pesagens" %></p>
-				<% end %>
-				
-			<div id="nova-pesagem" class="container" style="display:none">
-				<h2>Nova Pesagem</h2>
-				<%= render 'pesagens/form' %>
-				<a id="ocultar-pesagem">Cancelar</a>
-			</div>
-			<p id='nova-pesagem-button'>Nova pesagem </p>
-		</p>
-
-		<p>
-			<strong>Ativo:</strong>
-			<%= t @animal.ativo.class %>
-		</p>
-
-		<p>
-			<strong>Lactacao:</strong>
-			<%= t @animal.lactacao.class %>
-		</p>
-
-		<p>
-			<strong>Nascido na propriedade:</strong>
-			<%= t @animal.nascido_na_propriedade.class %>
-		</p>
-
-		<p>
-			<strong>Informacoes:</strong>
-			<%= @animal.informacoes %>
-		</p>
-
-		<div id="nova-vacina" class="container" style="display:none">
-			<h3>Agendar vacina</h3>
-			<%= render 'vacinas/form' %>
-			<a id="ocultar-vacina">Cancelar</a>
-		</div>
-
-		<p>
-			<a id='nova-vacina-button'>Nova vacina</a> |
-			<%= link_to 'Historico de vacinas', "/animal/#{@animal.id}/vacinas" %>
-		</p>
-		
-		<div id="novo-exame" class="container" style="display:none">
-			<h3>Agendar exame</h3>
-			<%= render 'exames/form' %>
-			<a id="ocultar-exame">Cancelar</a>
-		</div>
-
-		<p>
-			<a id='novo-exame-button'>Novo exame</a>    |
-			<%= link_to 'Historico de exames', "/animal/#{@animal.id}/exames" %>
-		</p>
-	
-		<div>
-			<h3>Doenças</h3>
-			<p>
-				<%= link_to 'Doenças do animal', "/animal/#{@animal.id}/doencas" %>
-			</p>
-		</div>
-
-		<div id="vincular-dieta">
-			<h3>Vincular dieta</h3>
-			<p>
-				<strong>Dieta atual:</strong>
-				<% if !@animal.dietas.blank? %>
-					<% dieta = @animal.dietas.ativa.last %>
-					<%= link_to dieta.descricao, dieta_path(dieta) %>
-				<% end %>
-			</p>
-			<%= form_for @animal do |f| %>
-				<%= f.fields_for :animal_dieta do |d| %>
-					<%if d.object.id.nil? %>
-						<%= d.hidden_field :data_inicio, :value => Date.today %>
-						<%= d.collection_select :dieta_id, Dieta.propriedade(current_usuario), :id, :descricao %>
-					<%elsif d.object.data_fim.nil? %>
-						<%= d.hidden_field :data_fim, :value => Date.today %>	
-					<% end %>
-				<% end %>
-				<%= f.submit "Vincular", :class => "btn btn-xs btn-primary"%>
-			<% end %>
-		</div>
-
-		<%= link_to 'Editar', edit_animal_path(@animal) %> |
-		<%= link_to 'Voltar', animais_path %>
-	</div>
+          <div class="col-md-4">
+            <strong>Data nascimento:</strong>
+            <%= @animal.data_nascimento %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <strong>Classificacao:</strong>
+            <%= @animal.classificacao.descricao %>
+          </div>
+          <div class="col-md-4">
+            <strong>Sexo:</strong>
+            <%= @animal.sexo %>
+          </div>
+          <div class="col-md-4">
+            <strong>Nascido na propriedade:</strong>
+            <%= t @animal.nascido_na_propriedade.class %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <strong>Ultima pesagem:</strong>
+            <% if !@animal.pesagens.empty? %>
+              <% peso = @animal.pesagens.last %>
+            <%= peso.peso %>
+            <%= peso.unidade.abreviacao %>
+          <% end %>
+          </div>
+          <div class="col-md-4">
+            <strong>Ativo:</strong>
+            <%= t @animal.ativo.class %>
+          </div>
+          <div class="col-md-4">
+            <strong>Lactacao:</strong>
+            <%= t @animal.lactacao.class %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="page-header">Pesagens</h3>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Peso</th>
+                </tr>
+                <% @animal.pesagens.each do |pesagem| %>
+                  <tr>
+                  <td><%= pesagem.data %></td>
+                  <td><%= pesagem.peso %></td>
+                </tr>
+              <% end %>
+              </thead>
+            </table>
+            <%= link_to "Nova pesagem", new_pesagem_path(animal: @animal.id), remote: true, class: "btn btn-xs btn-primary" %>
+          </div>
+          <div class="col-md-6">
+            <h3 class="page-header">Vacinas</h3>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Medicamento</th>
+                </tr>
+                <% @animal.vacinas.each do |vacina| %>
+                  <tr>
+                  <td><%= vacina.data %></td>
+                  <td><%= vacina.medicamento.nome %></td>
+                </tr>
+              <% end %>
+              </thead>
+            </table>
+            <a id='nova-vacina-button' class="btn btn-xs btn-primary">Nova vacina</a>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="page-header">Exames</h3>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Exame</th>
+                </tr>
+                <% @animal.exames.each do |exame| %>
+                  <tr>
+                  <td><%= exame.data %></td>
+                  <td><%= exame.nome %></td>
+                </tr>
+              <% end %>
+              </thead>
+            </table>
+            <a id='novo-exame-button' class="btn btn-xs btn-primary">Novo exame</a>
+          </div>
+          <div class="col-md-6">
+            <h3 class="page-header">Doenças</h3>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Doença</th>
+                </tr>
+                <% @animal.doencas.each do |doenca| %>
+                  <tr>
+                  <td><%= doenca.data %></td>
+                  <td><%= doenca.nome %></td>
+                </tr>
+              <% end %>
+              </thead>
+            </table>
+            <a id='nova-doença-button' class="btn btn-xs btn-primary">Registrar doença</a>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <h3 class="page-header">Vincular dieta</h3>
+            <p>
+            <strong>Dieta atual:</strong>
+            <% if !@animal.dietas.blank? %>
+              <% dieta = @animal.dietas.ativa.last %>
+            <%= link_to dieta.descricao, dieta_path(dieta) %>
+          <% end %>
+            </p>
+            <%= form_for @animal do |f| %>
+              <%= f.fields_for :animal_dieta do |d| %>
+              <%if d.object.id.nil? %>
+              <%= d.hidden_field :data_inicio, :value => Date.today %>
+            <%= d.collection_select :dieta_id, Dieta.propriedade(current_usuario), :id, :descricao, {}, {class: "form-control"} %>
+          <%elsif d.object.data_fim.nil? %>
+              <%= d.hidden_field :data_fim, :value => Date.today %>
+          <% end %>
+          <% end %>
+            <%= f.submit "Vincular", :class => "btn btn-xs btn-primary"%>
+          <% end %>
+          </div>
+          <div class="col-md-8">
+            <h3 class="page-header">Informações</h3>
+            <%= @animal.informacoes %>
+          </div>
+        </div>
+        <br>
+        <%= link_to 'Voltar', animais_path, class: "btn btn-md btn-danger" %>
+        <%= link_to 'Editar', edit_animal_path(@animal), class: "btn btn-md btn-info" %>
+      </div>
+      <div class="col-md-3">
+        Imagem
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="modal-content"></div>
+  </div>
 </div>

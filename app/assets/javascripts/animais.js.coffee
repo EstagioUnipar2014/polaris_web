@@ -14,8 +14,8 @@ ready = ->
     
   $('#new_vacina').bind "ajax:success", (event, data) ->
     $('#nova-vacina').hide()
-    $('#new_vacina')[0].reset(); 
-    alert("Vacina agendada com sucesso")  
+    $('#new_vacina')[0].reset()
+    alert("Vacina agendada com sucesso") 
     
   $('#new_vacina').bind "ajax:error", (event, data) ->
     $('#nova-vacina').hide() 

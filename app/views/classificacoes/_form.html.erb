@@ -1,3 +1,4 @@
+<div class="modal-body">
 <%= form_for(@classificacao, remote: true, html: { class: "form-horizontal", style: "display:inline;" }) do |f| %>
   <% if @classificacao.errors.any? %>
     <div id="error_explanation">
@@ -12,10 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_field :descricao %>
+    <%= f.text_field :descricao, class: "form-control", placeholder: "Descrição" %>
   </div>
+</div>
+<div class="modal-footer">
   <div class="actions">
     <%= f.submit 'Salvar', class: "btn btn-primary"%>
   </div>
+</div>
 <% end %>

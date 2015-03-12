@@ -1,0 +1,8 @@
+$('#modal').modal('hide');
+$('#new_pesagem').bind("ajax:success", function(event, data, status){
+  data = "<%= @classificacao.data %>";
+  peso = "<%= @classificacao.peso %>";
+  option = "<option value = '" + <%= @classificacao.id %> + "'>" + descricao + "</option>";
+  $('#animal_classificacao_id').append(option);
+});
+

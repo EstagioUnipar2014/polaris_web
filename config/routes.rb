@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   match "/sobre", to: "pages#sobre", via: [:get]
 
   match "/contato", to: "pages#contato", via: [:get]
-  
+
   devise_for :usuarios
-  
+
   #resources :proprietarios
 
   resources :exames
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
   resources :animais
 
-  match 'animal/:animal_id/doencas', to: 'animais#animal_doencas', via: [:get, :post]  
+  match 'animal/:animal_id/doencas', to: 'animais#animal_doencas', via: [:get, :post]
 
   match 'animal/:animal_id/pesagens', to: 'pesagens#index', via: [:get, :post]
 
@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 
   match 'animal/:animal_id/exames', to: 'exames#index', via: [:get, :post]
 
-  mount RailsAdmin::Engine => '//admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

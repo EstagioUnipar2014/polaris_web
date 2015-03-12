@@ -1,9 +1,6 @@
-<% remoto = false %>
-<% if @animal %>
-	<% remoto = true  %>
-<% end %>	
-
-<%= form_for(@vacina, remote: remoto) do |f| %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@vacina, remote: remote) do |f| %>
   <% if @vacina.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vacina.errors.count, "error") %> prohibited this vacina from being saved:</h2>
