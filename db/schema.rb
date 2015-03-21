@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306185917) do
+ActiveRecord::Schema.define(version: 20150321143330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,17 @@ ActiveRecord::Schema.define(version: 20150306185917) do
     t.datetime "updated_at"
   end
 
+  create_table "categorias_financeiras", force: true do |t|
+    t.string   "nome"
+    t.string   "descricao"
+    t.integer  "usuario_id"
+    t.string   "tipo_cd"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categorias_financeiras", ["usuario_id"], name: "index_categorias_financeiras_on_usuario_id", using: :btree
+
   create_table "ciclos", force: true do |t|
     t.string   "descricao"
     t.datetime "created_at"
@@ -119,6 +130,17 @@ ActiveRecord::Schema.define(version: 20150306185917) do
 
   add_index "coberturas", ["animal_id"], name: "index_coberturas_on_animal_id", using: :btree
   add_index "coberturas", ["cio_id"], name: "index_coberturas_on_cio_id", using: :btree
+
+  create_table "conta", force: true do |t|
+    t.decimal  "saldo",      precision: 14, scale: 2
+    t.boolean  "ativa"
+    t.string   "descricao"
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conta", ["usuario_id"], name: "index_conta_on_usuario_id", using: :btree
 
   create_table "dietas", force: true do |t|
     t.string   "descricao"
@@ -201,6 +223,24 @@ ActiveRecord::Schema.define(version: 20150306185917) do
   add_index "medidas", ["alimento_id"], name: "index_medidas_on_alimento_id", using: :btree
   add_index "medidas", ["ciclo_id"], name: "index_medidas_on_ciclo_id", using: :btree
   add_index "medidas", ["unidade_id"], name: "index_medidas_on_unidade_id", using: :btree
+
+  create_table "movimentacoes", force: true do |t|
+    t.string   "descricao"
+    t.date     "data_agendamento"
+    t.date     "data_efetivacao"
+    t.decimal  "valor",                   precision: 14, scale: 2
+    t.boolean  "efetivada"
+    t.string   "tipo_cd"
+    t.integer  "conta_id"
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "categoria_financeira_id"
+  end
+
+  add_index "movimentacoes", ["categoria_financeira_id"], name: "index_movimentacoes_on_categoria_financeira_id", using: :btree
+  add_index "movimentacoes", ["conta_id"], name: "index_movimentacoes_on_conta_id", using: :btree
+  add_index "movimentacoes", ["usuario_id"], name: "index_movimentacoes_on_usuario_id", using: :btree
 
   create_table "notificacoes", force: true do |t|
     t.string   "mensagem"

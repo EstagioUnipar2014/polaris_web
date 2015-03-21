@@ -18,6 +18,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.plural 'animal_dieta', 'animal_dieta'
   inflect.irregular 'animal_doenca', 'animais_doencas'
   inflect.irregular 'notificacao', 'notificacoes'
+  inflect.irregular 'movimentacao', 'movimentacoes'
+  inflect.irregular 'categoria_financeira', 'categorias_financeiras'
 #   inflect.uncountable %w( fish sheep )
 end
 

@@ -31,6 +31,7 @@ gem 'whenever', :require => false
 gem 'simple_enum'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'brazilian-rails'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0.0'
