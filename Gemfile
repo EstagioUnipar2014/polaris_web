@@ -32,6 +32,7 @@ gem 'simple_enum'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'brazilian-rails'
+gem 'html2slim'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0.0'

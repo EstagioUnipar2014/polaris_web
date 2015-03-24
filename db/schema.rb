@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321143330) do
+ActiveRecord::Schema.define(version: 20150321144415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,17 @@ ActiveRecord::Schema.define(version: 20150321143330) do
   end
 
   add_index "conta", ["usuario_id"], name: "index_conta_on_usuario_id", using: :btree
+
+  create_table "contas", force: true do |t|
+    t.decimal  "saldo"
+    t.boolean  "ativa"
+    t.string   "descricao"
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contas", ["usuario_id"], name: "index_contas_on_usuario_id", using: :btree
 
   create_table "dietas", force: true do |t|
     t.string   "descricao"

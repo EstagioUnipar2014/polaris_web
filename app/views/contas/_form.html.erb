@@ -1,0 +1,19 @@
+<div class="well">
+  <h3>Nova conta</h3>
+  <%= form_for(@conta) do |f| %>
+    <% if @conta.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@conta.errors.count, "error") %> prohibited this conta from being saved:</h2>
+        <ul>
+        <% @conta.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

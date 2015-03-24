@@ -20,6 +20,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'notificacao', 'notificacoes'
   inflect.irregular 'movimentacao', 'movimentacoes'
   inflect.irregular 'categoria_financeira', 'categorias_financeiras'
+  inflect.irregular 'conta', 'contas'
 #   inflect.uncountable %w( fish sheep )
 end
 
