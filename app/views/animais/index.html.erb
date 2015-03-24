@@ -1,22 +1,21 @@
 <div class="panel panel-default">
   <div class="panel-heading">
+    <h3>Animais</h3>
+  </div>
+  <div class="panel-body">
     <div class="row">
       <div class="col-md-4">
-        <h3>Animais</h3>
+        <%= link_to 'Novo animal', new_animal_path, class: 'btn btn-default btn-md' %>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 form-inline">
         <span>Filtros: </span>
         <%= select_tag( options_for_select( [[], ['Todos', ''], ['Ativos', '?ativo=true'],
-                                          ['Lactação', '?lactacao=true'], ['Nascido na prop.', '?nascido_propriedade=true']]),{}, :id => "filtro-select") %>
+                                          ['Lactação', '?lactacao=true'], ['Nascido na prop.', '?nascido_propriedade=true']]),{}, :id => "filtro-select", class: "form-control") %>
         <input type="button" class="btn btn-md btn-default" id="filtro-link" value="Filtrar" />
         <input type="button" class="btn btn-md btn-default" id="relatorio" value="Relatorio" />
       </div>
-      <div class="col-md-2">
-        <%= link_to 'Novo animal', new_animal_path, class: 'btn btn-primary btn-xs' %>
-      </div>
     </div>
-  </div>
-  <div class="panel-body">
+    <br>
     <table class="table table-hover">
       <thead>
         <tr>
