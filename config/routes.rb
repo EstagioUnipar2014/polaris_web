@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   resources :alimentos
 
-  #resources :propriedades
+  resources :propriedades
 
   resources :ordenhas
 

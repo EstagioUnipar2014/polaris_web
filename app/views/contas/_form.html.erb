@@ -1,5 +1,5 @@
 <div class="well">
-  <h3>Nova conta</h3>
+  <h3 class="page-header">Nova conta</h3>
   <%= form_for(@conta) do |f| %>
     <% if @conta.errors.any? %>
       <div id="error_explanation">
@@ -11,9 +11,24 @@
         </ul>
       </div>
     <% end %>
-
-    <div class="actions">
-      <%= f.submit %>
+    <%= f.hidden_field :propriedade_id, value: current_usuario.propriedade.id %>
+    <div class="row form-group">
+      <div class="col-md-6">
+        <%= f.text_field :descricao, class: "form-control", placeholder: "Descrição" %>
+      </div>
     </div>
+    <div class="row form-group">
+      <div class="col-md-6">
+        <%= f.number_field :saldo, class: "form-control", placeholder: "Saldo", step: 0.00 %>
+      </div>
+    </div>
+    <div class="row from-group">
+      <div class="col-md-6 checkbox">
+        <label>
+          <%= f.check_box :ativa, {checked: true} %> Ativa
+        </label>
+      </div>
+    </div>
+    <%= f.submit "Criar conta", class: "btn btn-md btn-success" %>
   <% end %>
 </div>

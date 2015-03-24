@@ -28,7 +28,7 @@ class ContasController < ApplicationController
 
     respond_to do |format|
       if @conta.save
-        format.html { redirect_to @conta, notice: 'Conta was successfully created.' }
+        format.html { redirect_to contas_path, notice: 'Conta was successfully created.' }
         format.json { render :show, status: :created, location: @conta }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class ContasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conta_params
-      params[:conta]
+      params.require(:conta).permit(:id, :saldo, :ativa, :descricao, :propriedade_id)
     end
 end
