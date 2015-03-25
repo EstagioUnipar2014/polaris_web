@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324224604) do
+ActiveRecord::Schema.define(version: 20150325222413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,15 +243,15 @@ ActiveRecord::Schema.define(version: 20150324224604) do
     t.boolean  "efetivada"
     t.string   "tipo_cd"
     t.integer  "conta_id"
-    t.integer  "usuario_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "categoria_financeira_id"
+    t.integer  "propriedade_id"
   end
 
   add_index "movimentacoes", ["categoria_financeira_id"], name: "index_movimentacoes_on_categoria_financeira_id", using: :btree
   add_index "movimentacoes", ["conta_id"], name: "index_movimentacoes_on_conta_id", using: :btree
-  add_index "movimentacoes", ["usuario_id"], name: "index_movimentacoes_on_usuario_id", using: :btree
+  add_index "movimentacoes", ["propriedade_id"], name: "index_movimentacoes_on_propriedade_id", using: :btree
 
   create_table "notificacoes", force: true do |t|
     t.string   "mensagem"

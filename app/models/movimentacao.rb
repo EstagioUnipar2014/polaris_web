@@ -1,6 +1,6 @@
 class Movimentacao < ActiveRecord::Base
   belongs_to :conta
-  belongs_to :usuario
+  belongs_to :propriedade
 
   usar_como_dinheiro :valor
 end
