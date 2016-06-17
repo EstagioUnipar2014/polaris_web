@@ -10,15 +10,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-  <%= render 'layouts/sidebar' %>
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-    <%= yield %>
-  </div>
-  <!--
-  <footer>
-    <%= render 'layouts/footer' %>
-  </footer>
-  -->
+  <%= yield %>
 </body>
 </html>
