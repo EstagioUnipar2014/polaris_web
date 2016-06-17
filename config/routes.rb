@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  match '/render_form', to: "application#render_form", via: [:post]
-  match '/notificacoes', to: "notificacoes#index", via: [:get, :post]
-  match '/feed_noticias', to: "pages#feed_noticias", via: [:get, :post]
-  resources :dietas
   root :to => 'pages#index'
+  match '/dashboard', to: 'dashboard#dashboard', via: [:get]
+  match '/notificacoes', to: "notificacoes#index", via: [:get, :post]
+  resources :dietas
   match "/sobre", to: "pages#sobre", via: [:get]
   match "/contato", to: "pages#contato", via: [:get]
   devise_for :usuarios
